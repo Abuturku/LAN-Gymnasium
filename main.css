@@ -1,0 +1,66 @@
+.tablist li a { 
+    display:block;
+    text-decoration:none; 
+    border:0.06em solid #000; 
+    border-bottom:0; 
+    font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
+    color:#000; 
+    background-color:#ccc;
+    text-align: center;
+    webkit-border-top-right-radius:0.50em;
+    -webkit-border-top-left-radius:0.50em;
+    -moz-border-radius-topright:0.50em;
+    -moz-border-radius-topleft:0.50em;
+    border-top-right-radius:0.50em;
+    border-top-left-radius:0.50em;
+}  
+.tablist li a:hover {
+    background:#3cf;
+    color:#fff;
+    text-decoration:none;
+}
+.tablist li#current a { 
+    background-color: #777;
+    color: #fff;
+} 
+.tablist li#current a:hover {
+    background: #39C;
+}
+
+.tablist li { 
+   display: inline-block;
+    width: 24%;
+}
+
+.tablist { 
+    list-style:none;  
+    height:2em; 
+    padding:0;  
+    margin:0;  
+    border: none; 
+    width: 70%;
+    white-space:nowrap
+}
+
+#logindata{
+  display: inline-block;
+    width: 24%;   
+    font: 0.8em/1.1em arial,geneva,helvetica,sans-serif; 
+    color:#FFFFFF; 
+    text-align: left;
+}
+
+button#abmelden{
+    display: inline-block;
+    width: 21%;   
+    font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
+    color:#000; 
+    text-align: center;
+   
+}
+
+#background{
+  background-image: url(tafel.jpg);
+}
+
+

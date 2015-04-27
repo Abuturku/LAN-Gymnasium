@@ -1,0 +1,49 @@
+#content-box {
+    
+    width: 250px;
+    margin: 50%; 
+    background-color: White;
+	
+	_border: 1px solid #ACADA8;
+	
+   
+	 
+
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+
+	-moz-box-shadow: 1px 1px 1px #ACADA8;
+	-webkit-box-shadow: 2px 2px 1px #ACADA8;
+	box-shadow: 2px 2px 1px #ACADA8;
+	
+	
+}
+
+.input{
+    width: 100px;
+}
+
+#content-box label{
+    width: 109px;
+}
+
+#round-border {
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+}
+
+#background{
+  background-image: url(tafel.jpg);
+}
+
+button#anmelden{
+    display: inline-block;
+    margin-left: 50%;
+    font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
+    color:#000; 
+    text-align: center;
+   
+}
+ 
