@@ -7,19 +7,17 @@
         <link rel="stylesheet" href="main.css" type="text/css">
     </head>
     <body>
-        
-        
- 
+		<div>
         <ul class="tablist">
             <li>
                 <a href="./startseite.html">Startseite</a>
-            </li> 
+            </li>
             <li id="current">
                 <a href="./lehrer.html">Lehrer</a>
-            </li> 
+            </li>
             <li>
                 <a href="./klassen.html">Klassen</a>
-            </li> 
+            </li>
             <li>
                 <a href="./schueler.html">Sch&uuml;ler</a>
             </li>
@@ -31,7 +29,33 @@
             <form action="./index.html">
             <button type="submit" id="abmelden">Abmelden</button>
             </form>
-        </ul> 
-      
+        </ul>
+		</div>
+        <div id="filter">
+			<p id="filterheader">Filter: </p>
+            <p>Stufe: </p>
+            <select>
+				<option></option>
+			</select>
+			<p>Klasse: </p>
+            <select>
+				<option></option>
+			</select>
+			<p>Schüler: </p>
+            <select>
+				<option></option>
+			</select>
+			<br>
+			<p>Lehrer: </p>
+			<input placeholder="Suche"></input>
+			<br><br>
+			<button id="suche">Suche</button>
+			<button>Zeige Schüler</button>
+			<button id="suche">Zeige Klassen</button>
+			<button>Hinzufügen</button>
+			<button>Bearbeiten</button>
+			<button>Löschen</button>
+        </div>
+
     </body>
 </html>
