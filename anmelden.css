@@ -34,7 +34,7 @@
 	border-radius: 16px;
 }
 
-#background{
+body {
   background-image: url(tafel.jpg);
 }
 

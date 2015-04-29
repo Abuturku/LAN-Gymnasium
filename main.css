@@ -52,14 +52,19 @@
 
 button#abmelden{
     display: inline-block;
-    width: 21%;   
+    width: 100%;   
     font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
     color:#000; 
     text-align: center;
    
 }
 
-#background{
+form{
+    display: inline-block;
+        width: 21%;
+}
+
+body{
   background-image: url(tafel.jpg);
 }
 
