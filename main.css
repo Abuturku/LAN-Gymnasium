@@ -50,6 +50,10 @@
     text-align: left;
 }
 
+button{
+	border-radius: 6px;
+}
+
 button#abmelden{
     display: inline-block;
     width: 100%;   
@@ -125,6 +129,7 @@ div#filter{
 	margin-bottom: 3%;
 	margin-left: 6%;
 	width: 90%;
+	border-radius: 6px;
 }
 
 #filter button{
@@ -135,10 +140,8 @@ div#filter{
 	width: 60%;
 	font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
     color:#000; 
-    
 }
 
 button#suche{
 	margin-bottom: 1.2em;
-	
 }
