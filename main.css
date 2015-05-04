@@ -103,7 +103,9 @@ color: #fff;
 body{
   background-image: url(tafel.jpg);
 }
-
+td#cb{
+	width: 1em
+}
 p{
 	font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
 }
