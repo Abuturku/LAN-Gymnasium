@@ -1,28 +1,28 @@
-body {
+ body {
   background-image: url(tafel.jpg);
 }
 
 div{
     background-color:white;
-    margin-top: 22%;
-    margin-bottom: 22%;
-    margin-left: 35%;
-    margin-right: 35%;
+    display: table;
+    margin: auto;
     padding: 1em;
     border-radius: 6px;
     border: solid darkblue 2px;
 
 }
 label{
-padding: 1em;
-    margin-left: 10%;
+    padding: 1em;
+    margin-left: auto;   
 }
 
 input{
-    margin-right: 10%;
+    margin-right: auto;
 }
 button#anmelden{
-    margin-left: 40%;
+    display: table;
+    margin: 0 auto;
     font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
     color:#000; 
 }
+ 
