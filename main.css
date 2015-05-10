@@ -68,7 +68,8 @@ div#bild button{
 }
 div#Notizen{
     display: inline-block;
-    clear: left; 
+    float:right;
+    margin-top: 2%;
     width: 30%;
 }
 
@@ -93,15 +94,19 @@ div#name table{
 }
 
 div#SLA-Buttons button{
-    width: 100px;
-    margin-left: 150px;
-    margin-top: 20px;
 	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
     color:#000; 
-    display: flex;
+    width: 100%;
+    height: 100%;
 }
 div#SLA-Buttons{
-    margin: auto;
+    margin: 0 auto;
+}
+
+div#SLA-Buttons form{
+    width: 100px;
+    height: 30px;
+    clear: both;
 }
 
 div#name input{
@@ -132,12 +137,14 @@ div#name {
     display: inline-block;
     clear: left;
     width: 30%; 
+    margin-top: 2%;
 }
 
 div#bild {
     display: inline-block; 
     clear: left;
     width:30%; 
+    margin-top: 2%;
 }
 button#abmelden{
     display: inline-block;
