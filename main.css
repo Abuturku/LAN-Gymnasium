@@ -36,7 +36,7 @@ p{
 }
 
 #hoverMe:hover #showMe{
-    display: block;
+    display: table;
 }
 
 /*Navigationsleiste*/
@@ -284,7 +284,12 @@ div#SLA-Buttons button{
     width: 90%;
 	margin-left: 5%;
 	margin-right: 5%;
-	margin-top: 10%;
+	margin-top: 10%; 
+}
+
+div#SLA-Buttons label{
+    padding: 0.3em; 
+    margin: 3%;
 }
 
 form label{
