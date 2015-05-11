@@ -133,8 +133,8 @@ td#cb{
 	height: 2em;
 }
 
-/*Bearbeiten Ansichten*/
-div#bild {
+/*Bearbeiten Ansicht*/
+div#bild, div#klassenbild {
 	margin-left: 13%;
     display: inline-block; 
     clear: left;
@@ -145,7 +145,7 @@ div#bild {
 	border-radius: 10px;
 }
 
-div#bild img{
+div#bild img, div#klassenbild img{
 	height:75%; 
 	width: auto;
 	max-width:266px; 
@@ -162,7 +162,7 @@ div#bild img{
     margin-left: 37%;
 }
 
-div#name {
+div#name , div#klasseninfo{
     display: inline-block;
 	float:right;
     clear: left;
@@ -173,12 +173,12 @@ div#name {
 
 }
 
-div#name #name{
+div#name #name, div#klasseninfo #name{
     margin-top: auto;
     display: inline-flex;
 }
 
-div#name input{
+div#name input, div#klasseninfo input{
 	margin: 5%;
 	margin-top: 0%;
 	margin-bottom: 3%;
@@ -187,7 +187,7 @@ div#name input{
 	border-radius: 6px;
 }
 
-div#name table{
+div#name table, div#klasseninfo table{
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -223,7 +223,6 @@ div#notiznav button{
 	margin: 0;
 	margin-left: 2%;
 	margin-right: 2%;
-	
 }
 
 div#notiznav form{
@@ -275,6 +274,19 @@ div#SLA-Buttons button{
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 10%;
+}
+/*Bearbeiten Ansicht Klassen*/
+div#klassenbild{
+	height: 70%;
+	padding: 1em;
+}
+div#klassenbild img{
+	height: 80%;
+	max-width:600px; 
+	max-height:400px;
+}
+div#klasseninfo{
+	height: 70%;
 }
 
 /*Filter und Suche*/

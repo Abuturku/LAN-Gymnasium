@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+		<div>
+        <ul class="tablist">
+            <li>
+                <a href="./startseite.html">Startseite</a>
+            </li>
+            <li>
+                <a href="./lehrer.html">Lehrer</a>
+            </li>
+            <li id="current">
+                <a href="./klassen.html">Klassen</a>
+            </li>
+            <li>
+                <a href="./schueler.html">Sch&uuml;ler</a>
+            </li>
+            <div id="logindata">
+            Angemeldet als:
+            <br>
+            Vorname Nachname
+            </div>
+            <form action="./index.html">
+            <button type="submit" id="abmelden">Abmelden</button>
+            </form>
+        </ul>
+		</div>
+            <div id="klassenbild">
+                <img src="./Klassenfoto.png">
+                <button id="centered">Hochladen</button>
+            </div>
+            <div id="klasseninfo">
+                <label for="klassenname" id="name">Name:</label>
+                <input type="text" placeholder="Name" id="klassenname"> 
+                <br>
+                <label for="stufe" id="stufe">Stufe:</label>  
+                <select>
+				<option disabled selected>Stufe</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				</select>
+               <label>Lehrer:</label>
+                <div id="Tabelle">
+                <table>
+					<tr>
+						<td id="header"></td>
+						<td id="header">Nachname</td>
+						<td id="header">Vorname</td>
+					
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check1"></td>
+						<td>Musternmann</td>
+						<td>Klaus</td>
+					</tr>
+                    <tr>
+						<td id="cb"> <input type="checkbox" id="check2"></td>
+						<td>Musterfrau</td>
+						<td>Uschi</td>
+					</tr>
+					<tr>
+						<td id="cb"><input type="checkbox" id="check3"></td>
+						<td>Schneider</td>
+						<td>Hubert</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check4"></td>
+						<td>Anderson</td>
+						<td>Mister</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check5"></td>
+						<td>Schmitt</td>
+						<td>Kevin</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check6"></td>
+						<td>Müller</td>
+						<td>Gertrude</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check7"></td>
+						<td>Claus</td>
+						<td>Santa</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check8"></td>
+						<td>Peters</td>
+						<td>Herbert</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check9"></td>
+						<td>Merkel</td>
+						<td>Angela</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check10"></td>
+						<td>Bär</td>
+						<td>Knut</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check11"></td>
+						<td>Rausch</td>
+						<td>Thomas</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check12"></td>
+						<td>Maier</td>
+						<td>Biene</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check13"></td>
+						<td>Toffel</td>
+						<td>Karl</td>
+					</tr>
+                </table>
+                </div>
+            </div>
+			
+            <div id="SLA-Buttons">
+                <form>
+                    <button>Speichern</button>
+                </form>
+                <form>
+                    <button>Abbrechen</button>
+                </form>
+                <form>
+                    <button>Löschen</button>
+                </form>
+			</div>
+    </body>
+</html>
