@@ -23,9 +23,20 @@ form{
     width: 21%;
 }
 
+
+
 p{
 	font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
 	color: white;
+}
+
+/*Sichtbar und unsichtbar*/
+#showMe{
+    display: none;
+}
+
+#hoverMe:hover #showMe{
+    display: block;
 }
 
 /*Navigationsleiste*/
@@ -262,7 +273,7 @@ div#SLA-Buttons{
 }
 
 div#SLA-Buttons form{
-    height: 2em;
+    height: 2em; 
     clear: both;
 	width: 30%;
 }
@@ -274,6 +285,13 @@ div#SLA-Buttons button{
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 10%;
+}
+
+form label{
+    background-color: white;
+    color: black;
+    border-radius: 0.7em;
+    font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
 }
 /*Bearbeiten Ansicht Klassen*/
 div#klassenbild{
