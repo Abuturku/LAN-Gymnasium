@@ -101,6 +101,20 @@ button#abmelden{
    
 }
 
+/*Startseite*/
+div#startseite{
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 2%;
+	height: 80%;
+	width: 92%;
+	background: rgba(242, 242, 242, 0.7);
+}
+#startseite p{
+	font: 6em arial,geneva,helvetica,sans-serif;
+}
+
 /*Allgemeines Layout der Tabellen*/
 div#table{
 	width:80%;
@@ -361,10 +375,11 @@ button#suche{
 	margin-bottom: 1.2em;
 }
 
+/*Notizen Layouts*/
 div#notizinfos{
 	margin-top: 1%;
 	float: left;
-	width: 33%;
+	width: 32%;
 	height: 80%;
 }
 
