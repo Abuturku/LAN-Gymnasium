@@ -37,10 +37,10 @@
             </div>
             <div id="name">
                 <label for="nachname" id="name">Nachname:</label>
-                <input type="text" placeholder="Nachname" tabindex ="1" id="nachname" class="input"> 
+                <input type="text" placeholder="Nachname" id="nachname"> 
                 <br>
                 <label for="vorname" id="name">Vorname:</label>  
-                <input type="text" placeholder ="Vorname" id="vorname" tabindex ="2" class="input">
+                <input type="text" placeholder ="Vorname" id="vorname">
                <label>Klassen:</label>
                 <div id="Tabelle">
                 
@@ -241,14 +241,18 @@
                 </div>
             </div>
 			<div id="notiznav">
-				<label id="centered">Notizen:</label>
+				<label>Notizen:</label>
 				<br>
-				<form id="Bearbeiten">
-                    <button id="centered">Notiz Bearbeiten</button>
+				<form>
+                    <button id="centered">Notiz öffnen</button>
                 </form>
 				<br>
-                <form id="Loeschen">
-                    <button id="centered">Notiz Löschen</button>
+				<form>
+                    <button id="centered">Notiz bearbeiten</button>
+                </form>
+				<br>
+                <form>
+                    <button id="centered">Notiz löschen</button>
                 </form>
 			</div>
             <div id="notizen">
@@ -333,10 +337,10 @@
                     <button>Speichern</button>
                 </form>
                 <form>
-                    <button>Löschen</button>
+                    <button>Abbrechen</button>
                 </form>
                 <form>
-                    <button>Abbrechen</button>
+                    <button>Löschen</button>
                 </form>
 			</div>
     </body>

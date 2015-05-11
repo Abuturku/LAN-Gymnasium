@@ -129,7 +129,8 @@ background-color: #848484;
 color: #fff;
 }
 td#cb{
-	width: 1em
+	width: 1em;
+	height: 2em;
 }
 
 /*Bearbeiten Ansichten*/
@@ -169,6 +170,7 @@ div#name {
     margin-top: 1em;
 	margin-right: 13%;
 	height: 45%;
+
 }
 
 div#name #name{
@@ -205,11 +207,23 @@ div#notiznav{
 	margin: auto;
 	margin-top: 1em;
 	margin-left: 13%;
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
+}
+
+div#notiznav label{
+	display: inline-block;
+	margin-bottom: 1em; 
+	margin-right: 2%;
+	float: right;
 }
 
 div#notiznav button{
-	width: 100%;
+	width: 96%;
 	margin: 0;
+	margin-left: 2%;
+	margin-right: 2%;
+	
 }
 
 div#notiznav form{
@@ -220,7 +234,7 @@ div#Notizen{
 	float: right;
 	margin-right: 13%;
     margin-top: 1em;
-    width: 60%;
+    width: 61%;
 	overflow: auto;
     display: inline-block; 
     height: 30%;	
