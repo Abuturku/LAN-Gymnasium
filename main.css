@@ -296,7 +296,7 @@ p#filterheader{
 	margin-left: 6%;
 }
 
-#filter select, #filter input{
+#filter select, #filter input, #name select, #klasseninfo select{
 	margin: 5%;
 	margin-top: 0%;
 	margin-bottom: 3%;

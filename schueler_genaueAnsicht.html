@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+		<div>
+        <ul class="tablist">
+            <li>
+                <a href="./startseite.html">Startseite</a>
+            </li>
+            <li>
+                <a href="./lehrer.html">Lehrer</a>
+            </li>
+            <li>
+                <a href="./klassen.html">Klassen</a>
+            </li>
+            <li id="current">
+                <a href="./schueler.html">Sch&uuml;ler</a>
+            </li>
+            <div id="logindata">
+            Angemeldet als:
+            <br>
+            Vorname Nachname
+            </div>
+            <form action="./index.html">
+            <button type="submit" id="abmelden">Abmelden</button>
+            </form>
+        </ul>
+            <div id="bild">
+                <img src="./Schueler.png">
+            </div>
+            <div id="name">
+                <label for="nachname" id="nachname">Nachname:</label>
+                <input type="text" value="Nachname" id="nachname" readonly> 
+                <br>
+                <label for="vorname" id="vorname">Vorname:</label>  
+                <input type="text" value ="Vorname" id="vorname" readonly>
+				<label for="stufe" id="input">Klasse:</label>
+				<input type="text" value ="1A" id="vorname" readonly>
+				<label for="stufe" id="input">Klassenlehrer:</label>
+				<input type="text" value ="Maier, Biene" id="vorname" readonly>
+            </div>
+			<div id="notiznav">
+				<label>Notizen:</label>
+				<form>
+                    <button id="centered">Notiz öffnen</button>
+                </form>
+			</div>
+            <div id="notizen">
+				<table>
+					<tr>
+						<td id="header"></td>
+						<td id="header">Erstellungdatum</td>
+						<td id="header">Lehrer</td>					
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check1"></td>
+						<td>01.01.2001</td>
+						<td>Klaus Musternmann</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check2"></td>
+						<td>11.11.2011</td>
+						<td>Uschi Musterfrau</td>
+					</tr>
+					<tr>
+						<td id="cb"><input type="radio" name="notiz" id="check3"></td>
+						<td>11.05.2015</td>
+						<td>Schubert Schneider</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check4"></td>
+						<td>13.02.2002</td>
+						<td>Kevin Schmitt</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check5"></td>
+						<td>02.02.2002</td>
+						<td>Elfriede Müller</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check6"></td>
+						<td>14.12.2013</td>
+						<td>Sankt Nikolaus</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check7"></td>
+						<td>16.07.2014</td>
+						<td>Herbert Peters</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check8"></td>
+						<td>16.03.1995</td>
+						<td>Angela Merkel</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check9"></td>
+						<td>27.02.1996</td>
+						<td>Knut Bär</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check10"></td>
+						<td>11.09.2001</td>
+						<td>Tomas Rausch</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="radio" name="notiz" id="check11"></td>
+						<td>Illuminati</td>
+						<td>Biene Maier</td>
+					</tr>
+                </table>
+            </div>
+            <div id="SLA-Buttons">
+                <form>
+                    <button>Zur&uuml;ck</button>
+                </form>
+                <form>
+                    <button>Schüler bearbeiten</button>
+                </form>
+            </div>
+    </body>
+</html>
