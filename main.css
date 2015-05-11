@@ -326,7 +326,7 @@ p#filterheader{
 	margin-left: 6%;
 }
 
-#filter select, #filter input, #name select, #klasseninfo select{
+#filter select, #filter input, #name select, #klasseninfo select, #notizinfos input{
 	margin: 5%;
 	margin-top: 0%;
 	margin-bottom: 3%;
@@ -353,4 +353,34 @@ form#filter{
 
 button#suche{
 	margin-bottom: 1.2em;
+}
+
+div#notizinfos{
+	margin-top: 1%;
+	float: left;
+	width: 33%;
+	height: 80%;
+}
+
+#notizinfos p{
+	display: inline;
+}
+
+#notizinfos input{
+	float:right;
+}
+
+div#notizbearbeitung{
+	margin-top: 2%;
+	margin-right: 1em;
+	width: 66%;
+	height: 80%;
+	float: right;
+}
+
+#notizbearbeitung textarea{
+	height: 100%;
+	width: 100%;
+	resize: none;
+	border-radius: 6px;
 }
