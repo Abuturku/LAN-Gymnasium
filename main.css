@@ -111,6 +111,7 @@ div#startseite{
 	width: 92%;
 	background: rgba(242, 242, 242, 0.7);
 	border-radius: 10px;
+	text-align: center;
 }
 #startseite p{
 	font: 6em arial,geneva,helvetica,sans-serif;

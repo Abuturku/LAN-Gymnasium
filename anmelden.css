@@ -3,25 +3,27 @@
 }
 
 div{
-    background-color:white;
     display: table;
-    margin: auto;
+    margin: 17% auto;
     padding: 1em;
-    border-radius: 6px;
     border: solid darkblue 2px;
-
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
 }
 label{
     padding: 1em;
     margin-left: auto;   
+	font: bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
 }
 
 input{
     margin-right: auto;
+	float:right;
 }
 button#anmelden{
     display: table;
     margin: 0 auto;
+	margin-top: 1em;
     font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
     color:#000; 
 }
