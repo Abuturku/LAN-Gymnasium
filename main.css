@@ -253,6 +253,7 @@ div#notiznav button{
 
 div#notiznav form{
 	width: 100%;
+	height: 1em;
 }
 
 div#Notizen{
