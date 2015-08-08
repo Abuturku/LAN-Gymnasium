@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -7,42 +8,19 @@
          <link rel="stylesheet" href="anmelden.css" type="text/css">
     </head>
     <body>
-		<script src="scripts.js"></script>
-        <script language="JavaScript">
-            
-            function checkPasswort(form){ 
-                
-                var b = "Daten/Schueler.lan";
-                var c = window.open(b);
-                var d = c.document.getElementsByTagName("body")[0].innerHTML;
-                c.close();
-                document.writeln(d);
-                
-                var test = form.nachname.value;
-               
-                var datei = document.open();
-                //window.open("Daten/Schueler.lan");
-                // window.location.href="startseite.html";
-                window.alert(datei.value);
-            }
-            
-            function falschesPasswort(){
-                 window.alert("Benutzername oder Passwort sind falsch!");
-            }
-        </script>
- 
+	<script src="js/scripts.js"></script>
         <div>
             <form name="anmeldung">
                 <label for="nachname">Nachname:</label>
                 <input type="text" placeholder="Nachname" tabindex ="1" name="nachname" id="nachname" class="input"> 
                     <br>
                 <label for="vorname">Vorname:</label>  
-                <input type="text" placeholder ="Vorname" id="vorname" name="vorname"tabindex ="2" class="input">
-                    </br>
+                <input type="text" placeholder ="Vorname" id="vorname" name="vorname" tabindex ="2" class="input">
+                    <br>
                 <label for="password">Passwort:</label>
                 <input type="password" placeholder="Passwort" id="passwort" name="password" tabindex ="3" class="input">
                 <br/>
-               <input type="button" value="Anmelden" onclick="checkPasswort(this.form)" />
+                <input type="button" value="Anmelden" onclick="onclickLogin()" />
             </form>
         </div>     
     </body>
