@@ -36,10 +36,10 @@ function ladeStorage(){
     localStorage.setItem("24", "sk;3;0");
 }
 
-//Wird bei jedem Laden einer Seite aufgerufen
-window.addEventListener("load", reLoad());
 
-function reLoad(){
+
+//Wird bei jedem Laden einer Seite aufgerufen
+window.addEventListener("load", function(){
  
     for (i = 1; i <= localStorage.length-1; i++){
         var item = localStorage.getItem(i);
@@ -83,13 +83,34 @@ function reLoad(){
     }
     if(localStorage.getItem(0)===""){
         //console.log(window.location.href.substr(window.location.href.length-10,window.location.href.length));
-        if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !="index.html"){
+        if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !== "index.html"){
             window.location.href="index.html";
         }
     }else{
-        document.getElementById("logindata").innerHTML="Angemeldet als:<br>";
+        var splittedItem = localStorage.getItem(0).split(";");
+        document.getElementById("logindata").innerHTML="Angemeldet als: <br>"+ splittedItem[2]+ " " + splittedItem[3];
     }
-}
+    
+    //Macht es möglich, dass mit Drücken der Eingabetaste, die Logindaten überprüft werden
+    if(window.location.href.substr(window.location.href.length-10,window.location.href.length) === "index.html"){
+        var nachname = document.getElementById("nachname");
+        var vorname = document.getElementById("vorname");
+        var passwort = document.getElementById("passwort");
+        var anmelden = document.getElementById("anmeldenIndex");
+    
+        nachname.addEventListener("keypress", function() {
+            if (event.keyCode === 13) anmelden.click();
+        });
+        
+        vorname.addEventListener("keypress", function() {
+            if (event.keyCode === 13) anmelden.click();
+        });
+        
+        passwort.addEventListener("keypress", function() {
+            if (event.keyCode === 13) anmelden.click();
+        });
+    }
+});
 //Wird bei Klick auf Button "Anmelden" aufgerufen
 function onclickLogin(form){
     var vorname = form.vorname.value;
