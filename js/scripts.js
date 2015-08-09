@@ -6,7 +6,7 @@ var lehrerKlasse = [];
 var schuelerKlasse = [];
 var notizen = [];
 
-function ladeStorage(){
+function ladeStorage() {
     //Jeweils 4 Beispiel Datensätze für jedes Array. Auskommentieren, wenn nötig
     //!!Achtung!! wird bei jedem Aufrufen einer Seite ausgeführt, also falls Datensätze in der Applikation geändert werden, sollte das hier auskommentiert werden!
     localStorage.setItem("0", "");
@@ -110,6 +110,7 @@ window.addEventListener("load", function(){
             if (event.keyCode === 13) anmelden.click();
         });
     }
+    getKlassen("a");
 });
 //Wird bei Klick auf Button "Anmelden" aufgerufen
 function onclickLogin(form){
@@ -151,4 +152,44 @@ function onclickLogin(form){
 function ausloggen(){
     window.location.href="index.html";
     localStorage.setItem("0", "");
+}
+
+function getStufen(){
+    var rueckgabe = [];
+    for(var i=0; i<klassen.length;i++){
+        var stufe = klassen[i].stufe; 
+        var istGesetzt = false;
+        for(var j=0; j<rueckgabe.length;j++){
+            if(stufe===rueckgabe[j]){
+                istGesetzt = true;
+                break;
+            }
+        }
+        if(!istGesetzt){
+            rueckgabe.push(stufe);
+            console.log(stufe);
+        }
+    }
+    return rueckgabe;
+}
+
+function getKlassen(stufe){
+    var rueckgabe = [];
+    for(var i=0; i<klassen.length;i++){
+        var buchstabe = klassen[i].buchstabe; 
+        var istGesetzt = false;
+        for(var j=0; j<rueckgabe.length;j++){
+            if(buchstabe===rueckgabe[j]){
+                istGesetzt = true;
+                break;
+            }
+        }
+        if(!istGesetzt){
+            console.log(buchstabe);
+            if(stufe == klassen[i].stufe){
+                rueckgabe.push(buchstabe);
+                console.log(buchstabe);
+            }
+        }
+    }
 }
