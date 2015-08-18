@@ -110,7 +110,7 @@ window.addEventListener("load", function(){
             if (event.keyCode === 13) anmelden.click();
         });
     }
-    getKlassen("a");
+    
 });
 //Wird bei Klick auf Button "Anmelden" aufgerufen
 function onclickLogin(form){
@@ -154,6 +154,106 @@ function ausloggen(){
     localStorage.setItem("0", "");
 }
 
+
+//Für die Suche
+
+function sucheStufe(){ 
+    var stufen = getStufen();    
+    var sel = document.getElementById('schueler');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+
+    sel = document.getElementById('klasse');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    sel = document.getElementById('stufe');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < stufen.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = stufen[i];
+        opt.value = stufen[i];
+        if(selObjekt == stufen[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+function sucheKlasse(){ 
+    var klassen = getKlassen(document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('schueler');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+
+    
+    sel = document.getElementById('klasse');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < klassen.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = klassen[i];
+        opt.value = klassen[i];
+        if(selObjekt == klassen[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+function sucheSchueler(){ 
+    var schueler = getSchueler(document.getElementById('klasse').value, document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('schueler');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < schueler.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = schueler[i];
+        opt.value = schueler[i];
+        if(selObjekt == schueler[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+
 function getStufen(){
     var rueckgabe = [];
     for(var i=0; i<klassen.length;i++){
@@ -185,11 +285,34 @@ function getKlassen(stufe){
             }
         }
         if(!istGesetzt){
-            console.log(buchstabe);
             if(stufe == klassen[i].stufe){
                 rueckgabe.push(buchstabe);
                 console.log(buchstabe);
             }
         }
     }
+    return rueckgabe;
 }
+
+function getKlassenID(buchstabe, stufe){
+    for(var i=0; i<klassen.length;i++){
+        if(klassen[i].buchstabe===buchstabe){
+            if(klassen[i].stufe===stufe){
+                return i+1;
+            }
+        }
+    }
+}
+    
+function getSchueler(buchstabe, stufe){
+    var rueckgabe = [];
+    var klassenID = getKlassenID(buchstabe, stufe);
+    for(var i=0; i<schuelerKlasse.length;i++){
+        if(schuelerKlasse[i].klassenID == klassenID){
+           rueckgabe.push(schueler[schuelerKlasse[i].schuelerId].nachname+", "+schueler[schuelerKlasse[i].schuelerId].vorname);
+        }    
+    }
+    
+    return rueckgabe;
+}
+//Ende der Suchfunktionen
