@@ -50,20 +50,20 @@
 			<form id="filter">
 				  <input type="button" value="Suche" id="suche" onclick="sucheKlassenTabelle()" />
 			</form>
-			<form id="filter" action="./schueler_genaueAnsicht.html">
-				<button>Zeige Schüler</button>
+			<form id="filter">
+				<input type="button" value="Zeige Schüler" onclick="zeigeSchuelerKlassen()" />
 			</form>
-			<form id="filter" action="./lehrer_genaueAnsicht.html">
-				<button id="suche">Zeige Lehrer</button>
+			<form id="filter">
+				<input type="button" value="Zeige Lehrer" onclick="zeigeLehrerKlassen()" />
 			</form>
-			<form id="filter" action="./klassen_bearbeiten.html">
-				<button>Hinzufügen</button>
+			<form id="filter">
+				<input type="button" value="Hinzufügen" onclick="window.open('klassen_bearbeiten.html')" />
 			</form>
-            <form id="filter" action="./klassen_bearbeiten.html">
-			     <button>Bearbeiten</button>
+            <form id="filter">
+			   <input type="button" value="Bearbeiten" onclick="klassenBearbeiten()" />
             </form>
 			<form id="filter">
-				<button>Löschen</button>
+				<input type="button" value="Löschen" onclick="klassenLöschen()" />
 			</form>
         </div>
 		
@@ -75,147 +75,7 @@
 				<td id="header">Schüleranzahl</td>
 			
 			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>5A</td>
-				<td>43</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>5B</td>
-				<td>23</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>5C</td>
-				<td>42</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>6A</td>
-				<td>56</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>6B</td>
-				<td>12</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>6C</td>
-				<td>3</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>7A</td>
-				<td>1337</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>7B</td>
-				<td>25</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>7C</td>
-				<td>20</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>8A</td>
-				<td>324</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>8B</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>8C</td>
-				<td>123</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>8D</td>
-				<td>7</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>9A</td>
-				<td>23</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>9B</td>
-				<td>23</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>9C</td>
-				<td>42</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>10A</td>
-				<td>56</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>10B</td>
-				<td>12</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>10C</td>
-				<td>3</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>11A</td>
-				<td>1337</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>11B</td>
-				<td>25</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>11C</td>
-				<td>20</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>12A</td>
-				<td>324</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>12B</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>12C</td>
-				<td>123</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>12A</td>
-				<td>324</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>12B</td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>12C</td>
-				<td>123</td>
-			</tr>
-		</table>
+        </table>
 	  </div>
     </body>
 </html>

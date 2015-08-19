@@ -159,12 +159,23 @@ function ausloggen(){
 
 //Für die Suche
 
-function zeigeSchueler(){
+function zeigeSchuelerLehrer(){
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
             window.open("schueler.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function zeigeSchuelerKlassen(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("schueler.html?k="+line.children[1].outerText, '_blank');
         }
         
     }
@@ -176,6 +187,17 @@ function lehrerBearbeiten(){
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
             window.open("lehrer_bearbeiten.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function klassenBearbeiten(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("klassen_bearbeiten.html?k="+line.children[1].outerText, '_blank');
         }
         
     }
@@ -217,7 +239,18 @@ function getLehrerByName(nachname, vorname){
 
 }
 
-function zeigeKlassen(){
+function zeigeLehrerKlassen(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("lehrer.html?k="+line.children[1].outerText, '_blank');
+        }
+        
+    }
+}
+
+function zeigeKlassenLehrer(){
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
@@ -299,25 +332,55 @@ function sucheKlassenTabelle(){
 
     var gefunden = [];
     
-    var klassen = getKlassen(document.getElementById('Stufe').value);
-    for(var i = 0; i < klassen.length; i++) {
+    var klassenBuchstaben = getKlassen(document.getElementById('stufe').value);
+    for(var i = 0; i < klassenBuchstaben.length; i++) {
+        var lehrerInKlassen =[];
          for(var j = 0; j < lehrerKlasse.length; j++) {
-            if(getKlassenID(klassen[i].buchstabe,klassen[i].stufe)[0]==lehrerKlasse[j].klassenId){
-                
-            }
+            var klassenID = getKlassenID(klassenBuchstaben[i],document.getElementById('stufe').value)
+             for(var x = 0; x < klassenID.length;x++){
+                if(klassenID[x]==lehrerKlasse[j].klassenId){
+                    if(document.getElementById('lehrer').value!="-"){
+                        var lehrerLine = document.getElementById('lehrer').value.split(",");
+                        console.log(lehrerKlasse[j].lehrerId)
+                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                            lehrerInKlassen.push(lehrerKlasse[j].klassenId);
+                        }
+                    }else{
+                        lehrerInKlassen.push(lehrerKlasse[j].klassenId);
+                    }
+                }
+             }
          }    
+        for(var j = 0; j < schuelerKlasse.length; j++) {
+             var klassenID = getKlassenID(klassenBuchstaben[i],document.getElementById('stufe').value)
+             for(var x = 0; x < klassenID.length;x++){
+                 if(klassenID[x]==schuelerKlasse[j].klassenID){
+                     for(var y = 0; y < lehrerInKlassen.length; y++) {
+                        if(lehrerInKlassen[y]===schuelerKlasse[j].klassenID){
+                            gefunden.push(klassen[schuelerKlasse[j].klassenID]);
+                        }
+                    }
+                }
+             }
+        }
     }
-    var selLehrer = getLehrerByName();
     
-    for(var i = 0; i < lehrer.length; i++) {
+    for(var i = 0; i < gefunden.length; i++) {
         var line = document.createElement('tr');
         var checkBox = document.createElement('td');
         checkBox.setAttribute("id", "cb");
         checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
         var klasse = document.createElement('td');
-        klasse.innerHTML = lehrer[i].nachname;
+        klasse.innerHTML = gefunden[i].stufe+gefunden[i].buchstabe;
         var schueleranzahl = document.createElement('td');
-        schueleranzahl.innerHTML = lehrer[i].vorname;      
+        var schuelerInKlasse = 0;
+        var klassenID = getKlassenID(gefunden[i].buchstabe,  gefunden[i].stufe);
+        for(var j=0; j<schuelerKlasse.length;j++){
+            if(schuelerKlasse[j].klassenID==klassenID){
+                schuelerInKlasse = schuelerInKlasse+1;
+            }
+        }
+        schueleranzahl.innerHTML = schuelerInKlasse;      
         
         line.appendChild(checkBox);
         line.appendChild(klasse);
@@ -457,9 +520,9 @@ function sucheLehrerKlassen(){
     
     for(var i = 0; i < lehrer.length; i++) {
         var opt = document.createElement('option');
-        opt.innerHTML = lehrer[i].vorname+", "+lehrer[i].nachname;
-        opt.value = lehrer[i].vorname+", "+lehrer[i].nachname;
-        if(selObjekt == lehrer[i].vorname+", "+lehrer[i].nachname){
+        opt.innerHTML = lehrer[i].nachname+", "+lehrer[i].vorname;
+        opt.value = lehrer[i].nachname+", "+lehrer[i].vorname;
+        if(selObjekt == lehrer[i].nachname+", "+lehrer[i].vorname){
             opt.selected = true;
         }
         sel.appendChild(opt);
@@ -545,7 +608,9 @@ function getKlassen(stufe){
             }
         }
         if(!istGesetzt){
-            if(stufe == klassen[i].stufe){
+            if(stufe == "-"){
+                rueckgabe.push(buchstabe);
+            }  else if(stufe == klassen[i].stufe){ 
                 rueckgabe.push(buchstabe);
                 console.log(buchstabe);
             }
