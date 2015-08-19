@@ -81,7 +81,9 @@ window.addEventListener("load", function(){
             schuelerKlasse.push(skObject);
         }
     }
-    if(localStorage.getItem(0)===""){
+   
+    
+     if(localStorage.getItem(0)===""){
         //console.log(window.location.href.substr(window.location.href.length-10,window.location.href.length));
         if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !== "index.html"){
             window.location.href="index.html";
@@ -109,7 +111,7 @@ window.addEventListener("load", function(){
         passwort.addEventListener("keypress", function() {
             if (event.keyCode === 13) anmelden.click();
         });
-    }
+    } 
     
 });
 //Wird bei Klick auf Button "Anmelden" aufgerufen
@@ -157,7 +159,218 @@ function ausloggen(){
 
 //Für die Suche
 
-function sucheStufe(){ 
+function zeigeSchueler(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("schueler.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function lehrerBearbeiten(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("lehrer_bearbeiten.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function lehrerLöschen(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            var lehrerFound = getLehrerByName(line.children[1].outerText, line.children[2].outerText);
+            if(lehrerFound != undefined){
+                lehrerFound.istAngestellt = false;
+                for (i = 1; i <= localStorage.length-1; i++){
+                    var item = localStorage.getItem(i);
+                    var splittedItem = item.split(";");
+                    if(splittedItem[0]==="l"){
+                        if(splittedItem[2]=== lehrerFound.vorname){
+                            if(splittedItem[3] === lehrerFound.nachname){
+                                localStorage.setItem(i,"l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";false"); 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    sucheLehrerTabelle();
+}
+
+function getLehrerByName(nachname, vorname){
+     for(var i = 0; i < lehrer.length; i++) {
+        if(nachname === lehrer[i].nachname){
+            if(vorname === lehrer[i].vorname){
+                return lehrer[i];
+            }
+        }
+     }
+
+}
+
+function zeigeKlassen(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("klassen.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function sucheLehrerTabelle(){
+    var tabelle = document.createElement('table');
+    var head = document.createElement('tr');
+    head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td><td id=\"header\">Ist noch angestellt</td>";
+    tabelle.appendChild(head);
+  
+    
+    var gefunden = [];
+    
+    var lehrer = getLehrer(document.getElementById('klasse').value, document.getElementById('stufe').value);   
+    for(var i = 0; i < lehrer.length; i++) {
+        if(document.getElementById('schueler').value != "-"){
+            var schuelerValue = document.getElementById('schueler').value.split(",")
+            var schuelerID = getSchuelerID(schuelerValue[0].trim(),schuelerValue[1].trim());
+            if(schuelerID[0]!=undefined){
+                var lehrerInKlasse = [];
+                for(var j = 0; j < lehrerKlasse.length; j++){
+                    if(lehrerKlasse[j].lehrerId == getLehrerID(lehrer[i].nachname,lehrer[i].vorname)[0]){
+                        lehrerInKlasse.push(lehrerKlasse[j].klassenId);
+                    }
+                }
+                for(var j = 0; j < schuelerKlasse.length; j++){
+                    if(schuelerKlasse[j].schuelerId == schuelerID[0]){
+                        for(var x = 0; x < lehrerInKlasse.length; x++){
+                            if(schuelerKlasse[j].klassenID===lehrerInKlasse[x]){
+                                gefunden.push(lehrer[i]);
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }else{
+            gefunden.push(lehrer[i]);
+        }
+        
+    }
+    
+    for(var i = 0; i < gefunden.length; i++) {
+        var line = document.createElement('tr');
+        var checkBox = document.createElement('td');
+        checkBox.setAttribute("id", "cb");
+        checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+        var nachname = document.createElement('td');
+        nachname.innerHTML = gefunden[i].nachname;
+        var vorname = document.createElement('td');
+        vorname.innerHTML = gefunden[i].vorname;
+        var istAngestellt = document.createElement('td');
+        istAngestellt.innerHTML = gefunden[i].istAngestellt;
+        
+        
+        line.appendChild(checkBox);
+        line.appendChild(nachname);
+        line.appendChild(vorname);
+        line.appendChild(istAngestellt);
+        
+        tabelle.appendChild(line);
+    }
+    
+    document.getElementById('table').innerHTML = "";
+    document.getElementById('table').appendChild(tabelle);
+}
+
+function sucheKlassenTabelle(){
+    var tabelle = document.createElement('table');
+    var head = document.createElement('tr');
+    head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Klasse</td><td id=\"header\">Schüleranzahl</td>";
+    tabelle.appendChild(head);
+
+    var gefunden = [];
+    
+    var klassen = getKlassen(document.getElementById('Stufe').value);
+    for(var i = 0; i < klassen.length; i++) {
+         for(var j = 0; j < lehrerKlasse.length; j++) {
+            if(getKlassenID(klassen[i].buchstabe,klassen[i].stufe)[0]==lehrerKlasse[j].klassenId){
+                
+            }
+         }    
+    }
+    var selLehrer = getLehrerByName();
+    
+    for(var i = 0; i < lehrer.length; i++) {
+        var line = document.createElement('tr');
+        var checkBox = document.createElement('td');
+        checkBox.setAttribute("id", "cb");
+        checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+        var klasse = document.createElement('td');
+        klasse.innerHTML = lehrer[i].nachname;
+        var schueleranzahl = document.createElement('td');
+        schueleranzahl.innerHTML = lehrer[i].vorname;      
+        
+        line.appendChild(checkBox);
+        line.appendChild(klasse);
+        line.appendChild(schueleranzahl); 
+        
+        tabelle.appendChild(line);
+    }
+    
+    document.getElementById('table').innerHTML = "";
+    document.getElementById('table').appendChild(tabelle);
+}
+
+function sucheStufeKlassen(){ 
+    var stufen = getStufen();    
+    var sel = document.getElementById('schueler');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+
+    sel = document.getElementById('lehrer');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    sel = document.getElementById('stufe');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < stufen.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = stufen[i];
+        opt.value = stufen[i];
+        if(selObjekt == stufen[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+function sucheStufeLehrer(){ 
     var stufen = getStufen();    
     var sel = document.getElementById('schueler');
     var selObjekt = sel.value;
@@ -197,7 +410,7 @@ function sucheStufe(){
     }
 }
 
-function sucheKlasse(){ 
+function sucheKlassenLehrer(){ 
     var klassen = getKlassen(document.getElementById('stufe').value);   
     
     var sel = document.getElementById('schueler');
@@ -230,7 +443,54 @@ function sucheKlasse(){
     }
 }
 
-function sucheSchueler(){ 
+function sucheLehrerKlassen(){ 
+    var lehrer = getLehrer("-", document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('lehrer');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < lehrer.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = lehrer[i].vorname+", "+lehrer[i].nachname;
+        opt.value = lehrer[i].vorname+", "+lehrer[i].nachname;
+        if(selObjekt == lehrer[i].vorname+", "+lehrer[i].nachname){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+function sucheSchuelerKlassen(){ 
+    var schueler = getSchueler("-", document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('schueler');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < schueler.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = schueler[i];
+        opt.value = schueler[i];
+        if(selObjekt == schueler[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+
+function sucheSchuelerLehrer(){ 
     var schueler = getSchueler(document.getElementById('klasse').value, document.getElementById('stufe').value);   
     
     var sel = document.getElementById('schueler');
@@ -295,22 +555,88 @@ function getKlassen(stufe){
 }
 
 function getKlassenID(buchstabe, stufe){
+    var rueckgabe = [];
     for(var i=0; i<klassen.length;i++){
-        if(klassen[i].buchstabe===buchstabe){
-            if(klassen[i].stufe===stufe){
-                return i+1;
+        if(buchstabe == '-'){
+            if(stufe == '-'){
+                rueckgabe.push(i);
+            }else if(klassen[i].stufe===stufe){
+                rueckgabe.push(i);
+            }
+        }else if(klassen[i].buchstabe===buchstabe){
+            if(stufe == '-'){
+                rueckgabe.push(i);
+            }else if(klassen[i].stufe===stufe){
+                rueckgabe.push(i);
             }
         }
     }
+    return rueckgabe;
+}
+
+function getLehrerID(nachname, vorname){ 
+    var rueckgabe = [];
+    for(var i=0; i<lehrer.length;i++){
+        if(nachname == '-'){
+            if(vorname == '-'){
+                rueckgabe.push(i);
+            }else if(lehrer[i].nachname===nachname){
+                rueckgabe.push(i);
+            }
+        }else if(lehrer[i].nachname===nachname){
+            if(vorname == '-'){
+                rueckgabe.push(i);
+            }else if(lehrer[i].vorname===vorname){
+                rueckgabe.push(i);
+            }
+        }
+    }
+    return rueckgabe;
+}
+    
+function getSchuelerID(nachname, vorname){ 
+    var rueckgabe = [];
+    for(var i=0; i<schueler.length;i++){
+        if(nachname == '-'){
+            if(vorname == '-'){
+                rueckgabe.push(i);
+            }else if(schueler[i].nachname===nachname){
+                rueckgabe.push(i);
+            }
+        }else if(schueler[i].nachname===nachname){
+            if(vorname == '-'){
+                rueckgabe.push(i);
+            }else if(schueler[i].vorname===vorname){
+                rueckgabe.push(i);
+            }
+        }
+    }
+    return rueckgabe;
 }
     
 function getSchueler(buchstabe, stufe){
     var rueckgabe = [];
     var klassenID = getKlassenID(buchstabe, stufe);
     for(var i=0; i<schuelerKlasse.length;i++){
-        if(schuelerKlasse[i].klassenID == klassenID){
-           rueckgabe.push(schueler[schuelerKlasse[i].schuelerId].nachname+", "+schueler[schuelerKlasse[i].schuelerId].vorname);
-        }    
+        for(var j=0; j<klassenID.length;j++){
+            if(schuelerKlasse[i].klassenID == klassenID[j]){
+                rueckgabe.push(schueler[schuelerKlasse[i].schuelerId].nachname+", "+schueler[schuelerKlasse[i].schuelerId].vorname);
+            }   
+        }
+    }
+    
+    return rueckgabe;
+}
+
+function getLehrer(buchstabe, stufe){
+    var rueckgabe = [];
+    var klassenID = getKlassenID(buchstabe, stufe);
+    for(var i=0; i<lehrerKlasse.length;i++){
+        for(var j=0; j<klassenID.length;j++){
+            if(lehrerKlasse[i].klassenId == klassenID[j]){
+                rueckgabe.push(lehrer[lehrerKlasse[i].lehrerId]);
+            }    
+        }
     }
     
     return rueckgabe;

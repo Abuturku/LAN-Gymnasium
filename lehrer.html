@@ -27,46 +27,49 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		</div>
         <div id="filter">
 			<p id="filterheader">Filter: </p>
             <p>Stufe: </p>
-            <select id="stufe" onclick="sucheStufe();">
+            <select id="stufe" onclick="sucheStufeLehrer();">
 				<option>-</option>
 			</select>
 			<p>Klasse: </p>
-            <select id="klasse" onclick="sucheKlasse();">
+            <select id="klasse" onclick="sucheKlassenLehrer();">
 				<option>-</option>
 			</select>
 			<p>Schüler: </p>
-            <select id="schueler" onclick="sucheSchueler();">
+            <select id="schueler" onclick="sucheSchuelerLehrer();">
 				<option>-</option>
 			</select>
-			<br>
-			<p>Lehrer: </p>
-			<input placeholder="Suche"></input>
 			<br><br>
-			<form id="filter">
-				<button id="suche">Suche</button>
-			</form>
-			<form id="filter" action="./schueler_genaueAnsicht.html">
-				<button>Zeige Schüler</button>
-			</form>
-			<form id="filter" action="./klassen_genaueAnsicht.html">
-				<button id="suche">Zeige Klassen</button>
-			</form>
-			<form id="filter" action="./lehrer_bearbeiten.html">
-				<button>Hinzufügen</button>
-			</form>
-            <form id="filter" action="./lehrer_bearbeiten.html">
-			     <button>Bearbeiten</button>
+            <form id="filter"> 
+                  <input type="button" value="Suche" id="suche" onclick="sucheLehrerTabelle()" />
+              <!--  <button id="suche" onclick="sucheLehrerTabelle()">Suche</button>-->
             </form>
 			<form id="filter">
-				<button>Löschen</button>
+                <input type="button" value="Zeige Schüler" onclick="zeigeSchueler()" />
+				<!--<button>Zeige Schüler</button>-->
+			</form>
+			<form id="filter">
+                 <input type="button" value="Zeige Klassen" onclick="zeigeKlassen()" />
+				<!--<button id="suche">Zeige Klassen</button>-->
+			</form>
+			<form id="filter">
+                 <input type="button" value="Hinzufügen" onclick="window.open('lehrer_bearbeiten.html')" />
+				<!--<button>Hinzufügen</button>-->
+			</form>
+            <form id="filter">
+                 <input type="button" value="Bearbeiten" onclick="lehrerBearbeiten()" />
+			     <!--<button>Bearbeiten</button>-->
+            </form>
+			<form id="filter">
+                 <input type="button" value="Löschen" onclick="lehrerLöschen()" />
+				<!--<button>Löschen</button>-->
 			</form>
         </div>
 		<div id="table">
@@ -74,203 +77,8 @@
 			<tr>
 				<td id="header"></td>
 				<td id="header">Nachname</td>
-				<td id="header">Vorname</td>
-			
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Klaus</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Musterfrau</td>
-				<td>Uschi</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Schneider</td>
-				<td>Hubert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Anderson</td>
-				<td>Mister</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Schmitt</td>
-				<td>Kevin</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Müller</td>
-				<td>Gertrude</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Claus</td>
-				<td>Santa</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Peters</td>
-				<td>Herbert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Merkel</td>
-				<td>Angela</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Bär</td>
-				<td>Knut</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Rausch</td>
-				<td>Thomas</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Maier</td>
-				<td>Biene</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Toffel</td>
-				<td>Karl</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Klaus</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Musterfrau</td>
-				<td>Uschi</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Schneider</td>
-				<td>Hubert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Anderson</td>
-				<td>Mister</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Schmitt</td>
-				<td>Kevin</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Müller</td>
-				<td>Gertrude</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Claus</td>
-				<td>Santa</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Peters</td>
-				<td>Herbert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Merkel</td>
-				<td>Angela</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Bär</td>
-				<td>Knut</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Rausch</td>
-				<td>Thomas</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Maier</td>
-				<td>Biene</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Toffel</td>
-				<td>Karl</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Klaus</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Musterfrau</td>
-				<td>Uschi</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Schneider</td>
-				<td>Hubert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Anderson</td>
-				<td>Mister</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Schmitt</td>
-				<td>Kevin</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Müller</td>
-				<td>Gertrude</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Claus</td>
-				<td>Santa</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Peters</td>
-				<td>Herbert</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Merkel</td>
-				<td>Angela</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Bär</td>
-				<td>Knut</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Rausch</td>
-				<td>Thomas</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Maier</td>
-				<td>Biene</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Toffel</td>
-				<td>Karl</td>
+                <td id="header">Vorname</td>        
+                <td id="header">Ist noch angestellt</td>
 			</tr>
 		</table>
 	  </div>

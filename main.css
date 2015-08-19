@@ -364,7 +364,7 @@ form#filter{
 	margin-bottom: 0;
 }
 
-#filter button{
+#filter input{
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0.5em;

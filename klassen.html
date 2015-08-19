@@ -35,23 +35,20 @@
 		<div id="filter">
 			<p id="filterheader">Filter: </p>
             <p>Stufe: </p>
-            <select>
-				<option></option>
+            <select id="stufe" onclick="sucheStufeKlassen();">
+				<option>-</option>
 			</select>
 			<p>Lehrer: </p>
-            <select>
-				<option></option>
+            <select id="lehrer" onclick="sucheLehrerKlassen()">
+				<option>-</option>
 			</select>
 			<p>Schüler: </p>
-            <select>
-				<option></option>
+            <select id="schueler" onclick="sucheSchuelerKlassen();">
+				<option>-</option>
 			</select>
-			<br>
-			<p>Klasse: </p>
-			<input placeholder="Suche"></input>
 			<br><br>
 			<form id="filter">
-				<button id="suche">Suche</button>
+				  <input type="button" value="Suche" id="suche" onclick="sucheKlassenTabelle()" />
 			</form>
 			<form id="filter" action="./schueler_genaueAnsicht.html">
 				<button>Zeige Schüler</button>
