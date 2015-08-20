@@ -37,38 +37,35 @@
 	  <div id="filter">
 			<p id="filterheader">Filter: </p>
             <p>Stufe: </p>
-            <select>
-				<option></option>
+            <select id="stufe" onclick="sucheStufeSchueler();">
+				<option>-</option>
 			</select>
 			<p>Klasse: </p>
-            <select>
-				<option></option>
+            <select id="klasse" onclick="sucheKlassenSchueler();">
+				<option>-</option>
 			</select>
 			<p>Lehrer: </p>
-            <select>
-				<option></option>
+            <select id="lehrer" onclick="sucheLehrerSchueler();">
+				<option>-</option>
 			</select>
-			<br>
-			<p>Schüler: </p>
-			<input placeholder="Suche"></input>
 			<br><br>
 			<form id="filter">
-				<button id="suche">Suche</button>
+				 <input type="button" value="Suche" id="suche" onclick="sucheSchuelerTabelle()" />
 			</form>
-			<form id="filter" action="./lehrer_genaueAnsicht.html">
-				<button>Zeige Lehrer</button>
+			<form id="filter">
+				<input type="button" value="Zeige Lehrer" onclick="zeigeLehrerSchueler()" />
 			</form>
-			<form id="filter" action="./klassen_genaueAnsicht.html">
-				<button id="suche">Zeige Klassen</button>
+			<form id="filter">
+				<input type="button" value="Zeige Klassen" onclick="zeigeKlassenSchueler()" />
 			</form>
-			<form id="filter" action="./schueler_bearbeiten.html">
-				<button>Hinzufügen</button>
+			<form id="filter">
+				<input type="button" value="Hinzufügen" onclick="window.open('schueler_bearbeiten.html')" />
 			</form>
             <form id="filter" action="./schueler_bearbeiten.html">
-			     <button>Bearbeiten</button>
+			     <input type="button" value="Bearbeiten" onclick="schuelerBearbeiten()" />
             </form>
 			<form id="filter">
-				<button>Löschen</button>
+				<input type="button" value="Löschen" onclick="schuelerLöschen()" />
 			</form>
         </div>
 	  <div id="table">
@@ -77,242 +74,7 @@
 				<td id="header"></td>
 				<td id="header">Nachname</td>
 				<td id="header">Vorname</td>
-				<td id="header">Klasse</td>
 			
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Maximilian</td>
-				<td>2D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Tunichtgut</td>
-				<td>Peter</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Wurst</td>
-				<td>Hans</td>
-				<td>3B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Andersson</td>
-				<td>Andrea</td>
-				<td>6C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Müller</td>
-				<td>Mareike</td>
-				<td>8D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Helo</td>
-				<td>Hinz</td>
-				<td>10Z</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Kapp</td>
-				<td>Kunz</td>
-				<td>4B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Putschik</td>
-				<td>Valerie</td>
-				<td>8A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Wiking</td>
-				<td>Kunigunde</td>
-				<td>2Q</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Graf</td>
-				<td>Vladimir</td>
-				<td>7A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Flasch</td>
-				<td>Florian</td>
-				<td>9C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Holla</td>
-				<td>Fe</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Sisi</td>
-				<td>Chantal</td>
-				<td>9001Z</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Maximilian</td>
-				<td>2D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Tunichtgut</td>
-				<td>Peter</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Wurst</td>
-				<td>Hans</td>
-				<td>3B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Andersson</td>
-				<td>Andrea</td>
-				<td>6C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Müller</td>
-				<td>Mareike</td>
-				<td>8D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Helo</td>
-				<td>Hinz</td>
-				<td>10Z</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Kapp</td>
-				<td>Kunz</td>
-				<td>4B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Putschik</td>
-				<td>Valerie</td>
-				<td>8A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Wiking</td>
-				<td>Kunigunde</td>
-				<td>2Q</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Graf</td>
-				<td>Vladimir</td>
-				<td>7A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Flasch</td>
-				<td>Florian</td>
-				<td>9C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Holla</td>
-				<td>Fe</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Sisi</td>
-				<td>Chantal</td>
-				<td>9001Z</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check1"></td>
-				<td>Musternmann</td>
-				<td>Maximilian</td>
-				<td>2D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check2"></td>
-				<td>Tunichtgut</td>
-				<td>Peter</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"><input type="checkbox" id="check3"></td>
-				<td>Wurst</td>
-				<td>Hans</td>
-				<td>3B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check4"></td>
-				<td>Andersson</td>
-				<td>Andrea</td>
-				<td>6C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check5"></td>
-				<td>Müller</td>
-				<td>Mareike</td>
-				<td>8D</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check6"></td>
-				<td>Helo</td>
-				<td>Hinz</td>
-				<td>10Z</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check7"></td>
-				<td>Kapp</td>
-				<td>Kunz</td>
-				<td>4B</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check8"></td>
-				<td>Putschik</td>
-				<td>Valerie</td>
-				<td>8A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check9"></td>
-				<td>Wiking</td>
-				<td>Kunigunde</td>
-				<td>2Q</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check10"></td>
-				<td>Graf</td>
-				<td>Vladimir</td>
-				<td>7A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check11"></td>
-				<td>Flasch</td>
-				<td>Florian</td>
-				<td>9C</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check12"></td>
-				<td>Holla</td>
-				<td>Fe</td>
-				<td>1A</td>
-			</tr>
-			<tr>
-				<td id="cb"> <input type="checkbox" id="check13"></td>
-				<td>Sisi</td>
-				<td>Chantal</td>
-				<td>9001Z</td>
 			</tr>
 		</table>
 	  </div>
