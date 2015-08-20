@@ -1,3 +1,45 @@
+/*PINK*/
+div{
+	border:solid pink 0px;
+}
+
+/*Allgemeinstes Layout*/
+body{
+  background-image: url(tafel.jpg);
+}
+
+label{
+	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+	color: white;
+}
+
+button{
+	border-radius: 6px;
+	font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
+}
+
+form{
+    display: inline-block;
+    width: 21%;
+}
+
+
+
+p{
+	font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
+	color: white;
+}
+
+/*Sichtbar und unsichtbar*/
+#showMe{
+    display: none;
+}
+
+#hoverMe:hover #showMe{
+    display: table;
+}
+
+/*Navigationsleiste*/
 .tablist li a { 
     display:block;
     text-decoration:none; 
@@ -50,10 +92,6 @@
     text-align: left;
 }
 
-button{
-	border-radius: 6px;
-}
-
 button#abmelden{
     display: inline-block;
     width: 100%;   
@@ -63,20 +101,37 @@ button#abmelden{
    
 }
 
-form{
-    display: inline-block;
-        width: 21%;
+/*Startseite*/
+div#startseite{
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	padding: 2%;
+	height: 80%;
+	width: 92%;
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
+	text-align: center;
+}
+#startseite p{
+	font: 6em arial,geneva,helvetica,sans-serif;
+}
+
+/*Allgemeines Layout der Tabellen*/
+div#table{
+	width:80%;
+	display: inline-block;
+	float: right;
+	overflow: auto;
+	height: 90%;
+	margin-top: 1em;
 }
 
 div table{
-	margin: 1em;
     margin-left: auto;
 	background-color: #FAFAFA; 
 	height:90%; width:100%; 
-	overflow-y:auto;
-	overflow-x:hidden;
 	border: 4px solid #777;
-	padding:0px;
 	font: 0.8em/1.1em arial,geneva,helvetica,sans-serif; 
 }
 
@@ -92,7 +147,7 @@ table tr:nth-child(1n+2) {
 background-color: #F2F2F2;
 color: #000;
 }
-table tr:nth-child(2n+3) {
+table tr:nth-child(2n+1) {
 background-color: #E6E6E6;
 color: #000;
 }
@@ -100,40 +155,57 @@ table tr:hover {
 background-color: #848484;
 color: #fff;
 }
-body{
-  background-image: url(tafel.jpg);
-}
 td#cb{
-	width: 1em
-}
-p{
-	font:bold 0.88em/2em arial,geneva,helvetica,sans-serif; 
-}
-#filter p{
-	color: white;
-	margin-bottom: 0;
-	margin-top: 0;
-	margin-left: 6%;
+	width: 1em;
+	height: 2em;
 }
 
-p#filterheader{
-	font-size: 130%;
-	margin-bottom: 0.4em;
+/*Bearbeiten Ansicht*/
+div#bild, div#klassenbild {
+	margin-left: 13%;
+    display: inline-block; 
+    clear: left;
+    width:35%; 
+    margin-top: 1em;
+	height: 45%;
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
 }
 
-div#filter{
-	width: 20%;
-	display: inline-block;
-	float: left;
+div#bild img, div#klassenbild img{
+	height:75%; 
+	width: auto;
+	max-width:266px; 
+	max-height:266px;
+    margin: 1em auto;
+    border:1px solid blue;
+    display: table;
 }
 
-div#table{
-	width:80%;
-	display: inline-block;
-	float: right;
+#centered{
+    width: 26%;
+    margin:auto;
+	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+    margin-left: 37%;
 }
 
-#filter select, #filter input{
+div#name , div#klasseninfo{
+    display: inline-block;
+	float:right;
+    clear: left;
+    width: 35%; 
+    margin-top: 1em;
+	margin-right: 13%;
+	height: 45%;
+
+}
+
+div#name #name, div#klasseninfo #name{
+    margin-top: auto;
+    display: inline-flex;
+}
+
+div#name input, div#klasseninfo input{
 	margin: 5%;
 	margin-top: 0%;
 	margin-bottom: 3%;
@@ -142,7 +214,157 @@ div#table{
 	border-radius: 6px;
 }
 
-#filter button{
+div#name table, div#klasseninfo table{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+	margin: 0;
+}
+
+div#Tabelle {
+    width: 100%;
+    height: 45%;
+    overflow: auto;
+}
+
+div#notiznav{
+	float:left;
+	width:10%;
+	height: 30%;
+	margin: auto;
+	margin-top: 1em;
+	margin-left: 13%;
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
+}
+
+div#notiznav label{
+	display: inline-block;
+	margin-bottom: 1em; 
+	margin-right: 2%;
+	float: right;
+}
+
+div#notiznav button{
+	width: 96%;
+	margin: 0;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+div#notiznav form{
+	width: 100%;
+	height: 1em;
+}
+
+div#Notizen{
+	float: right;
+	margin-right: 13%;
+    margin-top: 1em;
+    width: 61%;
+	overflow: auto;
+    display: inline-block; 
+    height: 30%;	
+}
+
+div#Notizen div#Tabelle {
+    overflow: auto;
+    display: inline-block;  
+    width: 100%;
+}
+
+div#Notizen table{
+	margin: 0;
+}
+
+div#Notizen button{
+	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+    color:#000; 
+}
+
+div#SLA-Buttons{
+    margin-left: 35%;
+	height: 10%;
+	width: 33%;
+	display: inline-block;
+}
+
+div#SLA-Buttons form{
+    height: 2em; 
+    clear: both;
+	width: 30%;
+}
+
+div#SLA-Buttons button{
+	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+    color:#000; 
+    width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 10%; 
+}
+
+div#SLA-Buttons label{
+    padding: 0.3em; 
+    margin: 3%;
+}
+
+form label{
+    background-color: white;
+    color: black;
+    border-radius: 0.7em;
+    font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
+}
+/*Bearbeiten Ansicht Klassen*/
+div#klassenbild{
+	height: 70%;
+	padding: 1em;
+}
+div#klassenbild img{
+	width: 90%;
+	height: auto;
+	max-width:600px; 
+	max-height:400px;
+}
+div#klasseninfo{
+	height: 70%;
+}
+
+/*Filter und Suche*/
+div#filter{
+	width: 20%;
+	display: inline-block;
+	float: left;
+}
+
+p#filterheader{
+	font-size: 130%;
+	margin-bottom: 0.4em;
+}
+
+#filter p{
+	color: white;
+	margin-bottom: 0;
+	margin-top: 0;
+	margin-left: 6%;
+}
+
+#filter select, #filter input, #name select, #klasseninfo select, #notizinfos input{
+	margin: 5%;
+	margin-top: 0%;
+	margin-bottom: 3%;
+	margin-left: 6%;
+	width: 90%;
+	border-radius: 6px;
+}
+
+form#filter{
+	display: inline-block;
+    width: 100%;
+	margin-bottom: 0;
+}
+
+#filter input{
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0.5em;
@@ -154,4 +376,35 @@ div#table{
 
 button#suche{
 	margin-bottom: 1.2em;
+}
+
+/*Notizen Layouts*/
+div#notizinfos{
+	margin-top: 1%;
+	float: left;
+	width: 32%;
+	height: 80%;
+}
+
+#notizinfos p{
+	display: inline;
+}
+
+#notizinfos input{
+	float:right;
+}
+
+div#notizbearbeitung{
+	margin-top: 2%;
+	margin-right: 1em;
+	width: 66%;
+	height: 80%;
+	float: right;
+}
+
+#notizbearbeitung textarea{
+	height: 100%;
+	width: 100%;
+	resize: none;
+	border-radius: 6px;
 }

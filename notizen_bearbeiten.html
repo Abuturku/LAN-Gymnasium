@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+		<script src="js/scripts.js"></script>
+		<div>
+        <ul class="tablist">
+            <li>
+                <a href="./startseite.html">Startseite</a>
+            </li>
+            <li>
+                <a href="./lehrer.html">Lehrer</a>
+            </li>
+            <li>
+                <a href="./klassen.html">Klassen</a>
+            </li>
+            <li id="current">
+                <a href="./schueler.html">Sch&uuml;ler</a>
+            </li>
+            <div id="logindata">
+            Angemeldet als:
+            <br>
+            Vorname Nachname
+            </div>
+            <form action="./index.html">
+            <button type="submit" id="abmelden">Abmelden</button>
+            </form>
+        </ul>
+		<div id="notizinfos">
+			<p id="filterheader">Notiz: </p>
+			<br>
+            <p>Lehrer: </p>
+			<br><br>
+			<p>Nachname: </p>
+			<input value="Maier" readonly></input>
+			<br>
+			<p>Vorname: </p>
+			<input value="Biene" readonly></input>
+			<br>
+			<p>Erstellungsdatum:</p>
+			<input value="12.05.2015" readonly></input>
+			<br>
+			<br><br><br>
+			<p>Schüler: </>
+			<br><br>
+			<p>Nachname: </p>
+			<input value="Wurst"></input>
+			<br>
+			<p>Vorname: </p>
+			<input value="Hans"></input>
+			<br>
+        </div>
+		<div id="notizbearbeitung">
+			<textarea placeholder="Notiztext"></textarea>
+		</div>
+          <div id="SLA-Buttons">
+                <form>
+                    <button>Speichern</button>
+                </form>
+                  <form id="hoverMe">
+                    <button>Abbrechen</button>
+                    <label id="showMe">Alle Änderungen gehen verloren!</label>
+                </form>
+                <form id="hoverMe">
+                    <button>Löschen</button>
+                    <label id="showMe">Die Löschung ist endgültig!</label>
+                </form>
+			</div>
+    </body>
+</html>

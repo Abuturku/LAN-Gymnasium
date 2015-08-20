@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
@@ -7,22 +8,20 @@
          <link rel="stylesheet" href="anmelden.css" type="text/css">
     </head>
     <body>
-       
-        <div id="round-border">
-            <div id="content-box">
-                <form action="./startseite.html">
+	<script src="js/scripts.js"></script>
+        <div>
+            <form name="anmeldung">
                 <label for="nachname">Nachname:</label>
-                <input type="text" placeholder="Nachname" tabindex ="1" id="nachname" class="input">
-                <br>
-                <label for="vorname">Vorname:</label> 
-                <input type="text" placeholder ="Vorname" id="vorname" tabindex ="2" class="input">
-                <br>
+                <input type="text" placeholder="Nachname" tabindex ="1" name="nachname" id="nachname" class="input"> 
+                    <br>
+                <label for="vorname">Vorname:</label>  
+                <input type="text" placeholder ="Vorname" id="vorname" name="vorname" tabindex ="2" class="input">
+                    <br>
                 <label for="password">Passwort:</label>
-                <input type="password" placeholder="Passwort" id="passwort" tabindex ="3" class="input">
-                <br>
-                <button type="submit" id="anmelden" tabindex ="4">Anmelden</button>
-                </form>
-            </div>
+                <input type="password" placeholder="Passwort" id="passwort" name="password" tabindex ="3" class="input">
+                <br/>
+                <input type="button" value="Anmelden" id="anmeldenIndex" onclick="onclickLogin(this.form)" />
+            </form>
         </div>     
     </body>
 </html>

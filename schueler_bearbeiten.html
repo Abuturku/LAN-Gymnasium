@@ -1,0 +1,152 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+		<script src="js/scripts.js"></script>
+		<div>
+        <ul class="tablist">
+            <li>
+                <a href="./startseite.html">Startseite</a>
+            </li>
+            <li>
+                <a href="./lehrer.html">Lehrer</a>
+            </li>
+            <li>
+                <a href="./klassen.html">Klassen</a>
+            </li>
+            <li id="current">
+                <a href="./schueler.html">Sch&uuml;ler</a>
+            </li>
+            <div id="logindata">
+            Angemeldet als:
+            <br>
+            Vorname Nachname
+            </div>
+            <form action="./index.html">
+            <button type="submit" id="abmelden">Abmelden</button>
+            </form>
+        </ul>
+		</div>
+            <div id="bild">
+                <img src="./Schueler.png">
+                <button id="centered">Hochladen</button>
+            </div>
+            <div id="name">
+                <label for="nachname" id="name">Nachname:</label>
+                <input type="text" placeholder="Nachname" id="nachname"> 
+                <br>
+                <label for="vorname" id="name">Vorname:</label>  
+                <input type="text" placeholder ="Vorname" id="vorname">
+				<br><br>
+				<label for="stufe" id="input">Stufe:</label>
+				<select>
+					<option></option>
+				</select>
+				<label for="stufe" id="input">Klasse</label>
+				<select>
+					<option></option>
+				</select>
+            </div>
+			<div id="notiznav">
+				<label>Notizen:</label>
+				<br>
+				<form target="blank" action="./notizen_genaueAnsicht.html">
+                    <button id="centered">Notiz öffnen</button>
+                </form>
+				
+				<form target="_blank" action="./notizen_bearbeiten.html">
+                    <button id="centered">Notiz hinzufügen</button>
+                </form>
+				
+				<form target="_blank" action="./notizen_bearbeiten.html">
+                    <button id="centered">Notiz bearbeiten</button>
+                </form>
+				
+                <form>
+                    <button id="centered">Notiz löschen</button>
+                </form>
+			</div>
+            <div id="notizen">
+				<table>
+					<tr>
+						<td id="header"></td>
+						<td id="header">Erstellungdatum</td>
+						<td id="header">Lehrer</td>					
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check1"></td>
+						<td>01.01.2001</td>
+						<td>Klaus Musternmann</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check2"></td>
+						<td>11.11.2011</td>
+						<td>Uschi Musterfrau</td>
+					</tr>
+					<tr>
+						<td id="cb"><input type="checkbox" id="check3"></td>
+						<td>11.05.2015</td>
+						<td>Schubert Schneider</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check4"></td>
+						<td>13.02.2002</td>
+						<td>Kevin Schmitt</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check5"></td>
+						<td>02.02.2002</td>
+						<td>Elfriede Müller</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check6"></td>
+						<td>14.12.2013</td>
+						<td>Sankt Nikolaus</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check7"></td>
+						<td>16.07.2014</td>
+						<td>Herbert Peters</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check8"></td>
+						<td>16.03.1995</td>
+						<td>Angela Merkel</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check9"></td>
+						<td>27.02.1996</td>
+						<td>Knut Bär</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check10"></td>
+						<td>11.09.2001</td>
+						<td>Tomas Rausch</td>
+					</tr>
+					<tr>
+						<td id="cb"> <input type="checkbox" id="check11"></td>
+						<td>Illuminati</td>
+						<td>Biene Maier</td>
+					</tr>
+                </table>
+            </div>
+          <div id="SLA-Buttons">
+                <form>
+                    <button>Speichern</button>
+                </form>
+                  <form id="hoverMe">
+                    <button>Abbrechen</button>
+                    <label id="showMe">Alle Änderungen gehen verloren!</label>
+                </form>
+                <form id="hoverMe">
+                    <button>Löschen</button>
+                    <label id="showMe">Die Löschung ist endgültig!</label>
+                </form>
+			</div>
+    </body>
+</html>

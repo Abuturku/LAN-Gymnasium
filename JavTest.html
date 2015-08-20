@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+    <script language="JavaScript" type="text/javascript">
+    
+
+        <!--
+        var srcFrame;
+        //External content into a layer
+        function loadOuter(doc) {
+            srcFrame = document.getElementById("hiddenContent");
+            srcFrame.src = doc;
+            // workaround for missing onLoad event in IFRAME for NN6
+            if (!srcFrame.onload) {
+                setTimeout("transferHTML()", 1000)
+            }
+        }
+
+        function transferHTML(){
+            srcContent='';
+            if (srcFrame.contentDocument){
+            srcContent=srcFrame.contentDocument.getElementsByTagName("BODY")[0].innerHTML;
+            }else if (srcFrame.contentWindow){
+                srcContent=srcFrame.contentWindow.document.body.innerHTML;
+            }
+            document.getElementById("outerDisplay").innerHTML = srcContent
+        }
+
+        var DocAry=new Array('Test.txt');
+
+        function SelectList(v){
+            if (v>0){
+                loadOuter(DocAry[v-1]);
+            }
+        }
+
+        //-->
+    </script>
+
+<INPUT TYPE="button" VALUE="TXT-Datei anzeigen" onClick="loadOuter('Daten/Klassen.lan')" >
+<br>
+
+
+
+<div id="outerDisplay"></div>
+
+<iframe  id="hiddenContent" width="200" height="200" style="position:absolute;visibility:hidden;" ></iframe>
+
+</body>
+
+</html>

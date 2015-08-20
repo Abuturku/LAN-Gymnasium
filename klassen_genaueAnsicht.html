@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+		<script src="js/scripts.js"></script>
+		<div>
+        <ul class="tablist">
+            <li>
+                <a href="./startseite.html">Startseite</a>
+            </li>
+            <li>
+                <a href="./lehrer.html">Lehrer</a>
+            </li>
+            <li id="current">
+                <a href="./klassen.html">Klassen</a>
+            </li>
+            <li>
+                <a href="./schueler.html">Sch&uuml;ler</a>
+            </li>
+            <div id="logindata">
+            Angemeldet als:
+            <br>
+            Vorname Nachname
+            </div>
+            <form action="./index.html">
+            <button type="submit" id="abmelden">Abmelden</button>
+            </form>
+        </ul>
+            <div id="klassenbild">
+                <img src="./Klassenfoto.png">
+            </div>
+            <div id="klasseninfo">
+               <label for="klassenname" id="name">Name:</label>
+                <input type="text" value="5A" id="klassenname"> 
+                <br>
+                <label for="stufe" id="Stufe">Stufe:</label>  
+                <input type="text" value ="Stufe" id="stufe" readonly>
+                <br>
+                <label for="klassenlehrer" id="klassenlehrer">Klassenlehrer:</label>  
+                <input type="text" value ="Hubert Schneider" id="Klassenlehrer" readonly>
+               <label>Lehrer:</label>
+            <div id="Tabelle">
+                <table>
+					<tr>
+						<td id="header">Nachname</td>
+						<td id="header">Vorname</td>
+					</tr>
+                    <tr>
+						<td>Musterfrau</td>
+						<td>Uschi</td>
+					</tr>
+					<tr>
+						<td>Schneider</td>
+						<td>Hubert</td>
+					</tr>
+						<td>Bär</td>
+						<td>Knut</td>
+					</tr>
+					<tr>
+						<td>Toffel</td>
+						<td>Karl</td>
+					</tr>
+                </table>
+                </div>
+            </div>
+            <div id="SLA-Buttons">
+                <form>
+                    <button>Zur&uuml;ck</button>
+                </form>
+                <form action="./klassen_bearbeiten.html">
+                    <button>Klasse bearbeiten</button>
+                </form>
+            </div>
+    </body>
+</html>
