@@ -192,6 +192,18 @@ function lehrerBearbeiten(){
     }
 }
 
+function schuelerBearbeiten(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("schueler_bearbeiten.html?s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+
 function klassenBearbeiten(){
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
@@ -250,12 +262,34 @@ function zeigeLehrerKlassen(){
     }
 }
 
+function zeigeLehrerSchueler(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("lehrer.html?s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
 function zeigeKlassenLehrer(){
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
             window.open("klassen.html?l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+        }
+        
+    }
+}
+
+function zeigeKlassenSchueler(){
+    var tabelle = document.getElementById('table').children[0].children;
+    for(var i = 1; i < tabelle.length; i++) {
+        var line = tabelle[i];
+        if(line.children[0].children[0].checked){
+            window.open("klassen.html?s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
         }
         
     }
@@ -316,6 +350,104 @@ function sucheLehrerTabelle(){
         line.appendChild(nachname);
         line.appendChild(vorname);
         line.appendChild(istAngestellt);
+        
+        tabelle.appendChild(line);
+    }
+    
+    document.getElementById('table').innerHTML = "";
+    document.getElementById('table').appendChild(tabelle);
+}
+
+function sucheSchuelerTabelle(){
+        var tabelle = document.createElement('table');
+    var head = document.createElement('tr');
+    head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td>";
+    tabelle.appendChild(head);
+
+    var gefunden = [];
+    
+    for(var i = 0; i < schueler.length;i++){
+        for(var j = 0; j<schuelerKlasse.length; j++){
+            if(i == schuelerKlasse[j].schuelerId){
+                if(document.getElementById('stufe').value != "-"){
+                    if(klassen[schuelerKlasse[j].klassenID].stufe == document.getElementById('stufe').value){
+                        if(document.getElementById('klasse').value != "-"){
+                            if(klassen[schuelerKlasse[j].klassenID].buchstabe == document.getElementById('klasse').value){
+                                if(document.getElementById('lehrer').value != "-"){
+                                     for(var x = 0; x<lehrerKlasse.length; x++){
+                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                            var lehrerLine = document.getElementById('lehrer').value.split(",");
+                                            if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                                gefunden.push(schueler[i]);
+                                            }
+                                        }
+                                     }
+                                }else{
+                                                gefunden.push(schueler[i]);
+                                }
+                            }
+                        }else{
+                            if(document.getElementById('lehrer').value != "-"){
+                                for(var x = 0; x<lehrerKlasse.length; x++){
+                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                        var lehrerLine = document.getElementById('lehrer').value.split(",");                                                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                            gefunden.push(schueler[i]);
+                                        }
+                                    }
+                                 }
+                            }else{
+                                gefunden.push(schueler[i]);
+                            }
+                            
+                        }
+                    }
+                }else{
+                      if(document.getElementById('klasse').value != "-"){
+                            if(klassen[schuelerKlasse[j].klassenID].buchstabe == document.getElementById('klasse').value){
+                                if(document.getElementById('lehrer').value != "-"){
+                                     for(var x = 0; x<lehrerKlasse.length; x++){
+                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                            var lehrerLine = document.getElementById('lehrer').value.split(",");
+                                            if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                               gefunden.push(schueler[i]);
+                                            }
+                                        }
+                                     }
+                                }else{
+                                                gefunden.push(schueler[i]);
+                                }
+                            }
+                        }else{
+                            if(document.getElementById('lehrer').value != "-"){
+                                for(var x = 0; x<lehrerKlasse.length; x++){
+                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                        var lehrerLine = document.getElementById('lehrer').value.split(",");                                                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                            gefunden.push(i);
+                                        }
+                                    }
+                                 }
+                            }else{
+                                           gefunden.push(schueler[i]);
+                            }
+                        }  
+                }
+            }
+        }
+    }
+    
+    for(var i = 0; i < gefunden.length; i++) {
+        var line = document.createElement('tr');
+        var checkBox = document.createElement('td');
+        checkBox.setAttribute("id", "cb");
+        checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+        var nachname = document.createElement('td');
+        nachname.innerHTML = gefunden[i].nachname
+        var vorname = document.createElement('td');  
+        vorname.innerHTML = gefunden[i].vorname
+        
+        line.appendChild(checkBox);
+        line.appendChild(nachname);
+        line.appendChild(vorname); 
         
         tabelle.appendChild(line);
     }
@@ -473,6 +605,46 @@ function sucheStufeLehrer(){
     }
 }
 
+function sucheStufeSchueler(){ 
+    var stufen = getStufen();    
+    var sel = document.getElementById('lehrer');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+
+    sel = document.getElementById('klasse');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    sel = document.getElementById('stufe');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < stufen.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = stufen[i];
+        opt.value = stufen[i];
+        if(selObjekt == stufen[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
 function sucheKlassenLehrer(){ 
     var klassen = getKlassen(document.getElementById('stufe').value);   
     
@@ -506,7 +678,63 @@ function sucheKlassenLehrer(){
     }
 }
 
+function sucheKlassenSchueler(){ 
+    var klassen = getKlassen(document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('lehrer');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+
+    
+    sel = document.getElementById('klasse');
+    selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < klassen.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = klassen[i];
+        opt.value = klassen[i];
+        if(selObjekt == klassen[i]){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
 function sucheLehrerKlassen(){ 
+    var lehrer = getLehrer("-", document.getElementById('stufe').value);   
+    
+    var sel = document.getElementById('lehrer');
+    var selObjekt = sel.value;
+    sel.innerHTML = "";
+   
+    var opt = document.createElement('option');
+    opt.innerHTML = "-";
+    opt.value = "-";
+    sel.appendChild(opt);
+    
+    for(var i = 0; i < lehrer.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = lehrer[i].nachname+", "+lehrer[i].vorname;
+        opt.value = lehrer[i].nachname+", "+lehrer[i].vorname;
+        if(selObjekt == lehrer[i].nachname+", "+lehrer[i].vorname){
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+}
+
+function sucheLehrerSchueler(){ 
     var lehrer = getLehrer("-", document.getElementById('stufe').value);   
     
     var sel = document.getElementById('lehrer');
