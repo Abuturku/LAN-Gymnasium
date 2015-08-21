@@ -507,7 +507,7 @@ function sucheSchuelerTabelle(){
                                 for(var x = 0; x<lehrerKlasse.length; x++){
                                     if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
                                         var lehrerLine = document.getElementById('lehrer').value.split(",");                                                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
-                                            gefunden.push(i);
+                                            gefunden.push(schueler[i]);
                                         }
                                     }
                                  }
@@ -556,28 +556,102 @@ function sucheKlassenTabelle(){
                     var lehrerID = getLehrerID(document.getElementById('lehrer').value.split(",")[0].trim(), document.getElementById('lehrer').value.split(",")[1].trim());   
                     for(var j = 0; j < lehrerKlasse.length; j++){
                         if(lehrerKlasse[j].klassenId == i){
-                            if(lehrerID == lehrerKlasse[j].lehrerId){
-                                if(document.getElementById('schueler').value != "-"){
-                                    var schuelerID = getSchuelerID(document.getElementById('schueler').value.split(",")[0].trim(), document.getElementById('schueler').value.split(",")[1].trim());
-                                     for(var x = 0; x < schuelerKlasse.length; x++){
-                                        if(schuelerKlasse[x].klassenId == i){
-                                            if(schuelerID == schuelerKlasse[j].schuelerId){
-                                                gefunden.push(klassen[i]);
+                            for(var y = 0; y < lehrerID.length; y++){
+                                if(lehrerID[y] == lehrerKlasse[j].lehrerId){
+                                    if(document.getElementById('schueler').value != "-"){
+                                        var schuelerID = getSchuelerID(document.getElementById('schueler').value.split(",")[0].trim(), document.getElementById('schueler').value.split(",")[1].trim());
+                                        for(var x = 0; x < schuelerKlasse.length; x++){
+                                            if(schuelerKlasse[x].klassenID == i){
+                                                for( var z = 0; z <schuelerID.length; z++){
+                                                    if(schuelerID[z] == schuelerKlasse[j].schuelerId){
+                                                        gefunden.push(klassen[i]);
+                                                    }
+                                                }
                                             }
                                         }
-                                     }
-                                }else{
-                                    gefunden.push(klassen[i]);   
+                                    }else{
+                                        gefunden.push(klassen[i]);   
+                                    }
                                 }
                             }
                         }
                     }
                 }else{
-                    
+                    var lehrerID = getLehrerID("-","-");   
+                    for(var j = 0; j < lehrerKlasse.length; j++){
+                        if(lehrerKlasse[j].klassenId == i){
+                            for(var y = 0; y < lehrerID.length; y++){
+                                if(lehrerID[y] == lehrerKlasse[j].lehrerId){
+                                    if(document.getElementById('schueler').value != "-"){
+                                        var schuelerID = getSchuelerID(document.getElementById('schueler').value.split(",")[0].trim(), document.getElementById('schueler').value.split(",")[1].trim());
+                                        for(var x = 0; x < schuelerKlasse.length; x++){
+                                            if(schuelerKlasse[x].klassenID == i){
+                                                for( var z = 0; z <schuelerID.length; z++){
+                                                    if(schuelerID[z] == schuelerKlasse[j].schuelerId){
+                                                        gefunden.push(klassen[i]);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }else{
+                                        gefunden.push(klassen[i]);   
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }else{
-                    
+                if(document.getElementById('lehrer').value != "-"){
+                    var lehrerID = getLehrerID(document.getElementById('lehrer').value.split(",")[0].trim(), document.getElementById('lehrer').value.split(",")[1].trim());   
+                    for(var j = 0; j < lehrerKlasse.length; j++){
+                        if(lehrerKlasse[j].klassenId == i){
+                            for(var y = 0; y < lehrerID.length; y++){
+                                if(lehrerID[y] == lehrerKlasse[j].lehrerId){
+                                    if(document.getElementById('schueler').value != "-"){
+                                        var schuelerID = getSchuelerID(document.getElementById('schueler').value.split(",")[0].trim(), document.getElementById('schueler').value.split(",")[1].trim());
+                                        for(var x = 0; x < schuelerKlasse.length; x++){
+                                            if(schuelerKlasse[x].klassenID == i){
+                                                for( var z = 0; z <schuelerID.length; z++){
+                                                    if(schuelerID[z] == schuelerKlasse[j].schuelerId){
+                                                        gefunden.push(klassen[i]);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }else{
+                                        gefunden.push(klassen[i]);   
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }else{
+                    var lehrerID = getLehrerID("-","-");   
+                    for(var j = 0; j < lehrerKlasse.length; j++){
+                        if(lehrerKlasse[j].klassenId == i){
+                            for(var y = 0; y < lehrerID.length; y++){
+                                if(lehrerID[y] == lehrerKlasse[j].lehrerId){
+                                    if(document.getElementById('schueler').value != "-"){
+                                        var schuelerID = getSchuelerID(document.getElementById('schueler').value.split(",")[0].trim(), document.getElementById('schueler').value.split(",")[1].trim());
+                                        for(var x = 0; x < schuelerKlasse.length; x++){
+                                            if(schuelerKlasse[x].klassenID == i){
+                                                for( var z = 0; z <schuelerID.length; z++){
+                                                    if(schuelerID[z] == schuelerKlasse[j].schuelerId){
+                                                        gefunden.push(klassen[i]);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }else{
+                                        gefunden.push(klassen[i]);   
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }   
         }
     }
     
