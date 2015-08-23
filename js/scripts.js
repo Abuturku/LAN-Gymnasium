@@ -16,23 +16,23 @@ function ladeStorage() {
     localStorage.setItem("3", "k;2;6;a;./bilder/6a.jpg");
     localStorage.setItem("4", "k;3;6;b;./bilder/6b.jpg");
     localStorage.setItem("5", "k;4;6;c;./bilder/6c.jpg");	
-	localStorage.setItem("6", "k;5;7;a;./bilder/7a.jpg");
-	localStorage.setItem("7", "k;6;7;b;./bilder/7b.jpg");
-	localStorage.setItem("8", "k;7;8;a;./bilder/8a.jpg");
-	localStorage.setItem("9", "k;8;9;a;./bilder/9a.jpg");
-	localStorage.setItem("10", "k;9;10;a;./bilder/10a.jpg");
+    localStorage.setItem("6", "k;5;7;a;./bilder/7a.jpg");
+    localStorage.setItem("7", "k;6;7;b;./bilder/7b.jpg");
+    localStorage.setItem("8", "k;7;8;a;./bilder/8a.jpg");
+    localStorage.setItem("9", "k;8;9;a;./bilder/9a.jpg");
+    localStorage.setItem("10", "k;9;10;a;./bilder/10a.jpg");
 	
     localStorage.setItem("11", "l;0;Severus;Snape;1234;./bilder/lehrer.jpg;ja");
     localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;./bilder/lehrer.jpg;ja");
     localStorage.setItem("13", "l;2;Johann;Goethe;1234;./bilder/lehrer.jpg;ja");
-	localStorage.setItem("14", "l;3;Isaac;Newton;Passwort;./bilder/lehrer.jpg;ja");
+    localStorage.setItem("14", "l;3;Isaac;Newton;Passwort;./bilder/lehrer.jpg;ja");
     localStorage.setItem("15", "l;4;Adam;Riese;1234;./bilder/lehrer.jpg;ja");	
     localStorage.setItem("16", "l;5;Immanuel;Kant;1234;./bilder/lehrer.jpg;ja");	
     localStorage.setItem("17", "l;6;Albert;Einstein;1234;./bilder/lehrer.jpg;ja");	
     localStorage.setItem("18", "l;7;Carl;Gauß;1234;./bilder/lehrer.jpg;ja");	
     localStorage.setItem("19", "l;8;Gottfried;Leibniz;1234;./bilder/lehrer.jpg;nein");	
     localStorage.setItem("20", "l;9;Siegmund;Freud;1234;./bilder/lehrer.jpg;ja");	
-	localStorage.setItem("21", "l;10;Fresh;Dumbledore;jo;./bilder/lehrer.jpg;ja");
+    localStorage.setItem("21", "l;10;Fresh;Dumbledore;jo;./bilder/lehrer.jpg;ja");
 	
     localStorage.setItem("22", "s;0;Harry;Potter;1234;./bilder/schueler.jpg");
     localStorage.setItem("23", "s;1;Michael;Mittermeier;1234;./bilder/schueler.jpg");
@@ -84,27 +84,27 @@ function ladeStorage() {
     localStorage.setItem("68", "n;1;0;0;Potter.;12.12.2012 12:00:00");
     localStorage.setItem("69", "n;2;37;8;Ich mag Kekse.;12.12.2012 12:00:00");
     localStorage.setItem("70", "n;3;37;6;Nicht vergessen: E=m*c^2.;12.12.2012 12:00:00");
-	localStorage.setItem("71", "n;4;1;1;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("72", "n;5;2;2;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("73", "n;6;3;3;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("74", "n;7;4;4;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("75", "n;8;5;5;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("76", "n;9;6;6;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("77", "n;10;7;7;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("78", "n;11;8;8;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("79", "n;12;9;9;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
-	localStorage.setItem("80", "n;13;10;9;Deine Mudda.;12.12.2012 12:00:00");
-	localStorage.setItem("81", "n;14;11;3;Der Apfel fällt nicht weit vom Stamm.;12.12.2012 12:00:00");
-	localStorage.setItem("82", "n;15;12;2;Noch einmal so eine Frechheit, und Sie bekommen meine FAUST zu spüren.;12.12.2012 12:00:00");
-	localStorage.setItem("83", "n;16;13;2;Allein der Vortrag macht des REdners Glück. Ich fühl' es wohl, noch bin ich weit zurück. Nehmen Sie sich das einmal zu Herzen.;12.12.2012 12:00:00");
-	localStorage.setItem("84", "n;17;14;2;Alles Gescheite ist schon gedacht worden, man muss nur versuchen, es noch einmal zu denken.;12.12.2012 12:00:00");
-	localStorage.setItem("85", "n;18;15;2;Das Schicksal jedes Volkes und jeder Zeit hängt von den Menschen uner 25 Jahren ab.;12.12.2012 12:00:00");
-	localStorage.setItem("86", "n;19;16;2;Der Feige droht nur, wo er sicher ist.;12.12.2012 12:00:00");
-	localStorage.setItem("87", "n;20;17;2;Der Wein erfreut des Menschen Herz, und die Freudigkeit ist die Mutter aller Tugenden. Nur sollte man auch seine Grenzen kennen...;12.12.2012 12:00:00");
-	localStorage.setItem("88", "n;21;18;2;Die Schwierigkeiten wachsen, je näher man dem Ziele kommt;12.12.2012 12:00:00");
-	localStorage.setItem("89", "n;22;19;2;Doch der den Augenblick ergreift, das ist der rechte Mann.;12.12.2012 12:00:00");
-	localStorage.setItem("90", "n;23;20;2;Dummheit ist etwas Ursprüngliches.;12.12.2012 12:00:00");
-	
+    localStorage.setItem("71", "n;4;1;1;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("72", "n;5;2;2;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("73", "n;6;3;3;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("74", "n;7;4;4;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("75", "n;8;5;5;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("76", "n;9;6;6;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("77", "n;10;7;7;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("78", "n;11;8;8;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("79", "n;12;9;9;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
+    localStorage.setItem("80", "n;13;10;9;Deine Mudda.;12.12.2012 12:00:00");
+    localStorage.setItem("81", "n;14;11;3;Der Apfel fällt nicht weit vom Stamm.;12.12.2012 12:00:00");
+    localStorage.setItem("82", "n;15;12;2;Noch einmal so eine Frechheit, und Sie bekommen meine FAUST zu spüren.;12.12.2012 12:00:00");
+    localStorage.setItem("83", "n;16;13;2;Allein der Vortrag macht des REdners Glück. Ich fühl' es wohl, noch bin ich weit zurück. Nehmen Sie sich das einmal zu Herzen.;12.12.2012 12:00:00");
+    localStorage.setItem("84", "n;17;14;2;Alles Gescheite ist schon gedacht worden, man muss nur versuchen, es noch einmal zu denken.;12.12.2012 12:00:00");
+    localStorage.setItem("85", "n;18;15;2;Das Schicksal jedes Volkes und jeder Zeit hängt von den Menschen uner 25 Jahren ab.;12.12.2012 12:00:00");
+    localStorage.setItem("86", "n;19;16;2;Der Feige droht nur, wo er sicher ist.;12.12.2012 12:00:00");
+    localStorage.setItem("87", "n;20;17;2;Der Wein erfreut des Menschen Herz, und die Freudigkeit ist die Mutter aller Tugenden. Nur sollte man auch seine Grenzen kennen...;12.12.2012 12:00:00");
+    localStorage.setItem("88", "n;21;18;2;Die Schwierigkeiten wachsen, je näher man dem Ziele kommt;12.12.2012 12:00:00");
+    localStorage.setItem("89", "n;22;19;2;Doch der den Augenblick ergreift, das ist der rechte Mann.;12.12.2012 12:00:00");
+    localStorage.setItem("90", "n;23;20;2;Dummheit ist etwas Ursprüngliches.;12.12.2012 12:00:00");
+
     localStorage.setItem("90", "lk;0;0");
     localStorage.setItem("91", "lk;1;1");
     localStorage.setItem("92", "lk;2;2");
@@ -216,7 +216,7 @@ window.addEventListener("DOMContentLoaded", function(){
         
         //Ist das Item eine Schuelerklasse?
         if (splittedItem[0] === "sk"){
-            var skObject = {klassenID:splittedItem[1], schuelerId:splittedItem[2]};
+            var skObject = {klassenId:splittedItem[1], schuelerId:splittedItem[2]};
             schuelerKlasse.push(skObject);
         }
     }
@@ -477,14 +477,14 @@ function lehrerLöschen(){
         if(line.children[0].children[0].checked){
             var lehrerFound = getLehrerByName(line.children[1].outerText, line.children[2].outerText);
             if(lehrerFound != undefined){
-                lehrerFound.istAngestellt = false;
+                lehrerFound.istAngestellt = "nein";
                 for (i = 1; i <= localStorage.length-1; i++){
                     var item = localStorage.getItem(i);
                     var splittedItem = item.split(";");
                     if(splittedItem[0]==="l"){
                         if(splittedItem[2]=== lehrerFound.vorname){
                             if(splittedItem[3] === lehrerFound.nachname){
-                                localStorage.setItem(i,"l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";false"); 
+                                localStorage.setItem(i,"l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";nein"); 
                             }
                         }
                     }
@@ -577,7 +577,7 @@ function sucheLehrerTabelle(){
                 for(var j = 0; j < schuelerKlasse.length; j++){
                     if(schuelerKlasse[j].schuelerId == schuelerID[0]){
                         for(var x = 0; x < lehrerInKlasse.length; x++){
-                            if(schuelerKlasse[j].klassenID===lehrerInKlasse[x]){
+                            if(schuelerKlasse[j].klassenId===lehrerInKlasse[x]){
                                 gefunden.push(lehrer[i]);
                             }
                         }
@@ -632,12 +632,12 @@ function sucheSchuelerTabelle(){
         for(var j = 0; j<schuelerKlasse.length; j++){
             if(i == schuelerKlasse[j].schuelerId){
                 if(stufeDdb.value != "-"){
-                    if(klassen[schuelerKlasse[j].klassenID].stufe == stufeDdb.value){
+                    if(klassen[schuelerKlasse[j].klassenId].stufe == stufeDdb.value){
                         if(klasseDdb.value != "-"){
-                            if(klassen[schuelerKlasse[j].klassenID].buchstabe == klasseDdb.value){
+                            if(klassen[schuelerKlasse[j].klassenId].buchstabe == klasseDdb.value){
                                 if(lehrerDdb.value != "-"){
                                      for(var x = 0; x<lehrerKlasse.length; x++){
-                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
                                             var lehrerLine = lehrerDdb.value.split(",");
                                             if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
                                                 gefunden.push(schueler[i]);
@@ -651,8 +651,9 @@ function sucheSchuelerTabelle(){
                         }else{
                             if(lehrerDdb.value != "-"){
                                 for(var x = 0; x<lehrerKlasse.length; x++){
-                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
-                                        var lehrerLine = lehrerDdb.value.split(",");                                                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
+                                        var lehrerLine = lehrerDdb.value.split(",");                                                                        
+                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
                                             gefunden.push(schueler[i]);
                                         }
                                     }
@@ -665,10 +666,10 @@ function sucheSchuelerTabelle(){
                     }
                 }else{
                       if(klasseDdb.value != "-"){
-                            if(klassen[schuelerKlasse[j].klassenID].buchstabe == klasseDdb.value){
+                            if(klassen[schuelerKlasse[j].klassenId].buchstabe == klasseDdb.value){
                                 if(lehrerDdb.value != "-"){
                                      for(var x = 0; x<lehrerKlasse.length; x++){
-                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
+                                        if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
                                             var lehrerLine = lehrerDdb.value.split(",");
                                             if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
                                                gefunden.push(schueler[i]);
@@ -682,8 +683,9 @@ function sucheSchuelerTabelle(){
                         }else{
                             if(lehrerDdb.value != "-"){
                                 for(var x = 0; x<lehrerKlasse.length; x++){
-                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenID){
-                                        var lehrerLine = lehrerDdb.value.split(",");                                                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                    if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
+                                        var lehrerLine = lehrerDdb.value.split(",");                                                                        
+                                        if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[x].lehrerId){
                                             gefunden.push(schueler[i]);
                                         }
                                     }
@@ -741,7 +743,7 @@ function sucheKlassenTabelle(){
                                     if(schuelerDdb.value != "-"){
                                         var schuelerID = getSchuelerID(schuelerDdb.value.split(",")[0].trim(), schuelerDdb.value.split(",")[1].trim());
                                         for(var x = 0; x < schuelerKlasse.length; x++){
-                                            if(schuelerKlasse[x].klassenID == i){
+                                            if(schuelerKlasse[x].klassenId == i){
                                                 for( var z = 0; z <schuelerID.length; z++){
                                                     if(schuelerID[z] == schuelerKlasse[j].schuelerId){
                                                         gefunden.push(klassen[i]);
@@ -765,7 +767,7 @@ function sucheKlassenTabelle(){
                                     if(schuelerDdb.value != "-"){
                                         var schuelerID = getSchuelerID(schuelerDdb.value.split(",")[0].trim(), schuelerDdb.value.split(",")[1].trim());
                                         for(var x = 0; x < schuelerKlasse.length; x++){
-                                            if(schuelerKlasse[x].klassenID == i){
+                                            if(schuelerKlasse[x].klassenId == i){
                                                 for( var z = 0; z <schuelerID.length; z++){
                                                     if(schuelerID[z] == schuelerKlasse[j].schuelerId){
                                                         gefunden.push(klassen[i]);
@@ -792,7 +794,7 @@ function sucheKlassenTabelle(){
                                     if(schuelerDdb.value != "-"){
                                         var schuelerID = getSchuelerID(schuelerDdb.value.split(",")[0].trim(), schuelerDdb.value.split(",")[1].trim());
                                         for(var x = 0; x < schuelerKlasse.length; x++){
-                                            if(schuelerKlasse[x].klassenID == i){
+                                            if(schuelerKlasse[x].klassenId == i){
                                                 for( var z = 0; z <schuelerID.length; z++){
                                                     if(schuelerID[z] == schuelerKlasse[j].schuelerId){
                                                         gefunden.push(klassen[i]);
@@ -816,7 +818,7 @@ function sucheKlassenTabelle(){
                                     if(schuelerDdb.value != "-"){
                                         var schuelerID = getSchuelerID(schuelerDdb.value.split(",")[0].trim(), schuelerDdb.value.split(",")[1].trim());
                                         for(var x = 0; x < schuelerKlasse.length; x++){
-                                            if(schuelerKlasse[x].klassenID == i){
+                                            if(schuelerKlasse[x].klassenId == i){
                                                 for( var z = 0; z <schuelerID.length; z++){
                                                     if(schuelerID[z] == schuelerKlasse[j].schuelerId){
                                                         gefunden.push(klassen[i]);
@@ -844,9 +846,9 @@ function sucheKlassenTabelle(){
         klasse.innerHTML = gefunden[i].stufe+gefunden[i].buchstabe;
         var schueleranzahl = document.createElement('td');
         var schuelerInKlasse = 0;
-        var klassenID = getKlassenID(gefunden[i].buchstabe,  gefunden[i].stufe);
+        var klassenId = getKlassenID(gefunden[i].buchstabe,  gefunden[i].stufe);
         for(var j=0; j<schuelerKlasse.length;j++){
-            if(schuelerKlasse[j].klassenID==klassenID){
+            if(schuelerKlasse[j].klassenId==klassenId){
                 schuelerInKlasse = schuelerInKlasse+1;
             }
         }
@@ -1257,10 +1259,10 @@ function getSchuelerID(nachname, vorname){
     
 function getSchueler(buchstabe, stufe){
     var rueckgabe = [];
-    var klassenID = getKlassenID(buchstabe, stufe);
+    var klassenId = getKlassenID(buchstabe, stufe);
     for(var i=0; i<schuelerKlasse.length;i++){
-        for(var j=0; j<klassenID.length;j++){
-            if(schuelerKlasse[i].klassenID == klassenID[j]){
+        for(var j=0; j<klassenId.length;j++){
+            if(schuelerKlasse[i].klassenId == klassenId[j]){
                 rueckgabe.push(schueler[schuelerKlasse[i].schuelerId].nachname+", "+schueler[schuelerKlasse[i].schuelerId].vorname);
             }   
         }
@@ -1271,10 +1273,10 @@ function getSchueler(buchstabe, stufe){
 
 function getLehrer(buchstabe, stufe){
     var rueckgabe = [];
-    var klassenID = getKlassenID(buchstabe, stufe);
+    var klassenId = getKlassenID(buchstabe, stufe);
     for(var i=0; i<lehrerKlasse.length;i++){
-        for(var j=0; j<klassenID.length;j++){
-            if(lehrerKlasse[i].klassenId == klassenID[j]){
+        for(var j=0; j<klassenId.length;j++){
+            if(lehrerKlasse[i].klassenId == klassenId[j]){
                 rueckgabe.push(lehrer[lehrerKlasse[i].lehrerId]);
             }    
         }
