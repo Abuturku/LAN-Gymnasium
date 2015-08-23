@@ -32,13 +32,12 @@ function ladeStorage() {
     localStorage.setItem("18", "l;7;Carl;Gauß;1234;./bilder/lehrer.jpg;ja");	
     localStorage.setItem("19", "l;8;Gottfried;Leibniz;1234;./bilder/lehrer.jpg;nein");	
     localStorage.setItem("20", "l;9;Siegmund;Freud;1234;./bilder/lehrer.jpg;ja");	
-	localStorage.setItem("21", "l;10;Fresh;Dumbledore;jo;./bilder/lehrer.jpg;ja");
 	
-    localStorage.setItem("22", "s;0;Harry;Potter;1234;./bilder/schueler.jpg");
-    localStorage.setItem("23", "s;1;Michael;Mittermeier;1234;./bilder/schueler.jpg");
-    localStorage.setItem("24", "s;2;Angela;Merkel;1234;./bilder/schueler.jpg");
-    localStorage.setItem("25", "s;3;Joachim;Gauck;1234;./bilder/schueler.jpg");
-    localStorage.setItem("26", "s;4;Alina;Auster;1234;./bilder/schueler.jpg");
+    localStorage.setItem("21", "s;0;Harry;Potter;1234;./bilder/schueler.jpg");
+    localStorage.setItem("22", "s;1;Michael;Mittermeier;1234;./bilder/schueler.jpg");
+    localStorage.setItem("23", "s;2;Angela;Merkel;1234;./bilder/schueler.jpg");
+    localStorage.setItem("24", "s;3;Joachim;Gauck;1234;./bilder/schueler.jpg");
+    localStorage.setItem("25", "s;4;Alina;Auster;1234;./bilder/schueler.jpg");
     localStorage.setItem("27", "s;5;Bella;Bowser;1234;./bilder/schueler.jpg");
     localStorage.setItem("28", "s;6;Chantal;Cunz;1234;./bilder/schueler.jpg");
     localStorage.setItem("29", "s;7;Dodo;Dorst;1234;./bilder/schueler.jpg");
@@ -63,7 +62,7 @@ function ladeStorage() {
     localStorage.setItem("48", "s;26;Walter;Wurst;1234;./bilder/schueler.jpg");
     localStorage.setItem("49", "s;27;Xenia;Xander;1234;./bilder/schueler.jpg");
     localStorage.setItem("50", "s;28;Yvonne;Yteras;1234;./bilder/schueler.jpg");
-    localStorage.setItem("51", "s;29;Zolf;Zwilling;1234;./bilder/schueler.jpg");
+    localStorage.setItem("51", "s;29;Zolf;Zweil;1234;./bilder/schueler.jpg");
     localStorage.setItem("52", "s;30;Wanda;Women;1234;./bilder/schueler.jpg");
     localStorage.setItem("53", "s;31;Clark;Kent;1234;./bilder/schueler.jpg");
     localStorage.setItem("54", "s;32;Cosmo;Ferry;1234;./bilder/schueler.jpg");
@@ -83,7 +82,7 @@ function ladeStorage() {
     localStorage.setItem("67", "n;0;1;3;Wer sind Sie und was tun Sie hier?;12.12.2012 12:00:00");
     localStorage.setItem("68", "n;1;0;0;Potter.;12.12.2012 12:00:00");
     localStorage.setItem("69", "n;2;37;8;Ich mag Kekse.;12.12.2012 12:00:00");
-    localStorage.setItem("70", "n;3;37;6;Nicht vergessen: E=m*c^2.;12.12.2012 12:00:00");
+    localStorage.setItem("70", "n;3;37;6;Nicht vergessen: E=m*c².;12.12.2012 12:00:00");
 	localStorage.setItem("71", "n;4;1;1;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
 	localStorage.setItem("72", "n;5;2;2;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
 	localStorage.setItem("73", "n;6;3;3;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.;12.12.2012 12:00:00");
@@ -115,7 +114,6 @@ function ladeStorage() {
     localStorage.setItem("97", "lk;7;7");
     localStorage.setItem("98", "lk;8;8");
     localStorage.setItem("99", "lk;9;9");
-    localStorage.setItem("100", "lk;7;10");	
     localStorage.setItem("101", "lk;9;1");
     localStorage.setItem("102", "lk;8;2");
     localStorage.setItem("103", "lk;7;3");
@@ -171,8 +169,6 @@ function ladeStorage() {
     localStorage.setItem("152", "sk;2;42");
     localStorage.setItem("153", "sk;3;43");
     localStorage.setItem("154", "sk;4;44");
-	
-    localStorage.setItem("155", "n;24;31;10;Nur ein Statist!;12.12.2012 12:00:00");
 }
 
 
