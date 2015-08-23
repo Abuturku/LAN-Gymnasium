@@ -252,7 +252,7 @@ window.addEventListener("DOMContentLoaded", function(){
             if (event.keyCode === 13) anmelden.click();
         });
     } 
-    if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) == "lehrer.html"){
+    if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
         sucheStufeLehrer();
         sucheKlassenLehrer();
         sucheSchuelerLehrer();
@@ -264,22 +264,22 @@ window.addEventListener("DOMContentLoaded", function(){
         
         var url = window.location.href;
         var idx = url.indexOf("#");
-        var hash = idx != -1 ? url.substring(idx+1) : "";
-        if(hash != ""){
-            if(hash.substring(0,1)=="k"){
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+        if(hash !== ""){
+            if(hash.substring(0,1) === "k"){
                 for(var i = 0; i< stufeDdb.children.length;i++){
-                    if(stufeDdb.children[i].value == hash.substring(2,hash.length-1)){
+                    if(stufeDdb.children[i].value === hash.substring(2,hash.length-1)){
                        stufeDdb.children[i].selected = true; 
                     }
                 }
                 for(var i = 0; i< klasseDdb.children.length;i++){
-                    if(klasseDdb.children[i].value == hash.substring(hash.length-1,hash.length)){
+                    if(klasseDdb.children[i].value === hash.substring(hash.length-1,hash.length)){
                        klasseDdb.children[i].selected = true; 
                     }
                 }
-            } else if(hash.substring(0,1)=="s"){
+            } else if(hash.substring(0,1) === "s"){
                 for(var i = 0; i< schuelerDdb.children.length;i++){
-                    if(schuelerDdb.children[i].value == hash.substring(2,hash.indexOf(";"))+", " + hash.substring(hash.indexOf(";")+1,hash.length)){
+                    if(schuelerDdb.children[i].value === hash.substring(2,hash.indexOf(";"))+", " + hash.substring(hash.indexOf(";")+1,hash.length)){
                         schuelerDdb.children[i].selected = true; 
                     }
                 }
@@ -901,6 +901,7 @@ function sucheStufeKlassen(){
         }
         sel.appendChild(opt);
     }
+    sucheKlassenTabelle();
 }
 
 function sucheStufeLehrer(){ 
@@ -941,6 +942,7 @@ function sucheStufeLehrer(){
         }
         sel.appendChild(opt);
     }
+    sucheLehrerTabelle();
 }
 
 function sucheStufeSchueler(){ 
@@ -981,6 +983,7 @@ function sucheStufeSchueler(){
         }
         sel.appendChild(opt);
     }
+    sucheSchuelerTabelle()
 }
 
 function sucheKlassenLehrer(){ 
@@ -1014,6 +1017,8 @@ function sucheKlassenLehrer(){
         }
         sel.appendChild(opt);
     }
+    
+    sucheLehrerTabelle();
 }
 
 function sucheKlassenSchueler(){ 
@@ -1047,6 +1052,7 @@ function sucheKlassenSchueler(){
         }
         sel.appendChild(opt);
     }
+    sucheSchuelerTabelle()
 }
 
 function sucheLehrerKlassen(){ 
@@ -1070,6 +1076,7 @@ function sucheLehrerKlassen(){
         }
         sel.appendChild(opt);
     }
+    sucheKlassenTabelle();
 }
 
 function sucheLehrerSchueler(){ 
@@ -1093,6 +1100,7 @@ function sucheLehrerSchueler(){
         }
         sel.appendChild(opt);
     }
+    sucheSchuelerTabelle();
 }
 
 function sucheSchuelerKlassen(){ 
@@ -1116,6 +1124,7 @@ function sucheSchuelerKlassen(){
         }
         sel.appendChild(opt);
     }
+    sucheKlassenTabelle();
 }
 
 
@@ -1140,6 +1149,7 @@ function sucheSchuelerLehrer(){
         }
         sel.appendChild(opt);
     }
+    sucheLehrerTabelle()
 }
 
 
@@ -1156,7 +1166,7 @@ function getStufen(){
         }
         if(!istGesetzt){
             rueckgabe.push(stufe);
-            console.log(stufe);
+            //console.log(stufe);
         }
     }
     return rueckgabe;
@@ -1178,7 +1188,7 @@ function getKlassen(stufe){
                 rueckgabe.push(buchstabe);
             }  else if(stufe == klassen[i].stufe){ 
                 rueckgabe.push(buchstabe);
-                console.log(buchstabe);
+                //console.log(buchstabe);
             }
         }
     }
@@ -1273,3 +1283,8 @@ function getLehrer(buchstabe, stufe){
     return rueckgabe;
 }
 //Ende der Suchfunktionen
+
+
+function lehrerHinzufügen(){
+    window.open("lehrer_bearbeiten.html#new", '_blank');
+}
