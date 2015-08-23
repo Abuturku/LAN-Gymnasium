@@ -11,16 +11,16 @@ function ladeStorage() {
     //!!Achtung!! wird bei jedem Aufrufen einer Seite ausgeführt, also falls Datensätze in der Applikation geändert werden, sollte das hier auskommentiert werden!
     localStorage.setItem("0", "");	
 	
-    localStorage.setItem("1", "k;0;5;a;./bilder/5a.jpg");
-    localStorage.setItem("2", "k;1;5;b;./bilder/5b.jpg");
-    localStorage.setItem("3", "k;2;6;a;./bilder/6a.jpg");
-    localStorage.setItem("4", "k;3;6;b;./bilder/6b.jpg");
-    localStorage.setItem("5", "k;4;6;c;./bilder/6c.jpg");	
-    localStorage.setItem("6", "k;5;7;a;./bilder/7a.jpg");
-    localStorage.setItem("7", "k;6;7;b;./bilder/7b.jpg");
-    localStorage.setItem("8", "k;7;8;a;./bilder/8a.jpg");
-    localStorage.setItem("9", "k;8;9;a;./bilder/9a.jpg");
-    localStorage.setItem("10", "k;9;10;a;./bilder/10a.jpg");
+    localStorage.setItem("1", "k;0;5;a;0;./bilder/5a.jpg");
+    localStorage.setItem("2", "k;1;5;b;1;./bilder/5b.jpg");
+    localStorage.setItem("3", "k;2;6;a;2;./bilder/6a.jpg");
+    localStorage.setItem("4", "k;3;6;b;3;./bilder/6b.jpg");
+    localStorage.setItem("5", "k;4;6;c;4;./bilder/6c.jpg");	
+    localStorage.setItem("6", "k;5;7;a;5;./bilder/7a.jpg");
+    localStorage.setItem("7", "k;6;7;b;6;./bilder/7b.jpg");
+    localStorage.setItem("8", "k;7;8;a;7;./bilder/8a.jpg");
+    localStorage.setItem("9", "k;8;9;a;8;./bilder/9a.jpg");
+    localStorage.setItem("10", "k;9;10;a;9;./bilder/10a.jpg");
 	
     localStorage.setItem("11", "l;0;Severus;Snape;1234;./bilder/lehrer.jpg;ja");
     localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;./bilder/lehrer.jpg;ja");
@@ -288,7 +288,7 @@ window.addEventListener("DOMContentLoaded", function(){
         sucheLehrerTabelle();
     }
     
-     if(window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length) == "schueler.html"){
+    if(window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length) == "schueler.html"){
         sucheStufeSchueler();
         sucheKlassenSchueler();
         sucheLehrerSchueler();
@@ -354,6 +354,64 @@ window.addEventListener("DOMContentLoaded", function(){
             }
         }
         sucheKlassenTabelle();
+    }
+    
+    if(window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"){
+        var url = window.location.href
+        var idx = url.indexOf("#")
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+        var sla = document.getElementById('SLA-Buttons');
+        sla.children[1].children
+        
+        if (hash === "new"){
+            document.getElementById('notiznav').style.display = "none";
+            document.getElementById('notizen').style.display = "none";
+            
+            sla.children[2].style.display="none";
+            
+            var table = document.createElement('table');
+            for (var i = 0; i < klassen.length; i++){
+                
+                var line = document.createElement('tr');
+                
+                var checkBox = document.createElement('td');
+                checkBox.setAttribute("id", "cb");
+                checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+                
+                var klasse = document.createElement('td');
+                klasse.innerHTML = ""+klassen[i].stufe+klassen[i].buchstabe+"";
+                
+                line.appendChild(checkBox);
+                line.appendChild(klasse);
+                table.appendChild(line);
+            }
+            document.getElementById('Tabelle').appendChild(table);
+        }
+        else{
+            
+        }
+        
+        document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
+    }
+    
+    if(window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "klassen_bearbeiten.html"){
+        var url = window.location.href
+        var idx = url.indexOf("#")
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+        
+        if (hash === "new"){
+            
+        }
+    }
+    
+    if(window.location.pathname.substr(window.location.pathname.length-24,window.location.pathname.length) === "schueler_bearbeiten.html"){
+        var url = window.location.href
+        var idx = url.indexOf("#")
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+        
+        if (hash === "new"){
+            
+        }
     }
    
 });
@@ -1339,6 +1397,44 @@ function getLehrer(buchstabe, stufe){
 //Ende der Suchfunktionen
 
 
-function lehrerHinzufügen(){
-    window.open("lehrer_bearbeiten.html#new", '_blank');
+function lehrerHinzufuegen(){
+    window.open("lehrer_bearbeiten.html#new", '_self');
 }
+
+function klasseHinzufuegen(){
+    window.open("klassen_bearbeiten.html#new", '_self');
+}
+
+function schuelerHinzufuegen(){
+    window.open("schueler_bearbeiten.html#new", '_self');
+}
+
+function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+    if (!f.type.match('image.*')) {
+        continue;
+    }
+
+    var reader = new FileReader();
+
+    // Closure to capture the file information.
+    reader.onload = (function(theFile) {
+      return function(e) {
+        // Render thumbnail.
+        var img = document.getElementById('bild');
+        img.innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+        document.getElementById('bild').insertBefore(img, null);
+      };
+    })(f);
+
+    // Read in the image file as a data URL.
+    reader.readAsDataURL(f);
+    }
+    //document.getElementById('bild').innerHTML = <img src=;
+  }
