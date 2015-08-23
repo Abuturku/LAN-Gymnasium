@@ -13,7 +13,14 @@ label{
 	color: white;
 }
 
+/*Rausnehmen zum Testen, welche Buttons noch falsch sind*/
 button{
+	border-radius: 6px;
+	font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
+}   
+
+
+input[type="button"]{
 	border-radius: 6px;
 	font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
 }
@@ -182,10 +189,14 @@ div#bild img, div#klassenbild img{
     display: table;
 }
 
+input#fileUpload{
+    display: inline-block;
+}
+
 #centered{
     width: 26%;
     margin:auto;
-	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+    font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
     margin-left: 37%;
 }
 
@@ -295,7 +306,7 @@ div#SLA-Buttons form{
 	width: 30%;
 }
 
-div#SLA-Buttons button{
+div#SLA-Buttons input{
 	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
     color:#000; 
     width: 90%;
@@ -407,4 +418,44 @@ div#notizbearbeitung{
 	width: 100%;
 	resize: none;
 	border-radius: 6px;
+}
+
+form#fileUploadForm{
+    width:100%;
+}
+
+input[type=file] {
+    display: inline-block;
+    -webkit-appearance: textfield;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    margin-left:13%;
+    width: 60%;
+    margin-right: 1em;
+    background-color: white;
+    border-radius: 6px;
+    font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
+}
+
+input[type=file]::-webkit-file-upload-button {
+    width: 0;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 6px;
+    font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
+}
+
+/* "x::-webkit-file-upload-button" forces the rules to only apply to browsers that support this pseudo-element */
+x::-webkit-file-upload-button, input[type=file]:after {
+    content: '';
+    display: inline-block;
+    left: 100%;
+    margin-left:3px;
+    position: relative;
+    -webkit-appearance: none;
+    padding: 3px 8px 2px;
+    border-radius: 6px;
+    font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
 }

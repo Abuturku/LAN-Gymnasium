@@ -33,8 +33,11 @@
         </ul>
 		</div>
             <div id="bild">
-                <img src="./Profilbild.jpg">
-                <button id="centered">Hochladen</button>
+                <img src="./Profilbild.jpg" id="bild">
+                <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                    <input name="Datei" type="file" accept="image/jpeg,image/png">
+                    <input type="button" value="Hochladen" id="fileUpload"/>
+                </form>
             </div>
             <div id="name">
                 <label for="nachname" id="name">Nachname:</label>
@@ -45,200 +48,7 @@
                <label>Klassen:</label>
                 <div id="Tabelle">
                 
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" checked>
-                        </td>
-                        <td>
-                        12a
-                        </td>
-                    </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        11a
-                        </td>
-                    </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox" checked>
-                        </td>
-                        <td>
-                        10a
-                        </td>
-                    </tr>
-                      <tr>
-                        <td>
-                           <input type="checkbox">
-                        </td>
-                        <td>
-                        19a
-                        </td>
-                    </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        12b
-                        </td>
-                    </tr>
-                  <tr>
-                        <td>
-                          <input type="checkbox" checked>
-                        </td>
-                        <td>
-                        122b
-                        </td>
-                    </tr>
-                  <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        142b
-                        </td>
-                    </tr>
-                  <tr>
-                        <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        162b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        121b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        122b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        142b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        152b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        712b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        182b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        102b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        112b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        125b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        132b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        122b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        112b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        1112b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        1243b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        12124b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        12342b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        12123b
-                        </td>
-                    </tr>
-                     <td>
-                          <input type="checkbox">
-                        </td>
-                        <td>
-                        13332b
-                        </td>
-                    </tr>
-               
-                    
-                </table>
+                
                 </div>
             </div>
 			<div id="notiznav">
@@ -335,14 +145,14 @@
             </div>
             <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" value="Speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                      <input type="button" value="Abbrechen" onclick="window.history.back()"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Abbrechen"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>
