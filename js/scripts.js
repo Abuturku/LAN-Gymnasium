@@ -553,7 +553,7 @@ function zeigeKlassenSchueler(){
 function sucheLehrerTabelle(){
     var tabelle = document.createElement('table');
     var head = document.createElement('tr');
-    head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td><td id=\"header\">Ist noch angestellt</td>";
+    head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td><td id=\"header\">Angestellt</td>";
     tabelle.appendChild(head);
   
     var stufeDdb = document.getElementById('stufe_ddb');
@@ -578,7 +578,16 @@ function sucheLehrerTabelle(){
                     if(schuelerKlasse[j].schuelerId == schuelerID[0]){
                         for(var x = 0; x < lehrerInKlasse.length; x++){
                             if(schuelerKlasse[j].klassenId===lehrerInKlasse[x]){
-                                gefunden.push(lehrer[i]);
+								
+								var bereitsVorhanden = false;
+								for(var y = 0; y < gefunden.length; y++){
+									if(lehrer[i] === gefunden[y]){
+										bereitsVorhanden = true;
+									}
+								}
+								if(bereitsVorhanden===false){
+									gefunden.push(lehrer[i]);
+								}
                             }
                         }
                     }
@@ -586,7 +595,15 @@ function sucheLehrerTabelle(){
                 
             }
         }else{
-            gefunden.push(lehrer[i]);
+            var bereitsVorhanden = false;
+			for(var y = 0; y < gefunden.length; y++){
+				if(lehrer[i] === gefunden[y]){
+					bereitsVorhanden = true;
+				}
+			}
+			if(bereitsVorhanden===false){
+				gefunden.push(lehrer[i]);
+			}
         }
         
     }
@@ -640,12 +657,28 @@ function sucheSchuelerTabelle(){
                                         if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
                                             var lehrerLine = lehrerDdb.value.split(",");
                                             if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
-                                                gefunden.push(schueler[i]);
+												var bereitsVorhanden = false;
+												for(var y = 0; y < gefunden.length; y++){
+													if(schueler[i] === gefunden[y]){
+														bereitsVorhanden = true;
+													}
+												}
+												if(bereitsVorhanden===false){
+													gefunden.push(schueler[i]);
+												}
                                             }
                                         }
                                      }
                                 }else{
-                                                gefunden.push(schueler[i]);
+									var bereitsVorhanden = false;
+									for(var y = 0; y < gefunden.length; y++){
+										if(schueler[i] === gefunden[y]){
+											bereitsVorhanden = true;
+										}
+									}
+									if(bereitsVorhanden===false){
+										gefunden.push(schueler[i]);
+									}
                                 }
                             }
                         }else{
@@ -836,6 +869,25 @@ function sucheKlassenTabelle(){
                 }   
         }
     }
+	
+	//hier werden doppelte Einträge aus Array "gefunden" entfernt
+	var zwischenspeicher = [];
+	var eintragNeu = true;
+	for(var x = 0; x < gefunden.length; x++) {
+		for(var y = 0; y < zwischenspeicher.length; y++) {
+			if (gefunden[x] === zwischenspeicher[y]){
+					eintragNeu = false;
+					break;
+			}
+		}
+		if(eintragNeu) {
+			zwischenspeicher.push(gefunden[x]);
+		}
+		eintragNeu = true;
+	}
+	gefunden = zwischenspeicher;
+	zwischenspeicher = null;
+	//Ende doppelte Einträge entfernen
     
     for(var i = 0; i < gefunden.length; i++) {
         var line = document.createElement('tr');
