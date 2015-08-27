@@ -36,7 +36,7 @@
                 <img src="./Profilbild.jpg" id="bild">
                 <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
                     <input name="Datei" type="file" accept="image/jpeg,image/png">
-                    <input type="button" value="Hochladen" id="fileUpload"/>
+                    <!-- <input type="button" value="Hochladen" id="fileUpload"/> -->
                 </form>
             </div>
             <div id="name">
@@ -145,7 +145,7 @@
             </div>
             <div id="SLA-Buttons">
                 <form>
-                    <input type="button" value="Speichern"/>
+                    <input type="button" value="Speichern" onclick ="lehrerSpeichern()"/>
                 </form>
                   <form id="hoverMe">
                       <input type="button" value="Abbrechen" onclick="window.history.back()"/>

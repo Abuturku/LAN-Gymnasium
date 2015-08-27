@@ -175,8 +175,6 @@ function ladeStorage() {
     localStorage.setItem("155", "n;24;31;10;Nur ein Statist!;12.12.2012 12:00:00");
 }
 
-
-
 //Wird bei jedem Laden einer Seite aufgerufen
 window.addEventListener("DOMContentLoaded", function(){
  
@@ -286,6 +284,12 @@ window.addEventListener("DOMContentLoaded", function(){
             }
         }
         sucheLehrerTabelle();
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			document.getElementById('btnLehrerHinzufuegen').style.display="none";
+			document.getElementById('btnLehrerBearbeiten').style.display="none";
+			document.getElementById('btnLehrerLoeschen').style.display="none";
+		}
     }
     
     if(window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length) == "schueler.html"){
@@ -322,6 +326,12 @@ window.addEventListener("DOMContentLoaded", function(){
             }
         }
         sucheSchuelerTabelle();
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			document.getElementById('btnSchuelerHinzufuegen').style.display="none";
+			document.getElementById('btnSchuelerBearbeiten').style.display="none";
+			document.getElementById('btnSchuelerLoeschen').style.display="none";
+		}
     }
     
     if(window.location.pathname.substr(window.location.pathname.length-12,window.location.pathname.length) == "klassen.html"){
@@ -354,9 +364,21 @@ window.addEventListener("DOMContentLoaded", function(){
             }
         }
         sucheKlassenTabelle();
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			document.getElementById('btnKlasseHinzufuegen').style.display="none";
+			document.getElementById('btnKlasseBearbeiten').style.display="none";
+			document.getElementById('btnKlasseLoeschen').style.display="none";
+		}
     }
     
     if(window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"){
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("YOU SHALL NOT PASS!");
+			window.open("lehrer.html", "_self");
+		}
+		
         var url = window.location.href
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
@@ -394,7 +416,13 @@ window.addEventListener("DOMContentLoaded", function(){
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
     }
     
-    if(window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "klassen_bearbeiten.html"){
+    if(window.location.pathname.substr(window.location.pathname.length-23,window.location.pathname.length) === "klassen_bearbeiten.html"){
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("YOU SHALL NOT PASS!");
+			window.open("klassen.html", "_self");
+		}
+		
         var url = window.location.href
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
@@ -405,6 +433,12 @@ window.addEventListener("DOMContentLoaded", function(){
     }
     
     if(window.location.pathname.substr(window.location.pathname.length-24,window.location.pathname.length) === "schueler_bearbeiten.html"){
+		
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("YOU SHALL NOT PASS!");
+			window.open("schueler.html", "_self");
+		}
+		
         var url = window.location.href
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
@@ -415,6 +449,7 @@ window.addEventListener("DOMContentLoaded", function(){
     }
    
 });
+
 //Wird bei Klick auf Button "Anmelden" aufgerufen
 function onclickLogin(form){
     var vorname = form.loginVorname.value;
@@ -424,7 +459,7 @@ function onclickLogin(form){
     if (nachname === "root"){
         if (vorname=== "root"){
             if (passwort === "root"){
-                localStorage.setItem("0","s;;Administrator;");
+                localStorage.setItem("0","a;;Administrator;");
                 window.location.href="startseite.html";
                 return;
             }
@@ -469,15 +504,13 @@ function ausloggen(){
     localStorage.setItem("0", "");
 }
 
-
 //Für die Suche
-
 function zeigeSchuelerLehrer(){
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("schueler.html#l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("schueler.html#l="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
@@ -488,18 +521,21 @@ function zeigeSchuelerKlassen(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("schueler.html#k="+line.children[1].outerText, '_blank');
+            window.open("schueler.html#k="+line.children[1].innerHTML, '_blank');
         }
         
     }
 }
 
 function lehrerBearbeiten(){
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("Keine Berechtigung!");
+	}
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("lehrer_bearbeiten.html#l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("lehrer_bearbeiten.html#l="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
@@ -510,30 +546,37 @@ function schuelerBearbeiten(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("schueler_bearbeiten.html#s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("schueler_bearbeiten.html#s="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
 }
 
-
 function klassenBearbeiten(){
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("Keine Berechtigung!");
+	}
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("klassen_bearbeiten.html#k="+line.children[1].outerText, '_blank');
+            window.open("klassen_bearbeiten.html#k="+line.children[1].innerHTML, '_blank');
         }
         
     }
 }
 
 function lehrerLöschen(){
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+			window.alert("Keine Berechtigung!");
+			return;
+	}
+	
     var tabelle = document.getElementById('table').children[0].children;
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            var lehrerFound = getLehrerByName(line.children[1].outerText, line.children[2].outerText);
+            var lehrerFound = getLehrerByName(line.children[1].innerHTML, line.children[2].innerHTML);
             if(lehrerFound != undefined){
                 lehrerFound.istAngestellt = "nein";
                 for (i = 1; i <= localStorage.length-1; i++){
@@ -569,7 +612,7 @@ function zeigeLehrerKlassen(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("lehrer.html#k="+line.children[1].outerText, '_blank');
+            window.open("lehrer.html#k="+line.children[1].innerHTML, '_blank');
         }
         
     }
@@ -580,7 +623,7 @@ function zeigeLehrerSchueler(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("lehrer.html#s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("lehrer.html#s="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
@@ -591,7 +634,7 @@ function zeigeKlassenLehrer(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("klassen.html#l="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("klassen.html#l="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
@@ -602,7 +645,7 @@ function zeigeKlassenSchueler(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("klassen.html#s="+line.children[1].outerText+";"+line.children[2].outerText, '_blank');
+            window.open("klassen.html#s="+line.children[1].innerHTML+";"+line.children[2].innerHTML, '_blank');
         }
         
     }
@@ -1239,7 +1282,6 @@ function sucheSchuelerKlassen(){
     sucheKlassenTabelle();
 }
 
-
 function sucheSchuelerLehrer(){ 
     var schueler = getSchueler(document.getElementById('klasse_ddb').value, document.getElementById('stufe_ddb').value);   
     
@@ -1263,7 +1305,6 @@ function sucheSchuelerLehrer(){
     }
     sucheLehrerTabelle()
 }
-
 
 function getStufen(){
     var rueckgabe = [];
@@ -1396,7 +1437,6 @@ function getLehrer(buchstabe, stufe){
 }
 //Ende der Suchfunktionen
 
-
 function lehrerHinzufuegen(){
     window.open("lehrer_bearbeiten.html#new", '_self');
 }
@@ -1409,6 +1449,51 @@ function schuelerHinzufuegen(){
     window.open("schueler_bearbeiten.html#new", '_self');
 }
 
+function lehrerSpeichern(){
+	var vorname = document.getElementById('vorname').value;
+	var nachname = document.getElementById('nachname').value;
+	var imgSource = document.getElementById('bild').children[0].src;
+	var klassenTabelle = document.getElementById('Tabelle').children[0];
+	var klassenID;
+	//var unterrichteteKlassen = [];
+	
+	if(vorname === "" || nachname === ""){
+		window.alert("Bitte dem Lehrer einen vollständigen Namen geben!");
+		return;
+	}
+	
+	//var lehrerObject = {vorname:vorname, nachname:nachname, passwort:"ändermich", bildquelle:imgSource, istAngestellt:"ja"};
+	//lehrer.push(lehrerObject);
+		
+	var keineKlasse = true;
+	for(var i = 0; i < klassenTabelle.children.length; i++) {
+        var line = klassenTabelle.children[i];
+		
+        if(line.children[0].children[0].checked){
+			if(klassenTabelle.children[i].children[1].innerHTML.length === 2){
+				klassenID = getKlassenID(klassenTabelle.children[i].children[1].innerHTML.charAt(1), klassenTabelle.children[i].children[1].innerHTML.charAt(0));
+			}else{
+				//Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
+				var klasse = klassenTabelle.children[i].children[1].innerHTML;
+				klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
+			}
+			
+			localStorage.setItem(localStorage.length, "lk;"+klassenID+";"+lehrer.length);
+			//unterrichteteKlassen.push(klassenID);
+            keineKlasse = false;
+        }
+    }
+	
+	if(keineKlasse === true){
+		window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
+		return;
+	}
+	
+	localStorage.setItem(localStorage.length, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
+	
+	window.open("lehrer.html", "_self");
+}
+
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 
@@ -1416,25 +1501,27 @@ function handleFileSelect(evt) {
 
     for (var i = 0, f; f = files[i]; i++) {
 
-      // Only process image files.
-    if (!f.type.match('image.*')) {
-        continue;
-    }
+		// Only process image files.
+		if (!f.type.match('image.*')) {
+			continue;
+		}
 
-    var reader = new FileReader();
+		var reader = new FileReader();
 
-    // Closure to capture the file information.
-    reader.onload = (function(theFile) {
-      return function(e) {
-        // Render thumbnail.
-        var img = document.getElementById('bild');
-        img.innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-        document.getElementById('bild').insertBefore(img, null);
-      };
-    })(f);
+		// Closure to capture the file information.
+		reader.onload = (function(theFile) {
+			return function(e) {
+				// Render thumbnail.
+				var img = document.getElementById('bild');
+				var form = document.getElementById('fileUploadForm');
+				img.innerHTML = ['<img src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+				//document.getElementById('bild').insertBefore(img, null);
+				img.appendChild(form);
+			};
+		})(f);
 
     // Read in the image file as a data URL.
     reader.readAsDataURL(f);
     }
-    //document.getElementById('bild').innerHTML = <img src=;
+    
   }
