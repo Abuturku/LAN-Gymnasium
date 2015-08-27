@@ -1,7 +1,7 @@
-/*PINK*/
+/*PINK
 div{
 	border:solid pink 0px;
-}
+}*/
 
 /*Allgemeinstes Layout*/
 body{
@@ -110,18 +110,41 @@ button#abmelden{
 
 /*Startseite*/
 div#startseite{
-	margin-top: 2%;
-	margin-left: 2%;
-	margin-right: 2%;
-	padding: 2%;
-	height: 80%;
-	width: 92%;
+	margin: 1em;
+	margin-right: 0;
+	padding: 1em;
+	width: 60%;
+	height: 83%;
 	background: rgba(242, 242, 242, 0.7);
 	border-radius: 10px;
 	text-align: center;
+	float:left;
+	display: inline-block;
 }
 #startseite p{
-	font: 6em arial,geneva,helvetica,sans-serif;
+	font: 4em arial,geneva,helvetica,sans-serif;
+	vertical-align: middle;
+}
+div#myLAN{
+    display: inline-block;
+	padding: 1em;
+    float: right;
+    width: 25%;
+	height: 83%;
+    margin: 1em;
+	margin-left: 0;
+	background: rgba(242, 242, 242, 0.7);
+	border-radius: 10px;
+}
+
+form#myLANbutton{
+	display: inline-block;
+    width: 100%;
+	margin-bottom: 2em;
+}
+
+form#myLANbutton input{
+	width:100%;
 }
 
 /*Allgemeines Layout der Tabellen*/
@@ -203,7 +226,6 @@ input#fileUpload{
 div#name , div#klasseninfo{
     display: inline-block;
 	float:right;
-    clear: left;
     width: 35%; 
     margin-top: 1em;
 	margin-right: 13%;
