@@ -317,6 +317,7 @@ div#Notizen button{
 }
 
 div#SLA-Buttons{
+	margin-top: 2%;
     margin-left: 35%;
 	height: 10%;
 	width: 33%;

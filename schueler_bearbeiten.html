@@ -34,7 +34,10 @@
 		</div>
             <div id="bild">
                 <img src="./Schueler.png">
-                <button id="centered">Hochladen</button>
+                <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                    <input name="Datei" type="file" accept="image/jpeg,image/png">
+                    <!-- <input type="button" value="Hochladen" id="fileUpload"/> -->
+                </form>
             </div>
             <div id="name">
                 <label for="nachname" id="name">Nachname:</label>
@@ -44,12 +47,22 @@
                 <input type="text" placeholder ="Vorname" id="vorname">
 				<br><br>
 				<label for="stufe" id="input">Stufe:</label>
-				<select>
-					<option></option>
+				<select id="selectSchuelerBearbeitenStufe">
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
 				</select>
 				<label for="stufe" id="input">Klasse</label>
-				<select>
-					<option></option>
+				<select id="selectSchuelerBearbeitenKlasse">
+					<option value="a">a</option>
+					<option value="b">b</option>
+					<option value="c">c</option>
 				</select>
             </div>
 			<div id="notiznav">
@@ -137,14 +150,14 @@
             </div>
           <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" onclick="schuelerSpeichern()" value="Speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                    <input type="button" onclick="window.history.back()" value="Abbrechen"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Löschen"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>

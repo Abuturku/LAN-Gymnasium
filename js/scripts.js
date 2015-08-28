@@ -219,8 +219,7 @@ window.addEventListener("DOMContentLoaded", function(){
         }
     }
    
-    
-     if(localStorage.getItem(0)===""){
+    if(localStorage.getItem(0)===""){
         //console.log(window.location.href.substr(window.location.href.length-10,window.location.href.length));
         if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !== "index.html"){
             window.location.href="index.html";
@@ -250,6 +249,7 @@ window.addEventListener("DOMContentLoaded", function(){
             if (event.keyCode === 13) anmelden.click();
         });
     } 
+	
     if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
         sucheStufeLehrer();
         sucheKlassenLehrer();
@@ -383,12 +383,13 @@ window.addEventListener("DOMContentLoaded", function(){
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
         var sla = document.getElementById('SLA-Buttons');
-        sla.children[1].children
         
         if (hash === "new"){
+			//Ausblenden der Notizen, denn ein neuer Lehrer kann noch keine Notizen angelegt haben
             document.getElementById('notiznav').style.display = "none";
             document.getElementById('notizen').style.display = "none";
             
+			//Ausblenden des Löschen Buttons
             sla.children[2].style.display="none";
             
             var table = document.createElement('table');
@@ -426,10 +427,43 @@ window.addEventListener("DOMContentLoaded", function(){
         var url = window.location.href
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
+		var sla = document.getElementById('SLA-Buttons');
         
-        if (hash === "new"){
-            
-        }
+        if (hash === "new"){			
+			//Ausblenden des Löschen Buttons
+			sla.children[2].style.display="none";
+			
+			
+			var table = document.createElement('table');
+			var head = document.createElement('tr');
+			head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td>";
+			table.appendChild(head);
+			
+            for (var i = 0; i < lehrer.length; i++){
+                
+                var line = document.createElement('tr');
+                
+                var checkBox = document.createElement('td');
+                checkBox.setAttribute("id", "cb");
+                checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+                
+                var nachname = document.createElement('td');
+                nachname.innerHTML = ""+lehrer[i].nachname;
+				
+				var vorname = document.createElement('td');
+                vorname.innerHTML = ""+lehrer[i].vorname;
+                
+                line.appendChild(checkBox);
+                line.appendChild(nachname);
+				line.appendChild(vorname);
+                table.appendChild(line);
+            }
+            document.getElementById('Tabelle').appendChild(table);
+        }else{
+			
+		}
+		
+		document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
     }
     
     if(window.location.pathname.substr(window.location.pathname.length-24,window.location.pathname.length) === "schueler_bearbeiten.html"){
@@ -442,10 +476,20 @@ window.addEventListener("DOMContentLoaded", function(){
         var url = window.location.href
         var idx = url.indexOf("#")
         var hash = idx !== -1 ? url.substring(idx+1) : "";
+		var sla = document.getElementById('SLA-Buttons');
         
         if (hash === "new"){
-            
-        }
+			//Ausblenden der Notizen, denn ein neuer Schüler kann keine Notizen haben
+            document.getElementById('notiznav').style.display = "none";
+            document.getElementById('notizen').style.display = "none";
+			
+			//Ausblenden des Löschen Buttons
+			sla.children[2].style.display="none";
+        }else{
+			
+		}
+		
+		document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
     }
    
 });
@@ -954,7 +998,7 @@ function sucheKlassenTabelle(){
                                         for(var x = 0; x < schuelerKlasse.length; x++){
                                             if(schuelerKlasse[x].klassenId == i){
                                                 for( var z = 0; z <schuelerID.length; z++){
-                                                    if(schuelerID[z] == schuelerKlasse[j].schuelerId){
+                                                    if(schuelerID[z] == schuelerKlasse[x].schuelerId){
                                                         gefunden.push(klassen[i]);
                                                     }
                                                 }
@@ -1494,6 +1538,24 @@ function lehrerSpeichern(){
 	window.open("lehrer.html", "_self");
 }
 
+function schuelerSpeichern(){
+	var vorname = document.getElementById('vorname').value;
+	var nachname = document.getElementById('nachname').value;
+	var imgSource = document.getElementById('bild').children[0].src;
+	
+	if(vorname === "" || nachname === ""){
+		window.alert("Bitte dem Schüler einen vollständigen Namen geben!");
+		return;
+	}
+	
+	localStorage.setItem(localStorage.length, "s;"+schueler.length+";"+vorname+";"+nachname+";ändermich;"+imgSource);
+	
+	var selectStufe = document.getElementById('selectSchuelerBearbeitenStufe');
+	var selectKlasse = document.getElementById('selectSchuelerBearbeitenKlasse');
+	localStorage.setItem(localStorage.length, "sk;"+getKlassenID(selectKlasse.value, selectStufe.value)+";"+schueler.length);
+	
+	window.open("schueler.html", "_self");
+}
 function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
 

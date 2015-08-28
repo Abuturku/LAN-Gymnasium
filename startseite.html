@@ -35,19 +35,13 @@
 		</div>
 		<div id="myLAN">
 			<form id="myLANbutton">
+			<!-- Die Buttons brauchen noch ein margin und eine ID, damit man sie durch JS verstecken kann.
+			Den aktuellen User lese ich im localStorage 0 aus. Da brauchst du nur das erste Zeichen zu überprüfen. Siehe Zeile 288 in unserer JS !-->
 				<input type="button" value="Mein Profil" onclick="meinProfilStartseite()" />
-			</form>
-			<form id="myLANbutton">
 				<input type="button" value="Meine Lehrer" onclick="meineLehrerStartseite()" />
-			</form>
-			<form id="myLANbutton">
 				<input type="button" value="Meine Klassen" onclick="meineKlassenStartseite()" />
-			</form>
-			<form id="myLANbutton">
 				<input type="button" value="Meine Schüler" onclick="meineSchuelerStartseite()" />
-			</form>
-			<form id="myLANbutton">
-				<input type="button" value="Passwort ändern" onclick="Passwort ändern()" />
+				<input type="button" value="Passwort ändern" onclick="passwortAendern()" />
 			</form>
 		</div>
       
