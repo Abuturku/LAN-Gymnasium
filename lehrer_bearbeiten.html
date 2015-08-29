@@ -145,14 +145,14 @@
             </div>
             <div id="SLA-Buttons">
                 <form>
-                    <input type="button" value="Speichern" onclick ="lehrerSpeichern()" id="speichern"/>
+                    <input type="button" value="Speichern" onclick ="lehrerSpeichern(x)" id="speichern"/>
                 </form>
                   <form id="hoverMe">
-                      <input type="button" value="Abbrechen" onclick="window.history.back()"/>
+                      <input type="button" value="Abbrechen" onclick="window.history.back()" id="abbrechen"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <input type="button" value="Abbrechen"/>
+                    <input type="button" value="Löschen" onclick="lehrerLöschen()" id="loeschen"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>

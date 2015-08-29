@@ -11,74 +11,74 @@ function ladeStorage() {
     //!!Achtung!! wird bei jedem Aufrufen einer Seite ausgeführt, also falls Datensätze in der Applikation geändert werden, sollte das hier auskommentiert werden!
     localStorage.setItem("0", "");	
 	
-    localStorage.setItem("1", "k;0;5;a;0;./bilder/5a.jpg");
-    localStorage.setItem("2", "k;1;5;b;1;./bilder/5b.jpg");
-    localStorage.setItem("3", "k;2;6;a;2;./bilder/6a.jpg");
-    localStorage.setItem("4", "k;3;6;b;3;./bilder/6b.jpg");
-    localStorage.setItem("5", "k;4;6;c;4;./bilder/6c.jpg");	
-    localStorage.setItem("6", "k;5;7;a;5;./bilder/7a.jpg");
-    localStorage.setItem("7", "k;6;7;b;6;./bilder/7b.jpg");
-    localStorage.setItem("8", "k;7;8;a;7;./bilder/8a.jpg");
-    localStorage.setItem("9", "k;8;9;a;8;./bilder/9a.jpg");
-    localStorage.setItem("10", "k;9;10;a;9;./bilder/10a.jpg");
+    localStorage.setItem("1", "k;0;5;a;0;Klassenfoto.png");
+    localStorage.setItem("2", "k;1;5;b;1;Klassenfoto.png");
+    localStorage.setItem("3", "k;2;6;a;2;Klassenfoto.png");
+    localStorage.setItem("4", "k;3;6;b;3;Klassenfoto.png");
+    localStorage.setItem("5", "k;4;6;c;4;Klassenfoto.png");	
+    localStorage.setItem("6", "k;5;7;a;5;Klassenfoto.png");
+    localStorage.setItem("7", "k;6;7;b;6;Klassenfoto.png");
+    localStorage.setItem("8", "k;7;8;a;7;Klassenfoto.png");
+    localStorage.setItem("9", "k;8;9;a;8;Klassenfoto.png");
+    localStorage.setItem("10", "k;9;10;a;9;Klassenfoto.png");
 	
-    localStorage.setItem("11", "l;0;Severus;Snape;1234;./bilder/lehrer.jpg;ja");
-    localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;./bilder/lehrer.jpg;ja");
-    localStorage.setItem("13", "l;2;Johann;Goethe;1234;./bilder/lehrer.jpg;ja");
-    localStorage.setItem("14", "l;3;Isaac;Newton;Passwort;./bilder/lehrer.jpg;ja");
-    localStorage.setItem("15", "l;4;Adam;Riese;1234;./bilder/lehrer.jpg;ja");	
-    localStorage.setItem("16", "l;5;Immanuel;Kant;1234;./bilder/lehrer.jpg;ja");	
-    localStorage.setItem("17", "l;6;Albert;Einstein;1234;./bilder/lehrer.jpg;ja");	
-    localStorage.setItem("18", "l;7;Carl;Gauß;1234;./bilder/lehrer.jpg;ja");	
-    localStorage.setItem("19", "l;8;Gottfried;Leibniz;1234;./bilder/lehrer.jpg;nein");	
-    localStorage.setItem("20", "l;9;Siegmund;Freud;1234;./bilder/lehrer.jpg;ja");	
-    localStorage.setItem("21", "l;10;Fresh;Dumbledore;jo;./bilder/lehrer.jpg;ja");
+    localStorage.setItem("11", "l;0;Severus;Snape;1234;Profilbild.jpg;ja");
+    localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;Profilbild.jpg;ja");
+    localStorage.setItem("13", "l;2;Johann;Goethe;1234;Profilbild.jpg;ja");
+    localStorage.setItem("14", "l;3;Isaac;Newton;Passwort;Profilbild.jpg;ja");
+    localStorage.setItem("15", "l;4;Adam;Riese;1234;Profilbild.jpg;ja");	
+    localStorage.setItem("16", "l;5;Immanuel;Kant;1234;Profilbild.jpg;ja");	
+    localStorage.setItem("17", "l;6;Albert;Einstein;1234;Profilbild.jpg;ja");	
+    localStorage.setItem("18", "l;7;Carl;Gauß;1234;Profilbild.jpg;ja");	
+    localStorage.setItem("19", "l;8;Gottfried;Leibniz;1234;Profilbild.jpg;nein");	
+    localStorage.setItem("20", "l;9;Siegmund;Freud;1234;Profilbild.jpg;ja");	
+    localStorage.setItem("21", "l;10;Fresh;Dumbledore;jo;Profilbild.jpg;ja");
 	
-    localStorage.setItem("22", "s;0;Harry;Potter;1234;./bilder/schueler.jpg");
-    localStorage.setItem("23", "s;1;Michael;Mittermeier;1234;./bilder/schueler.jpg");
-    localStorage.setItem("24", "s;2;Angela;Merkel;1234;./bilder/schueler.jpg");
-    localStorage.setItem("25", "s;3;Joachim;Gauck;1234;./bilder/schueler.jpg");
-    localStorage.setItem("26", "s;4;Alina;Auster;1234;./bilder/schueler.jpg");
-    localStorage.setItem("27", "s;5;Bella;Bowser;1234;./bilder/schueler.jpg");
-    localStorage.setItem("28", "s;6;Chantal;Cunz;1234;./bilder/schueler.jpg");
-    localStorage.setItem("29", "s;7;Dodo;Dorst;1234;./bilder/schueler.jpg");
-    localStorage.setItem("30", "s;8;Elmar;Eder;1234;./bilder/schueler.jpg");
-    localStorage.setItem("31", "s;9;Fabian;Furchtlos;1234;./bilder/schueler.jpg");
-    localStorage.setItem("32", "s;10;Gina;Gulstenstrom;1234;./bilder/schueler.jpg");
-    localStorage.setItem("33", "s;11;Hugo;Hurst;1234;./bilder/schueler.jpg");
-    localStorage.setItem("34", "s;12;Inga;Indorf;1234;./bilder/schueler.jpg");
-    localStorage.setItem("35", "s;13;Jenny;Jin-Sui;1234;./bilder/schueler.jpg");
-    localStorage.setItem("36", "s;14;Kevin;Köstlich;1234;./bilder/schueler.jpg");
-    localStorage.setItem("37", "s;15;Lin-Pin;Lee;1234;./bilder/schueler.jpg");
-    localStorage.setItem("38", "s;16;Max;Moritz;1234;./bilder/schueler.jpg");
-    localStorage.setItem("39", "s;17;Nils;Nimmermann;1234;./bilder/schueler.jpg");
-    localStorage.setItem("40", "s;18;Olli;Olsrich;1234;./bilder/schueler.jpg");
-    localStorage.setItem("41", "s;19;Peter;Parker;1234;./bilder/schueler.jpg");
-    localStorage.setItem("42", "s;20;Quirin;Quietschbunt;1234;./bilder/schueler.jpg");
-    localStorage.setItem("43", "s;21;Rudolf;Rentier;1234;./bilder/schueler.jpg");
-    localStorage.setItem("44", "s;22;Sarah;Sorglos;1234;./bilder/schueler.jpg");
-    localStorage.setItem("45", "s;23;Tina;Teller;1234;./bilder/schueler.jpg");
-    localStorage.setItem("46", "s;24;Ulli;Unter;1234;./bilder/schueler.jpg");
-    localStorage.setItem("47", "s;25;Vladimir;Voldemort;1234;./bilder/schueler.jpg");
-    localStorage.setItem("48", "s;26;Walter;Wurst;1234;./bilder/schueler.jpg");
-    localStorage.setItem("49", "s;27;Xenia;Xander;1234;./bilder/schueler.jpg");
-    localStorage.setItem("50", "s;28;Yvonne;Yteras;1234;./bilder/schueler.jpg");
-    localStorage.setItem("51", "s;29;Zolf;Zwilling;1234;./bilder/schueler.jpg");
-    localStorage.setItem("52", "s;30;Wanda;Women;1234;./bilder/schueler.jpg");
-    localStorage.setItem("53", "s;31;Clark;Kent;1234;./bilder/schueler.jpg");
-    localStorage.setItem("54", "s;32;Cosmo;Ferry;1234;./bilder/schueler.jpg");
-    localStorage.setItem("55", "s;33;Wanda;Ferry;1234;./bilder/schueler.jpg");
-    localStorage.setItem("56", "s;34;Tony;Stark;1234;./bilder/schueler.jpg");
-    localStorage.setItem("57", "s;35;Natascha;Romanov;1234;./bilder/schueler.jpg");
-    localStorage.setItem("58", "s;36;Bruce;Wayne;1234;./bilder/schueler.jpg");
-    localStorage.setItem("59", "s;37;Max;Mustermann;1234;./bilder/schueler.jpg");
-    localStorage.setItem("60", "s;38;Pipi;Langstrumpf;1234;./bilder/schueler.jpg");
-    localStorage.setItem("61", "s;39;Benjamin;Blümchen;1234;./bilder/schueler.jpg");
-    localStorage.setItem("62", "s;40;Michel;Lönneberga;1234;./bilder/schueler.jpg");
-    localStorage.setItem("63", "s;41;Christian;Liljegren;1234;./bilder/schueler.jpg");
-    localStorage.setItem("64", "s;42;Arjen;Lucasson;1234;./bilder/schueler.jpg");
-    localStorage.setItem("65", "s;43;Bodo;Wartke;1234;./bilder/schueler.jpg");
-    localStorage.setItem("66", "s;44;Helene;Fischer;1234;./bilder/schueler.jpg");	
+    localStorage.setItem("22", "s;0;Harry;Potter;1234;Schueler.png");
+    localStorage.setItem("23", "s;1;Michael;Mittermeier;1234;Schueler.png");
+    localStorage.setItem("24", "s;2;Angela;Merkel;1234;Schueler.png");
+    localStorage.setItem("25", "s;3;Joachim;Gauck;1234;Schueler.png");
+    localStorage.setItem("26", "s;4;Alina;Auster;1234;Schueler.png");
+    localStorage.setItem("27", "s;5;Bella;Bowser;1234;Schueler.png");
+    localStorage.setItem("28", "s;6;Chantal;Cunz;1234;Schueler.png");
+    localStorage.setItem("29", "s;7;Dodo;Dorst;1234;Schueler.png");
+    localStorage.setItem("30", "s;8;Elmar;Eder;1234;Schueler.png");
+    localStorage.setItem("31", "s;9;Fabian;Furchtlos;1234;Schueler.png");
+    localStorage.setItem("32", "s;10;Gina;Gulstenstrom;1234;Schueler.png");
+    localStorage.setItem("33", "s;11;Hugo;Hurst;1234;Schueler.png");
+    localStorage.setItem("34", "s;12;Inga;Indorf;1234;Schueler.png");
+    localStorage.setItem("35", "s;13;Jenny;Jin-Sui;1234;Schueler.png");
+    localStorage.setItem("36", "s;14;Kevin;Köstlich;1234;Schueler.png");
+    localStorage.setItem("37", "s;15;Lin-Pin;Lee;1234;Schueler.png");
+    localStorage.setItem("38", "s;16;Max;Moritz;1234;Schueler.png");
+    localStorage.setItem("39", "s;17;Nils;Nimmermann;1234;Schueler.png");
+    localStorage.setItem("40", "s;18;Olli;Olsrich;1234;Schueler.png");
+    localStorage.setItem("41", "s;19;Peter;Parker;1234;Schueler.png");
+    localStorage.setItem("42", "s;20;Quirin;Quietschbunt;1234;Schueler.png");
+    localStorage.setItem("43", "s;21;Rudolf;Rentier;1234;Schueler.png");
+    localStorage.setItem("44", "s;22;Sarah;Sorglos;1234;Schueler.png");
+    localStorage.setItem("45", "s;23;Tina;Teller;1234;Schueler.png");
+    localStorage.setItem("46", "s;24;Ulli;Unter;1234;Schueler.png");
+    localStorage.setItem("47", "s;25;Vladimir;Voldemort;1234;Schueler.png");
+    localStorage.setItem("48", "s;26;Walter;Wurst;1234;Schueler.png");
+    localStorage.setItem("49", "s;27;Xenia;Xander;1234;Schueler.png");
+    localStorage.setItem("50", "s;28;Yvonne;Yteras;1234;Schueler.png");
+    localStorage.setItem("51", "s;29;Zolf;Zwilling;1234;Schueler.png");
+    localStorage.setItem("52", "s;30;Wanda;Women;1234;Schueler.png");
+    localStorage.setItem("53", "s;31;Clark;Kent;1234;Schueler.png");
+    localStorage.setItem("54", "s;32;Cosmo;Ferry;1234;Schueler.png");
+    localStorage.setItem("55", "s;33;Wanda;Ferry;1234;Schueler.png");
+    localStorage.setItem("56", "s;34;Tony;Stark;1234;Schueler.png");
+    localStorage.setItem("57", "s;35;Natascha;Romanov;1234;Schueler.png");
+    localStorage.setItem("58", "s;36;Bruce;Wayne;1234;Schueler.png");
+    localStorage.setItem("59", "s;37;Max;Mustermann;1234;Schueler.png");
+    localStorage.setItem("60", "s;38;Pipi;Langstrumpf;1234;Schueler.png");
+    localStorage.setItem("61", "s;39;Benjamin;Blümchen;1234;Schueler.png");
+    localStorage.setItem("62", "s;40;Michel;Lönneberga;1234;Schueler.png");
+    localStorage.setItem("63", "s;41;Christian;Liljegren;1234;Schueler.png");
+    localStorage.setItem("64", "s;42;Arjen;Lucasson;1234;Schueler.png");
+    localStorage.setItem("65", "s;43;Bodo;Wartke;1234;Schueler.png");
+    localStorage.setItem("66", "s;44;Helene;Fischer;1234;Schueler.png");	
 	
     localStorage.setItem("67", "n;0;1;3;Wer sind Sie und was tun Sie hier?;12.12.2012 12:00:00");
     localStorage.setItem("68", "n;1;0;0;Potter.;12.12.2012 12:00:00");
@@ -184,19 +184,33 @@ window.addEventListener("DOMContentLoaded", function(){
         
         //Ist das Item ein Lehrer?
         if (splittedItem[0] === "l"){
-            var lehrerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5], istAngestellt:splittedItem[6]};
+            if (splittedItem[7] !== undefined){
+                var lehrerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5]+";"+splittedItem[6], istAngestellt:splittedItem[7]};
+            }else {
+                var lehrerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5], istAngestellt:splittedItem[6]};
+            }
+            
             lehrer.push(lehrerObject);
         }
         
         //Ist das Item ein Schueler?
         if (splittedItem[0] === "s"){
-            var schuelerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5]};
+            if (splittedItem[6] !== undefined){
+                var schuelerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5]+";"+splittedItem[6]};
+            }else {
+                var schuelerObject = {vorname:splittedItem[2], nachname:splittedItem[3], passwort:splittedItem[4], bildquelle:splittedItem[5]};
+            }
             schueler.push(schuelerObject);
         }
         
         //Ist das Item eine Klasse?
         if (splittedItem[0] === "k"){
-            var klassenObject = {stufe:splittedItem[2], buchstabe:splittedItem[3], bildquelle:splittedItem[4]};
+            if (splittedItem[5] !== undefined){
+                var klassenObject = {stufe:splittedItem[2], buchstabe:splittedItem[3], bildquelle:splittedItem[4]+";"+splittedItem[5]};
+            }else {
+                var klassenObject = {stufe:splittedItem[2], buchstabe:splittedItem[3], bildquelle:splittedItem[4]};
+            }
+            
             klassen.push(klassenObject);
         }
         
@@ -410,12 +424,53 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             document.getElementById('Tabelle').appendChild(table);
             
-            document.getElementById('speichern').onclick = lehrerSpeichern(true);
+            document.getElementById('speichern').onclick = function () { lehrerSpeichern(true); };
         }
         else{
+            var vorname = document.getElementById('vorname');
+            var nachname = document.getElementById('nachname');
+            var img = document.getElementById('bild').children[0];
             
+            var table = document.createElement('table');
+            for (var i = 0; i < klassen.length; i++){
+
+                var line = document.createElement('tr');
+
+                var checkBox = document.createElement('td');
+                checkBox.setAttribute("id", "cb");
+                checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+
+                var klassenID = getKlassenID(klassen[i].buchstabe, klassen[i].stufe);
+                for (var j = 0; j < lehrerKlasse.length; j++){
+                    if (lehrerKlasse[j].lehrerId === hash.split("=")[1]){
+                        if (lehrerKlasse[j].klassenId === ""+i){
+                            checkBox.children[0].checked = true;
+                        }
+                    }
+                }
+                
+                var klasse = document.createElement('td');
+                klasse.innerHTML = ""+klassen[i].stufe+klassen[i].buchstabe+"";
+
+                line.appendChild(checkBox);
+                line.appendChild(klasse);
+                table.appendChild(line);
+            }
+            document.getElementById('Tabelle').appendChild(table);
+            
+            
+            for (var i = 0; i < lehrer.length; i++){
+                if (""+i === hash.split("=")[1]){
+                    nachname.value = lehrer[i].nachname;
+                    vorname.value = lehrer[i].vorname;
+                    img.src = lehrer[i].bildquelle;
+                    break;
+                }
+            }
             
             document.getElementById('speichern').onclick = function () { lehrerSpeichern(hash.split("=")[1]); };
+            document.getElementById('abbrechen').onclick = function () { window.close(); };
+            document.getElementById('loeschen').onclick = function () { lehrerLöschen(hash.split("=")[1]); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -464,11 +519,12 @@ window.addEventListener("DOMContentLoaded", function(){
             }
             document.getElementById('Tabelle').appendChild(table);
             
-            document.getElementById('speichern').onclick = klasseSpeichern(true);
+            document.getElementById('speichern').onclick = function () { klasseSpeichern(true); };
         }else{
             
             
             document.getElementById('speichern').onclick = function () { klasseSpeichern(hash.split("=")[1]); };
+            document.getElementById('abbrechen').onclick = function () { window.close(); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -495,11 +551,51 @@ window.addEventListener("DOMContentLoaded", function(){
             //Ausblenden des Löschen Buttons
             sla.children[2].style.display="none";
             
-            document.getElementById('speichern').onclick = schuelerSpeichern(true);
+            document.getElementById('speichern').onclick = function () { schuelerSpeichern(true); };
+        //Felder mit Werten belegen
         }else{
+            var vorname = document.getElementById('vorname');
+            var nachname = document.getElementById('nachname');
+            var img = document.getElementById('bild').children[0];
+            var selectStufe = document.getElementById('selectSchuelerBearbeitenStufe');
+            var selectKlasse = document.getElementById('selectSchuelerBearbeitenKlasse');
+            var klassenID;
             
+            for (var i = 0; i < schueler.length; i++){
+                if (""+i === hash.split("=")[1]){
+                    nachname.value = schueler[i].nachname;
+                    vorname.value = schueler[i].vorname;
+                    img.src = schueler[i].bildquelle;
+                    break;
+                }
+            }
+            
+            for (var i = 0; i < schuelerKlasse.length; i++){
+                if (schuelerKlasse[i].schuelerId === hash.split("=")[1]){
+                    klassenID = schuelerKlasse[i].klassenId;
+                    break;
+                }
+            }
+            
+            for (var i = 0; i < klassen.length; i++){
+                if (""+i === klassenID){
+                    for (var j = 0; j < selectStufe.children.length; j++){
+                        if (selectStufe.children[j].value === klassen[klassenID].stufe){
+                            selectStufe.children[j].selected = true;
+                        }
+                    }
+                    
+                    for (var j = 0; j < selectKlasse.children.length; j++){
+                        if (selectKlasse.children[j].value === klassen[klassenID].buchstabe){
+                            selectKlasse.children[j].selected = true;
+                        }
+                    }
+                    break;
+                }                
+            }
             
             document.getElementById('speichern').onclick = function () { schuelerSpeichern(hash.split("=")[1]); };
+            document.getElementById('abbrechen').onclick = function () { window.close(); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -622,34 +718,50 @@ function klassenBearbeiten(){
     }
 }
 
-function lehrerLöschen(){
-	if(localStorage.getItem(0).substring(0,1) === "s"){
-			window.alert("Keine Berechtigung!");
-			return;
-	}
-	
-    var tabelle = document.getElementById('table').children[0].children;
-    for(var i = 1; i < tabelle.length; i++) {
-        var line = tabelle[i];
-        if(line.children[0].children[0].checked){
-            var lehrerFound = getLehrerByName(line.children[1].innerHTML, line.children[2].innerHTML);
-            if(lehrerFound != undefined){
-                lehrerFound.istAngestellt = "nein";
-                for (i = 1; i <= localStorage.length-1; i++){
-                    var item = localStorage.getItem(i);
-                    var splittedItem = item.split(";");
-                    if(splittedItem[0]==="l"){
-                        if(splittedItem[2]=== lehrerFound.vorname){
-                            if(splittedItem[3] === lehrerFound.nachname){
-                                localStorage.setItem(i,"l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";nein"); 
+function lehrerLöschen(id){
+    if(localStorage.getItem(0).substring(0,1) === "s"){
+        window.alert("Keine Berechtigung!");
+        return;
+    }
+    
+    if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
+        var tabelle = document.getElementById('table').children[0].children;
+        for(var i = 1; i < tabelle.length; i++) {
+            var line = tabelle[i];
+            if(line.children[0].children[0].checked){
+                var lehrerFound = getLehrerByName(line.children[1].innerHTML, line.children[2].innerHTML);
+                if(lehrerFound != undefined){
+                    lehrerFound.istAngestellt = "nein";
+                    for (i = 1; i <= localStorage.length-1; i++){
+                        var item = localStorage.getItem(i);
+                        var splittedItem = item.split(";");
+                        if(splittedItem[0]==="l"){
+                            if(splittedItem[2]=== lehrerFound.vorname){
+                                if(splittedItem[3] === lehrerFound.nachname){
+                                    localStorage.setItem(i,"l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";nein"); 
+                                }
                             }
                         }
                     }
                 }
             }
         }
+        sucheLehrerTabelle();
+    }else if (window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"){
+        for (var i = 0; i < localStorage.length; i++){
+            var splittedItem = localStorage.getItem(i).split(";");
+            if (localStorage.getItem(i).substring(0,2) === "l;"){
+                if (splittedItem[1] === id){
+                    if (splittedItem[6] !== undefined){
+                        localStorage.setItem(i, "l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";"+splittedItem[6]+";nein");
+                    }else {
+                        localStorage.setItem(i, "l;"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+";nein");
+                    }
+                }
+            }
+        }
+        window.open("lehrer.html", "_self");
     }
-    sucheLehrerTabelle();
 }
 
 function getLehrerByName(nachname, vorname){
@@ -1519,30 +1631,130 @@ function lehrerSpeichern(neu){
     }
 
     var keineKlasse = true;
-    for(var i = 0; i < klassenTabelle.children.length; i++) {
-        var line = klassenTabelle.children[i];
+    if (neu === true){
+        for(var i = 0; i < klassenTabelle.children.length; i++) {
+            var line = klassenTabelle.children[i];
 
-        if(line.children[0].children[0].checked){
-            if(klassenTabelle.children[i].children[1].innerHTML.length === 2){
-                klassenID = getKlassenID(klassenTabelle.children[i].children[1].innerHTML.charAt(1), klassenTabelle.children[i].children[1].innerHTML.charAt(0));
-            }else{
-                //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
-                var klasse = klassenTabelle.children[i].children[1].innerHTML;
-                klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
+            if(line.children[0].children[0].checked){
+                if(klassenTabelle.children[i].children[1].innerHTML.length === 2){
+                    klassenID = getKlassenID(klassenTabelle.children[i].children[1].innerHTML.charAt(1), klassenTabelle.children[i].children[1].innerHTML.charAt(0));
+                }else{
+                    //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
+                    var klasse = klassenTabelle.children[i].children[1].innerHTML;
+                    klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
+                }
+
+                localStorage.setItem(localStorage.length, "lk;"+klassenID+";"+lehrer.length);
+                //unterrichteteKlassen.push(klassenID);
+                keineKlasse = false;
+            }
+        
+            if(keineKlasse === true){
+                window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
+                return;
             }
 
-            localStorage.setItem(localStorage.length, "lk;"+klassenID+";"+lehrer.length);
-            //unterrichteteKlassen.push(klassenID);
-            keineKlasse = false;
+            localStorage.setItem(localStorage.length, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
+        }
+        
+    }else{
+        
+//        var klassenAusgewählt = [];
+//        for(var j = 0; j < klassenTabelle.children.length; j++) {
+//            var line = klassenTabelle.children[j];
+//
+//            if(line.children[0].children[0].checked){
+//                if(klassenTabelle.children[j].children[1].innerHTML.length === 2){
+//                    klassenAusgewählt.push(getKlassenID(klassenTabelle.children[j].children[1].innerHTML.charAt(1), klassenTabelle.children[j].children[1].innerHTML.charAt(0)));
+//                }else{
+//                    //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
+//                    var klasse = klassenTabelle.children[j].children[j].innerHTML;
+//                    klassenAusgewählt.push(getKlassenID(klasse.substring(2,3), klasse.substring(0,2)));
+//                }
+//                keineKlasse = false;
+//            }
+//        }
+//        
+//        var unterrichteteKlassen = [];
+//        for (var j = 0; i < lehrerKlasse.length; j++){
+//            if (lehrerKlasse.lehrerId === ""+neu){
+//                unterrichteteKlassen.push(lehrerKlasse[j].klassenId);
+//            }
+//        }
+//        
+//        var zusätzlichUnterrichteteKlassen = [];
+//        if (unterrichteteKlassen.length <= klassenAusgewählt.length){
+//            for (var j = 0; j < unterrichteteKlassen.length; j++){
+//                for (var k = 0; k < klassenAusgewählt.length; k++){
+//                    if (""+klassenAusgewählt[k] !== ""+unterrichteteKlassen[j]){
+//                        
+//                    }
+//                }
+//            }
+//        }
+//        
+//        var nichtMehrUnterrichteteKlassen = [];
+//        if (unterrichteteKlassen.length >= klassenAusgewählt.length){
+//            for (var j = 0; j < klassenAusgewählt.length; j++){
+//                
+//            }
+//        }
+            
+        //Wenns kein neuer Lehrer ist, den Localstorage durchlaufen...
+        for (var i = 1; i < localStorage.length; i++){
+            var splittedItem = localStorage.getItem(i).split(";");
+            //...bis man einen Lehrer gefunden hat...
+            if (localStorage.getItem(i).substring(0,2) === "l;"){
+                //... und lehrerID im link mit dem aus dem localstorage übereinstimmt
+                if (splittedItem[1] === ""+neu){
+                    if (splittedItem[7] !== undefined){
+                        localStorage.setItem(i, "l;"+splittedItem[1]+";"+vorname+";"+nachname+";"+splittedItem[4]+";"+imgSource+";"+splittedItem[7]);
+                    }else{
+                        localStorage.setItem(i, "l;"+splittedItem[1]+";"+vorname+";"+nachname+";"+splittedItem[4]+";"+imgSource+";"+splittedItem[6]);
+                    }
+                }
+            }
+ 
+//            if(keineKlasse === true){
+//                    window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
+//                    return;
+//            }
+            
+            
+//            else if (localStorage.getItem(i).substring(0,2) === "lk"){
+//                //...dann Klasse finden, die der Lehrer unterrichtet...
+//                if (splittedItem[2] === ""+neu){
+//                    for(var j = 0; j < klassenTabelle.children.length; j++) {
+//                        var line = klassenTabelle.children[j];
+//                        
+//                        if(line.children[0].children[0].checked){
+//                            if(klassenTabelle.children[j].children[1].innerHTML.length === 2){
+//                                klassenID = getKlassenID(klassenTabelle.children[j].children[1].innerHTML.charAt(1), klassenTabelle.children[j].children[1].innerHTML.charAt(0));
+//                            }else{
+//                                //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
+//                                var klasse = klassenTabelle.children[j].children[j].innerHTML;
+//                                klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
+//                            }
+//                            if (klassenID === splittedItem[1]){
+//                                localStorage.setItem(j, "lk;"+klassenID+";"+lehrer.length);
+//                            }
+//                            keineKlasse = false;
+//                        }
+//
+//                        if(keineKlasse === true){
+//                            window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
+//                            return;
+//                        }
+//                    
+////                    var neueKlassenId = getKlassenID(selectKlasse.options[selectKlasse.selectedIndex].value, selectStufe.options[selectStufe.selectedIndex].value);
+////                    //... und den Eintrag im localStorage ändern
+////                    localStorage.setItem(i, "sk;"+neueKlassenId+";"+splittedItem[2]);
+//                    }
+//                }
+//            }
         }
     }
-
-    if(keineKlasse === true){
-        window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
-        return;
-    }
-
-    localStorage.setItem(localStorage.length, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
+    
 
     window.open("lehrer.html", "_self");
 }
