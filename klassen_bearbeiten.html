@@ -27,14 +27,17 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		</div>
             <div id="klassenbild">
                 <img src="./Klassenfoto.png">
-                <button id="centered">Hochladen</button>
+                <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                    <input name="Datei" type="file" accept="image/jpeg,image/png">
+                    <!-- <input type="button" value="Hochladen" id="fileUpload"/> -->
+                </form>
             </div>
             <div id="klasseninfo">
                 <label for="klassenname" id="name">Name:</label>

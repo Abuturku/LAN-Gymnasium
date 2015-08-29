@@ -27,8 +27,8 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		</div>
@@ -150,7 +150,7 @@
             </div>
           <div id="SLA-Buttons">
                 <form>
-                    <input type="button" onclick="schuelerSpeichern()" value="Speichern"/>
+                    <input type="button" onclick="schuelerSpeichern()" value="Speichern" id="speichern"/>
                 </form>
                   <form id="hoverMe">
                     <input type="button" onclick="window.history.back()" value="Abbrechen"/>
