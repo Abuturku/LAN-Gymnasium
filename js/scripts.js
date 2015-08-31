@@ -1714,10 +1714,7 @@ function lehrerSpeichern(neu){
                     localStorage.removeItem(i);
                 }
             }
-//                    window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
         }
-        
-        
         
         for (var i = 0; i < ausgewaehlteKlassen.length; i++){
             localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+ausgewaehlteKlassen[i]+";"+neu);
