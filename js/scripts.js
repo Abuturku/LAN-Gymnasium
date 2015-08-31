@@ -5,6 +5,7 @@ var klassen = [];
 var lehrerKlasse = [];
 var schuelerKlasse = [];
 var notizen = [];
+var localStorageLengthOffset = 0;
 
 function ladeStorage() {
     //Jeweils 4 Beispiel Datensätze für jedes Array. Auskommentieren, wenn nötig
@@ -177,8 +178,15 @@ function ladeStorage() {
 
 //Wird bei jedem Laden einer Seite aufgerufen
 window.addEventListener("DOMContentLoaded", function(){
- 
-    for (i = 1; i <= localStorage.length-1; i++){
+    localStorageLengthOffset = 0;
+    
+    for (i = 1; i <= localStorage.length-1+localStorageLengthOffset; i++){
+        
+        if (localStorage.getItem(i) === null){
+            localStorageLengthOffset++;
+            continue;
+        }
+        
         var item = localStorage.getItem(i);
         var splittedItem = item.split(";");
         
@@ -688,7 +696,7 @@ function lehrerBearbeiten(){
     for(var i = 1; i < tabelle.length; i++) {
         var line = tabelle[i];
         if(line.children[0].children[0].checked){
-            window.open("lehrer_bearbeiten.html#l="+(i-1), '_blank');
+            window.open("lehrer_bearbeiten.html#l="+(getLehrerID(line.children[1].innerHTML, line.children[2].innerHTML)), '_blank');
         }
     }
 }
@@ -732,7 +740,10 @@ function lehrerLöschen(id){
                 var lehrerFound = getLehrerByName(line.children[1].innerHTML, line.children[2].innerHTML);
                 if(lehrerFound != undefined){
                     lehrerFound.istAngestellt = "nein";
-                    for (i = 1; i <= localStorage.length-1; i++){
+                    for (i = 1; i <= localStorage.length-1+localStorageLengthOffset; i++){
+                        if (localStorage.getItem(i) === null){
+                            continue;
+                        }
                         var item = localStorage.getItem(i);
                         var splittedItem = item.split(";");
                         if(splittedItem[0]==="l"){
@@ -748,7 +759,10 @@ function lehrerLöschen(id){
         }
         sucheLehrerTabelle();
     }else if (window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"){
-        for (var i = 0; i < localStorage.length; i++){
+        for (var i = 0; i < localStorage.length+localStorageLengthOffset; i++){
+            if (localStorage.getItem(i) === null){
+                continue;
+            }
             var splittedItem = localStorage.getItem(i).split(";");
             if (localStorage.getItem(i).substring(0,2) === "l;"){
                 if (splittedItem[1] === id){
@@ -846,33 +860,31 @@ function sucheLehrerTabelle(){
                 for(var j = 0; j < schuelerKlasse.length; j++){
                     if(schuelerKlasse[j].schuelerId == schuelerID[0]){
                         for(var x = 0; x < lehrerInKlasse.length; x++){
-                            if(schuelerKlasse[j].klassenId===lehrerInKlasse[x]){
-								
-								var bereitsVorhanden = false;
-								for(var y = 0; y < gefunden.length; y++){
-									if(lehrer[i] === gefunden[y]){
-										bereitsVorhanden = true;
-									}
-								}
-								if(bereitsVorhanden===false){
-									gefunden.push(lehrer[i]);
-								}
+                            if(schuelerKlasse[j].klassenId===lehrerInKlasse[x]){			
+                                var bereitsVorhanden = false;
+                                for(var y = 0; y < gefunden.length; y++){
+                                    if(lehrer[i] === gefunden[y]){
+                                        bereitsVorhanden = true;
+                                    }
+                                }
+                                if(bereitsVorhanden===false){
+                                    gefunden.push(lehrer[i]);
+                                }
                             }
                         }
                     }
                 }
-                
             }
         }else{
             var bereitsVorhanden = false;
-			for(var y = 0; y < gefunden.length; y++){
-				if(lehrer[i] === gefunden[y]){
-					bereitsVorhanden = true;
-				}
-			}
-			if(bereitsVorhanden===false){
-				gefunden.push(lehrer[i]);
-			}
+                for(var y = 0; y < gefunden.length; y++){
+                    if(lehrer[i] === gefunden[y]){
+                        bereitsVorhanden = true;
+                    }
+                }
+                if(bereitsVorhanden===false){
+                    gefunden.push(lehrer[i]);
+                }
         }
         
     }
@@ -1644,7 +1656,7 @@ function lehrerSpeichern(neu){
                     klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
                 }
 
-                localStorage.setItem(localStorage.length, "lk;"+klassenID+";"+lehrer.length);
+                localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+klassenID+";"+lehrer.length);
                 //unterrichteteKlassen.push(klassenID);
                 keineKlasse = false;
             }
@@ -1654,54 +1666,38 @@ function lehrerSpeichern(neu){
                 return;
             }
 
-            localStorage.setItem(localStorage.length, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
+            localStorage.setItem(localStorage.length+localStorageLengthOffset, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
         }
         
-    }else{
+        window.open("lehrer.html", "_self");      
         
-//        var klassenAusgewählt = [];
-//        for(var j = 0; j < klassenTabelle.children.length; j++) {
-//            var line = klassenTabelle.children[j];
-//
-//            if(line.children[0].children[0].checked){
-//                if(klassenTabelle.children[j].children[1].innerHTML.length === 2){
-//                    klassenAusgewählt.push(getKlassenID(klassenTabelle.children[j].children[1].innerHTML.charAt(1), klassenTabelle.children[j].children[1].innerHTML.charAt(0)));
-//                }else{
-//                    //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
-//                    var klasse = klassenTabelle.children[j].children[j].innerHTML;
-//                    klassenAusgewählt.push(getKlassenID(klasse.substring(2,3), klasse.substring(0,2)));
-//                }
-//                keineKlasse = false;
-//            }
-//        }
-//        
-//        var unterrichteteKlassen = [];
-//        for (var j = 0; i < lehrerKlasse.length; j++){
-//            if (lehrerKlasse.lehrerId === ""+neu){
-//                unterrichteteKlassen.push(lehrerKlasse[j].klassenId);
-//            }
-//        }
-//        
-//        var zusätzlichUnterrichteteKlassen = [];
-//        if (unterrichteteKlassen.length <= klassenAusgewählt.length){
-//            for (var j = 0; j < unterrichteteKlassen.length; j++){
-//                for (var k = 0; k < klassenAusgewählt.length; k++){
-//                    if (""+klassenAusgewählt[k] !== ""+unterrichteteKlassen[j]){
-//                        
-//                    }
-//                }
-//            }
-//        }
-//        
-//        var nichtMehrUnterrichteteKlassen = [];
-//        if (unterrichteteKlassen.length >= klassenAusgewählt.length){
-//            for (var j = 0; j < klassenAusgewählt.length; j++){
-//                
-//            }
-//        }
-            
+    }else{
+        var ausgewaehlteKlassen = [];
+        for(var i = 0; i < klassenTabelle.children.length; i++){
+            var line = klassenTabelle.children[i];
+
+            if(line.children[0].children[0].checked){
+                if(klassenTabelle.children[i].children[1].innerHTML.length === 2){
+                    ausgewaehlteKlassen.push(getKlassenID(klassenTabelle.children[i].children[1].innerHTML.charAt(1), klassenTabelle.children[i].children[1].innerHTML.charAt(0)));
+                }else{
+                    //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
+                    var klasse = klassenTabelle.children[i].children[1].innerHTML;
+                    ausgewaehlteKlassen.push(getKlassenID(klasse.substring(2,3), klasse.substring(0,2)));
+                }
+                keineKlasse = false;
+            }
+        }
+        
+        if(keineKlasse === true){
+                window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
+                return;
+        }
+        
         //Wenns kein neuer Lehrer ist, den Localstorage durchlaufen...
-        for (var i = 1; i < localStorage.length; i++){
+        for (var i = 1; i < localStorage.length+localStorageLengthOffset; i++){
+            if (localStorage.getItem(i) === null){
+                continue;
+            }
             var splittedItem = localStorage.getItem(i).split(";");
             //...bis man einen Lehrer gefunden hat...
             if (localStorage.getItem(i).substring(0,2) === "l;"){
@@ -1713,50 +1709,23 @@ function lehrerSpeichern(neu){
                         localStorage.setItem(i, "l;"+splittedItem[1]+";"+vorname+";"+nachname+";"+splittedItem[4]+";"+imgSource+";"+splittedItem[6]);
                     }
                 }
+            }else if (localStorage.getItem(i).substring(0,2) === "lk"){
+                if (splittedItem[2] === ""+neu){
+                    localStorage.removeItem(i);
+                }
             }
- 
-//            if(keineKlasse === true){
 //                    window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
-//                    return;
-//            }
-            
-            
-//            else if (localStorage.getItem(i).substring(0,2) === "lk"){
-//                //...dann Klasse finden, die der Lehrer unterrichtet...
-//                if (splittedItem[2] === ""+neu){
-//                    for(var j = 0; j < klassenTabelle.children.length; j++) {
-//                        var line = klassenTabelle.children[j];
-//                        
-//                        if(line.children[0].children[0].checked){
-//                            if(klassenTabelle.children[j].children[1].innerHTML.length === 2){
-//                                klassenID = getKlassenID(klassenTabelle.children[j].children[1].innerHTML.charAt(1), klassenTabelle.children[j].children[1].innerHTML.charAt(0));
-//                            }else{
-//                                //Weil eine Klasse mit Stufe >= 10 mehr Zeichen hat, kann man das da oben nicht mehr anwenden... Deswegen den String aufteilen
-//                                var klasse = klassenTabelle.children[j].children[j].innerHTML;
-//                                klassenID = getKlassenID(klasse.substring(2,3), klasse.substring(0,2));
-//                            }
-//                            if (klassenID === splittedItem[1]){
-//                                localStorage.setItem(j, "lk;"+klassenID+";"+lehrer.length);
-//                            }
-//                            keineKlasse = false;
-//                        }
-//
-//                        if(keineKlasse === true){
-//                            window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
-//                            return;
-//                        }
-//                    
-////                    var neueKlassenId = getKlassenID(selectKlasse.options[selectKlasse.selectedIndex].value, selectStufe.options[selectStufe.selectedIndex].value);
-////                    //... und den Eintrag im localStorage ändern
-////                    localStorage.setItem(i, "sk;"+neueKlassenId+";"+splittedItem[2]);
-//                    }
-//                }
-//            }
         }
+        
+        
+        
+        for (var i = 0; i < ausgewaehlteKlassen.length; i++){
+            localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+ausgewaehlteKlassen[i]+";"+neu);
+        }
+        
+        window.close();
+        location.reload();
     }
-    
-
-    window.open("lehrer.html", "_self");
 }
 
 function schuelerSpeichern(neu){
@@ -1773,11 +1742,14 @@ function schuelerSpeichern(neu){
     var selectKlasse = document.getElementById('selectSchuelerBearbeitenKlasse');
 
     if (neu === true){
-        localStorage.setItem(localStorage.length, "s;"+schueler.length+";"+vorname+";"+nachname+";ändermich;"+imgSource);
-        localStorage.setItem(localStorage.length, "sk;"+getKlassenID(selectKlasse.value, selectStufe.value)+";"+schueler.length);
+        localStorage.setItem(localStorage.length+localStorageLengthOffset, "s;"+schueler.length+";"+vorname+";"+nachname+";ändermich;"+imgSource);
+        localStorage.setItem(localStorage.length+localStorageLengthOffset, "sk;"+getKlassenID(selectKlasse.value, selectStufe.value)+";"+schueler.length);
     }else{
         //Wenns kein neuer Schüler ist, den Localstorage durchlaufen...
-        for (var i = 1; i < localStorage.length; i++){
+        for (var i = 1; i < localStorage.length+localStorageLengthOffset; i++){
+            if (localStorage.getItem(i) === null){
+                continue;
+            }
             var splittedItem = localStorage.getItem(i).split(";");
             //...bis man einen Schüler gefunden hat...
             if (localStorage.getItem(i).substring(0,2) === "s;"){
@@ -1830,4 +1802,4 @@ function handleFileSelect(evt) {
     reader.readAsDataURL(f);
     }
     
-  }
+}
