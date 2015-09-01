@@ -136,6 +136,10 @@ div#myLAN{
 	background: rgba(242, 242, 242, 0.7);
 	border-radius: 10px;
 }
+div#myLAN p {
+    font: bold 1em/2em arial,geneva,helvetica,sans-serif;
+    text-align: center;
+}
 
 form#myLANbutton{
 	display: inline-block;
