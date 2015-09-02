@@ -12,16 +12,16 @@ function ladeStorage() {
     //!!Achtung!! wird bei jedem Aufrufen einer Seite ausgeführt, also falls Datensätze in der Applikation geändert werden, sollte das hier auskommentiert werden!
     localStorage.setItem("0", "");	
 	
-    localStorage.setItem("1", "k;0;5;a;0;Klassenfoto.png");
-    localStorage.setItem("2", "k;1;5;b;1;Klassenfoto.png");
-    localStorage.setItem("3", "k;2;6;a;2;Klassenfoto.png");
-    localStorage.setItem("4", "k;3;6;b;3;Klassenfoto.png");
-    localStorage.setItem("5", "k;4;6;c;4;Klassenfoto.png");	
-    localStorage.setItem("6", "k;5;7;a;5;Klassenfoto.png");
-    localStorage.setItem("7", "k;6;7;b;6;Klassenfoto.png");
-    localStorage.setItem("8", "k;7;8;a;7;Klassenfoto.png");
-    localStorage.setItem("9", "k;8;9;a;8;Klassenfoto.png");
-    localStorage.setItem("10", "k;9;10;a;9;Klassenfoto.png");
+    localStorage.setItem("1", "k;0;5;a;Klassenfoto.png");
+    localStorage.setItem("2", "k;1;5;b;Klassenfoto.png");
+    localStorage.setItem("3", "k;2;6;a;Klassenfoto.png");
+    localStorage.setItem("4", "k;3;6;b;Klassenfoto.png");
+    localStorage.setItem("5", "k;4;6;c;Klassenfoto.png");	
+    localStorage.setItem("6", "k;5;7;a;Klassenfoto.png");
+    localStorage.setItem("7", "k;6;7;b;Klassenfoto.png");
+    localStorage.setItem("8", "k;7;8;a;Klassenfoto.png");
+    localStorage.setItem("9", "k;8;9;a;Klassenfoto.png");
+    localStorage.setItem("10", "k;9;10;a;Klassenfoto.png");
 	
     localStorage.setItem("11", "l;0;Severus;Snape;1234;Profilbild.jpg;ja");
     localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;Profilbild.jpg;ja");
@@ -272,7 +272,7 @@ window.addEventListener("DOMContentLoaded", function(){
         });
     } 
 	
-	if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "startseite.html"){
+    if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "startseite.html"){
         if(localStorage.getItem(0).substring(0,1) === "a"){
             document.getElementById('myProfil').style.display="none";
             document.getElementById('myLehrer').style.display="none";			
@@ -565,29 +565,44 @@ window.addEventListener("DOMContentLoaded", function(){
             var head = document.createElement('tr');
             head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td>";
             table.appendChild(head);
+            
+            
+            for (var i = 0; i < lehrer.length; i++){
 
-            for (var i = 0; i < lehrerKlasse.length; i++){
+                var line = document.createElement('tr');
+
+                var checkBox = document.createElement('td');
+                checkBox.setAttribute("id", "cb");
+                checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+i+"\">";
+                
                 if (lehrerKlasse[i].klassenId === hash.split("=")[1]){
+                    checkBox.children[0].checked = true;
+                }
+                                
+                var nachname = document.createElement('td');
+                nachname.innerHTML = ""+lehrer[i].nachname;
 
-                    var line = document.createElement('tr');
+                var vorname = document.createElement('td');
+                vorname.innerHTML = ""+lehrer[i].vorname;
 
-                    var checkBox = document.createElement('td');
-                    checkBox.setAttribute("id", "cb");
-                    checkBox.innerHTML ="<input type=\"checkbox\" id=\"check"+lehrerKlasse[i].lehrerId+"\">";
+                line.appendChild(checkBox);
+                line.appendChild(nachname);
+                line.appendChild(vorname);
+                table.appendChild(line);
+            }
 
-                    var nachname = document.createElement('td');
-                    nachname.innerHTML = ""+lehrer[lehrerKlasse[i].lehrerId].nachname;
-
-                    var vorname = document.createElement('td');
-                    vorname.innerHTML = ""+lehrer[lehrerKlasse[i].lehrerId].vorname;
-
-                    line.appendChild(checkBox);
-                    line.appendChild(nachname);
-                    line.appendChild(vorname);
-                    table.appendChild(line);
+            document.getElementById('Tabelle').appendChild(table);
+            
+            var lehrerTabelle = document.getElementById('Tabelle').children[0];
+            
+            for (var i = 1; i < lehrerTabelle.children.length; i++){
+                var checkBox = document.getElementById('check'+i);
+                for (var j = 0; j < lehrerKlasse.length; j++){
+                    if (""+i === lehrerKlasse[j].lehrerId && hash.split("=")[1] === lehrerKlasse[j].klassenId){
+                        checkBox.checked = true;
+                    }
                 }
             }
-            document.getElementById('Tabelle').appendChild(table);
             
             for (var i = 0; i < klassen.length; i++){
                 if (""+i === hash.split("=")[1]){
@@ -607,7 +622,7 @@ window.addEventListener("DOMContentLoaded", function(){
             
             document.getElementById('speichern').onclick = function () { klasseSpeichern(hash.split("=")[1]); };
             document.getElementById('abbrechen').onclick = function () { window.close(); };
-            document.getElementById('abbrechen').onclick = function () { klasseLoeschen(hash.split("=")[1]); };
+            document.getElementById('loeschen').onclick = function () { klasseLoeschen(hash.split("=")[1]); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -641,7 +656,7 @@ window.addEventListener("DOMContentLoaded", function(){
             var nachname = document.getElementById('nachname');
             var img = document.getElementById('bild').children[0];
             var selectStufe = document.getElementById('selectSchuelerBearbeitenStufe');
-            var selectKlasse = document.getElementById('selectSchuelerBearbeitenKlasse');
+            var selectKlasse = document.getElementById('selectSchuelerBearbeitenBuchstabe');
             var klassenID;
             
             for (var i = 0; i < schueler.length; i++){
@@ -1952,7 +1967,7 @@ function lehrerSpeichern(neu){
                 }
             }else if (localStorage.getItem(i).substring(0,2) === "lk"){
                 if (splittedItem[2] === ""+neu){
-					localStorageLengthOffset++;
+                    localStorageLengthOffset++;
                     localStorage.removeItem(i);
                 }
             }
@@ -1984,7 +1999,14 @@ function schuelerSpeichern(neu){
         window.alert("Der Schüler muss einer Klasse zugewiesen werden!");
         return;
     }
-
+    
+    
+    var neueKlassenId = getKlassenID(selectKlasse.options[selectKlasse.selectedIndex].value, selectStufe.options[selectStufe.selectedIndex].value);
+    if (neueKlassenId.length === 0){
+        window.alert("Die Klasse gibt es nicht!");
+        return;
+    }
+    
     if (neu === true){
         localStorage.setItem(localStorage.length+localStorageLengthOffset, "s;"+schueler.length+";"+vorname+";"+nachname+";ändermich;"+imgSource);
         localStorage.setItem(localStorage.length+localStorageLengthOffset, "sk;"+getKlassenID(selectKlasse.value, selectStufe.value)+";"+schueler.length);
@@ -2005,9 +2027,9 @@ function schuelerSpeichern(neu){
             }else if (localStorage.getItem(i).substring(0,2) === "sk"){
                 //...dann Klasse finden, in der der Schüler ist...
                 if (splittedItem[2] === ""+neu){
-                    var neueKlassenId = getKlassenID(selectKlasse.options[selectKlasse.selectedIndex].value, selectStufe.options[selectStufe.selectedIndex].value);
+                    
                     //... und den Eintrag im localStorage ändern
-                    localStorage.setItem(i, "sk;"+neueKlassenId+";"+splittedItem[2]);
+                    localStorage.setItem(i, "sk;"+neueKlassenId[0]+";"+splittedItem[2]);
                 }
             }
         }
@@ -2017,7 +2039,77 @@ function schuelerSpeichern(neu){
 }
 
 function klasseSpeichern(neu){
+    var stufe = document.getElementById('stufe').value;
+    var buchstabe = document.getElementById('buchstabe').value;
+    var imgSource = document.getElementById('klassenbild').children[0].src;
+    var lehrerTabelle = document.getElementById('Tabelle').children[0];
     
+    if (stufe === "Stufe" || buchstabe === "Buchstabe"){
+        window.alert("Bitte Stufe/Buchstabe zuweisen!");
+        return;
+    }
+    
+    var keinLehrer = true;
+    
+//    var lehrerNachname;
+//    var lehrerVorname;
+    var lehrerId;
+    var ausgewaehlteLehrer = [];
+    
+    for (var i = 1; i < lehrerTabelle.children.length; i++){
+        //var line = lehrerTabelle.children[i];
+
+        if(lehrerTabelle.children[i].children[0].children[0].checked){
+//            lehrerNachname = lehrerTabelle.children[i].children[1].innerHTML;
+//            lehrerVorname = lehrerTabelle.children[i].children[2].innerHTML;
+            lehrerId = lehrerTabelle.children[i].children[0].children[0].id.substring(5);
+            ausgewaehlteLehrer.push(lehrerId);
+            //localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+klassen.length+";"+lehrerId);
+            keinLehrer = false;
+        }
+    }
+    
+    if (keinLehrer === true){
+        window.alert("Der Klasse muss mindestens ein Lehrer zugewiesen werden!");
+        return;
+    } 
+    
+    if (neu === true){
+        localStorage.setItem(localStorage.length+localStorageLengthOffset, "k;"+klassen.length+";"+stufe+";"+buchstabe+";"+imgSource);
+
+        window.open("klassen.html", "_self");
+        
+        for (var i = 0; i < ausgewaehlteLehrer.length; i++){
+            localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+klassen.length+";"+ausgewaehlteLehrer[i]);
+        }
+    }else{
+        for (var i = 1; i < localStorage.length+localStorageLengthOffset; i++){
+            if (localStorage.getItem(i) === null){
+                continue;
+            }
+            
+            var splittedItem = localStorage.getItem(i).split(";");
+            //...bis man einen Schüler gefunden hat...
+            if (localStorage.getItem(i).substring(0,2) === "k;"){
+                if (splittedItem[1] === ""+neu){
+                    localStorage.setItem(i, "k;"+splittedItem[1]+";"+stufe+";"+buchstabe+";"+imgSource);
+                }
+            }else if (localStorage.getItem(i).substring(0,2) === "sk"){
+                if (splittedItem[1] === ""+neu){
+                    localStorageLengthOffset++;
+                    localStorage.removeItem(i);
+                }
+            }
+        }
+        
+        for (var i = 0; i < ausgewaehlteLehrer.length; i++){
+            localStorage.setItem(localStorage.length+localStorageLengthOffset, "lk;"+neu+";"+ausgewaehlteLehrer[i]);
+        }
+        
+        window.close();
+        location.reload();
+    }
+
 }
 
 function handleFileSelect(evt) {
