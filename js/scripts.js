@@ -2160,18 +2160,18 @@ function meineLehrerStartseite() {
 	if(localStorage.getItem(0).substring(0,1) === "s"){ 							//nur für Schüler erreichbar
 		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
 		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
-		var sName = ""+sNachname+", "+sVorname;										//Namen-String zur Befüllung der Dropdownbox erzeugen
 	
-		window.open("lehrer.html", '_self');										//öffnen der Lehrer.html zum filtern nach lehrern des eingeloggten schülers
-		document.getElementById('schueler_ddb').value = sName;						//Wertzuweisung an Dropdownbox
-		sucheSchuelerLehrer();														//Simulation onClick-Event
-	}	
+		window.open("lehrer.html#s="+sNachname+";"+sVorname, '_self');				//Setzen Filter bei Lehrer.html auf eingeloggten Schüler
+	}
 }
 
 function meineKlassenStartseite() {
+	if(localStorage.getItem(0).substring(0,1) === "l"){ 							//nur für Lehrer erreichbar
+		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
+		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
 	
-	
-	
+		window.open("klassen.html#l="+sNachname+";"+sVorname, '_self');				//Setzen Filter bei Klassen.html auf eingeloggten Lehrer
+	}
 }
 
 function meineKlasseStartseite() {
@@ -2193,9 +2193,12 @@ function meineKlasseStartseite() {
 }
 
 function meineSchuelerStartseite() {
+	if(localStorage.getItem(0).substring(0,1) === "l"){ 							//nur für Lehrer erreichbar
+		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
+		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
 	
-	
-	
+		window.open("schueler.html#l="+sNachname+";"+sVorname, '_self');			//Setzen Filter bei Schueler.html auf eingeloggten Lehrer
+	}
 }
 
 function passwortAendern(){
