@@ -2049,7 +2049,6 @@ function handleFileSelect(evt) {
     // Read in the image file as a data URL.
     reader.readAsDataURL(f);
     }
-<<<<<<< HEAD
 }
 
 //Funktionen der myLAN-Leiste auf der Startseite
@@ -2091,13 +2090,11 @@ function meineSchuelerStartseite() {
 }
 
 function passwortAendern(){
-	window.open("pw_aendern.html", '_self');
-=======
-    
+    window.open("pw_aendern.html", '_self');
 }
 
 function oeffneGenaueAnsichtLehrer(id){
-	window.open("lehrer_genaueAnsicht.html#l="+id, "_self");
+    window.open("lehrer_genaueAnsicht.html#l="+id, "_self");
 }
 
 function oeffneGenaueAnsichtSchueler(id){
@@ -2211,5 +2208,4 @@ function notizBearbeiten(){
 
 function notizLoeschen(){
     
->>>>>>> origin/master
 }
