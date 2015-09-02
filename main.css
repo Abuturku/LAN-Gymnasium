@@ -141,14 +141,15 @@ div#myLAN p {
     text-align: center;
 }
 
-form#myLANbutton{
+form#myLANbuttons{
 	display: inline-block;
     width: 100%;
 	margin-bottom: 2em;
 }
 
-form#myLANbutton input{
+form#myLANbuttons input{
 	width:100%;
+	margin-bottom: 1.5em;
 }
 
 /*Allgemeines Layout der Tabellen*/

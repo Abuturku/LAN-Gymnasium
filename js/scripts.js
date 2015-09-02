@@ -272,6 +272,30 @@ window.addEventListener("DOMContentLoaded", function(){
         });
     } 
 	
+	if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "startseite.html"){
+        if(localStorage.getItem(0).substring(0,1) === "a"){
+            document.getElementById('myProfil').style.display="none";
+            document.getElementById('myLehrer').style.display="none";			
+            document.getElementById('myKlassen').style.display="none";
+            document.getElementById('myKlasse').style.display="none";
+            document.getElementById('mySchueler').style.display="none";
+        }
+		if(localStorage.getItem(0).substring(0,1) === "l"){
+            document.getElementById('myLehrer').style.display="none";
+            document.getElementById('myKlasse').style.display="none";
+            document.getElementById('myKlasseNew').style.display="none";
+            document.getElementById('myLehrerNew').style.display="none";
+            document.getElementById('mySchuelerNew').style.display="none";
+        }
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+            document.getElementById('mySchueler').style.display="none";
+            document.getElementById('myKlassen').style.display="none";
+            document.getElementById('myKlasseNew').style.display="none";
+            document.getElementById('myLehrerNew').style.display="none";
+            document.getElementById('mySchuelerNew').style.display="none";
+        }
+	}
+	
     if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
         sucheStufeLehrer();
         sucheKlassenLehrer();
@@ -700,7 +724,7 @@ function onclickLogin(form){
         if(lehrer[i].nachname === nachname){
             if(lehrer[i].vorname === vorname){
                 if(lehrer[i].passwort === passwort){
-                    localStorage.setItem("0","s;"+i+";"+vorname+";"+nachname+";"+passwort+";"+lehrer[i].bildquelle);
+                    localStorage.setItem("0","l;"+i+";"+vorname+";"+nachname+";"+passwort+";"+lehrer[i].bildquelle);
                     window.location.href="startseite.html";
                     return;
                 }else{
@@ -999,7 +1023,7 @@ function oeffneGenaueAnsicht(id){
 }
 
 function sucheSchuelerTabelle(){
-        var tabelle = document.createElement('table');
+    var tabelle = document.createElement('table');
     var head = document.createElement('tr');
     head.innerHTML = "<td id=\"header\"></td><td id=\"header\">Nachname</td><td id=\"header\">Vorname</td>";
     tabelle.appendChild(head);
@@ -1883,5 +1907,46 @@ function handleFileSelect(evt) {
     // Read in the image file as a data URL.
     reader.readAsDataURL(f);
     }
-    
+}
+
+//Funktionen der myLAN-Leiste auf der Startseite
+
+function meinProfilStartseite() {
+	var id = localStorage.getItem(0).split(";")[1];
+	if(localStorage.getItem(0).substring(0,1) === "l"){
+		window.open("lehrer_genaueAnsicht.html#l="+id, '_self');
+	}
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+		window.open("schueler_genaueAnsicht.html#s="+id, '_self');
+	}	
+}
+
+function meineLehrerStarseite() {
+	
+	
+	
+}
+
+function meineKlassenStartseite() {
+	
+	
+	
+}
+
+function meineKlasseStartseite() {
+	var sId = localStorage.getItem(0).split(";")[1];
+	var kId;
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+		window.open("schueler_genaueAnsicht.html#s="+id, '_self');
+	}	
+}
+
+function meineSchuelerStartseite() {
+	
+	
+	
+}
+
+function passwortAendern(){
+	window.open("pw_aendern.html", '_self');
 }

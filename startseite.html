@@ -35,13 +35,17 @@
 		</div>
 		<div id="myLAN">
 			<p>MyLAN</p>
-			<form id="myLANbutton">
+			<form id="myLANbuttons">
 			<!-- Die Buttons brauchen noch ein margin und eine ID, damit man sie durch JS verstecken kann.
 			Den aktuellen User lese ich im localStorage 0 aus. Da brauchst du nur das erste Zeichen zu überprüfen. Siehe Zeile 288 in unserer JS !-->
-				<input type="button" value="Mein Profil" onclick="meinProfilStartseite()" />
-				<input type="button" value="Meine Lehrer" onclick="meineLehrerStartseite()" />
-				<input type="button" value="Meine Klassen" onclick="meineKlassenStartseite()" />
-				<input type="button" value="Meine Schüler" onclick="meineSchuelerStartseite()" />
+				<input type="button" id="myProfil" value="Mein Profil" onclick="meinProfilStartseite()" />
+				<input type="button" id="myLehrer" value="Meine Lehrer" onclick="meineLehrerStartseite()" />
+				<input type="button" id="myKlassen" value="Meine Klassen" onclick="meineKlassenStartseite()" />
+				<input type="button" id="myKlasse" value="Meine Klasse" onclick="meineKlasseStartseite()" />
+				<input type="button" id="mySchueler" value="Meine Schüler" onclick="meineSchuelerStartseite()" />
+				<input type="button" id="myKlasseNew" value="Klasse anlegen" onclick="klasseHinzufuegen()" />
+				<input type="button" id="myLehrerNew" value="Lehrer anlegen" onclick="lehrerHinzufuegen()" />
+				<input type="button" id="mySchuelerNew" value="Schüler anlegen" onclick="schuelerHinzufuegen()" />
 				<input type="button" value="Passwort ändern" onclick="passwortAendern()" />
 			</form>
 		</div>
