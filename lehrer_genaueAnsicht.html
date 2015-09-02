@@ -40,99 +40,27 @@
                 <br>
                 <label for="vorname" id="vorname">Vorname:</label>  
                 <input type="text" value ="Vorname" id="vornameInput" readonly/>
-               <label>Klassen:</label>
+                <label>Klassen:</label>
                 <div id="Tabelle">
 
                 </div>
             </div>
-			<div id="notiznav">
-				<label>Notizen:</label>
-				<form target="blank" action="./notizen_genaueAnsicht.html">
-                    <input type="button" id="centered" value="Notiz öffnen"/>
-                </form>
-			</div>
+                <div id="notiznav">
+                    <label>Notizen:</label>
+                    <form target="blank">
+                        <input type="button" id="centered" value="Notiz öffnen" onclick="notizOeffnen()"/>
+                        <input type="button" id="centered" value="Notiz bearbeiten" onclick="notizBearbeiten()"/>
+                        <input type="button" id="centered" value="Notiz löschen" onclick="notizLoeschen()"/>
+                    </form>
+                </div>
             <div id="notizen">
-				<table>
-					<tr>
-						<td id="header"></td>
-						<td id="header">Erstellungdatum</td>
-						<td id="header">Schüler</td>
-						<td id="header">Klasse</td>
-					
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check1"></td>
-						<td>01.01.2001</td>
-						<td>Maximilian Musternmann</td>
-						<td>2D</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check2"></td>
-						<td>11.11.2011</td>
-						<td>Peter Tunichtgut</td>
-						<td>1A</td>
-					</tr>
-					<tr>
-						<td id="cb"><input type="radio" name="notiz" id="check3"></td>
-						<td>11.05.2015</td>
-						<td>Hans Wurst</td>
-						<td>3B</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check4"></td>
-						<td>13.02.2002</td>
-						<td>Andrea Andersson</td>
-						<td>6C</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check5"></td>
-						<td>02.02.2002</td>
-						<td>Mareike Müller</td>
-						<td>8D</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check6"></td>
-						<td>14.12.2013</td>
-						<td>Hinz Helo</td>
-						<td>10Z</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check7"></td>
-						<td>16.07.2014</td>
-						<td>Kunz Kapp</td>
-						<td>4B</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check8"></td>
-						<td>16.03.1995</td>
-						<td>Valerie Putschik</td>
-						<td>8A</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check9"></td>
-						<td>27.02.1996</td>
-						<td>Kunigunde Wiking</td>
-						<td>2Q</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check10"></td>
-						<td>11.09.2001</td>
-						<td>Vladimir Graf</td>
-						<td>7A</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="radio" name="notiz" id="check11"></td>
-						<td>Illuminati</td>
-						<td>Florian Flasch</td>
-						<td>9C</td>
-					</tr>
-                </table>
+				
             </div>
             <div id="SLA-Buttons">
                 <form>
                     <input type="button" value="Zurück" onclick="window.history.back()"/>
                 </form>
-                <form action="./lehrer_bearbeiten.html">
+                <form>
                     <input type="button" value="Lehrer bearbeiten" id="lehrerBearbeiten"/>
                 </form>
             </div>
