@@ -10,17 +10,17 @@
 	<script src="js/scripts.js"></script>
         <div>
             <form name="anmeldung">
-                <label for="nachname">Altes Passwort:</label>
-                <input type="text" placeholder="Nachname" tabindex ="1" name="nachname" id="loginNachname" class="input"> 
+                <label for="oldPW">Altes Passwort:</label>
+                <input type="password" placeholder="Altes Passwort" id="oldPW" name="Altes Passwort" tabindex ="1" class="input"> 
                     <br>
-                <label for="vorname">Neues Passwort:</label>  
-                <input type="text" placeholder ="Vorname" id="loginVorname" name="vorname" tabindex ="2" class="input">
+                <label for="newPW1">Neues Passwort:</label>  
+                <input type="password" placeholder ="Neues Passwort" id="newPW1" name="Neues Passwort" tabindex ="2" class="input">
                     <br>
-                <label for="password">Neues Passwort wiederholen:</label>
-                <input type="password" placeholder="Passwort" id="loginPasswort" name="password" tabindex ="3" class="input">
+                <label for="newPW2">Neues Passwort wiederholen:</label>
+                <input type="password" placeholder="Neues Passwort" id="newPW2" name="Neues Passwort" tabindex ="3" class="input">
                 <br/>
-                <input type="button" value="Bestätigen" id="anmeldenIndex" onclick="passwortAendern()" />
-                <input type="button" value="Abbrechen" id="anmeldenIndex" onclick="window.close()" />
+                <input type="button" value="Bestätigen" id="anmeldenIndex" onclick="PasswortUebernehmen(this.form)" />
+                <input type="button" value="Abbrechen" id="anmeldenIndex" onclick="window.history.back()" />
             </form>
         </div>     
     </body>

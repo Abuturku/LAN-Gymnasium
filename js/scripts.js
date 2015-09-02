@@ -2167,10 +2167,10 @@ function meineLehrerStartseite() {
 
 function meineKlassenStartseite() {
 	if(localStorage.getItem(0).substring(0,1) === "l"){ 							//nur für Lehrer erreichbar
-		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
-		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
+		var lVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
+		var lNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
 	
-		window.open("klassen.html#l="+sNachname+";"+sVorname, '_self');				//Setzen Filter bei Klassen.html auf eingeloggten Lehrer
+		window.open("klassen.html#l="+lNachname+";"+lVorname, '_self');				//Setzen Filter bei Klassen.html auf eingeloggten Lehrer
 	}
 }
 
@@ -2194,10 +2194,10 @@ function meineKlasseStartseite() {
 
 function meineSchuelerStartseite() {
 	if(localStorage.getItem(0).substring(0,1) === "l"){ 							//nur für Lehrer erreichbar
-		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
-		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
+		var lVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
+		var lNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
 	
-		window.open("schueler.html#l="+sNachname+";"+sVorname, '_self');			//Setzen Filter bei Schueler.html auf eingeloggten Lehrer
+		window.open("schueler.html#l="+lNachname+";"+lVorname, '_self');			//Setzen Filter bei Schueler.html auf eingeloggten Lehrer
 	}
 }
 
@@ -2205,6 +2205,26 @@ function passwortAendern(){
     window.open("pw_aendern.html", '_self');
 }
 //Ende MyLAN Funktionen
+
+//Passwort ändern
+function PasswortUebernehmen(form){
+	var passwortAlt = form.oldPW.value;
+    var passwortNeu = form.newPW1.value;
+    var passwortNeuWdh = form.newPW2.value;
+	
+	var passwortAktuell = localStorage.getItem(0).split(";")[4];
+	
+	if (passwortAktuell === passwortAlt){
+		if (passwortNeu !== "") {
+			if (passwortNeu === passwortNeuWdh){
+				//TODO hier könnte ihre werbung stehen.
+				//spaß beiseite. hier fehlt noch der part, wo das neue passwort in den localStorage mit aufgenommen wird.
+				window.open("startseite.html", '_self');
+			} else { window.alert("Das neue Passwort wurde nicht korrekt wiederholt.");}
+		} else { window.alert("Bitte geben Sie ein gültiges Passwort ein.");}
+	} else { window.alert("Das alte Passwort wurde falsch eingegeben.");}
+}
+//Ende PW ändern
 
 function oeffneGenaueAnsichtLehrer(id){
     window.open("lehrer_genaueAnsicht.html#l="+id, "_self");
