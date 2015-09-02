@@ -121,14 +121,14 @@ function ladeStorage() {
     localStorage.setItem("102", "lk;8;2");
     localStorage.setItem("103", "lk;7;3");
     localStorage.setItem("104", "lk;6;4");
-    localStorage.setItem("105", "lk;5;5");
+    localStorage.setItem("105", "lk;5;10");
     localStorage.setItem("106", "lk;4;6");
     localStorage.setItem("107", "lk;3;7");
     localStorage.setItem("108", "lk;2;8");
     localStorage.setItem("109", "lk;1;9");
-	
-    localStorage.setItem("110", "sk;0;0");
-    localStorage.setItem("111", "sk;1;1");
+	localStorage.setItem("110", "lk;0;10");
+    
+	localStorage.setItem("111", "sk;1;1");
     localStorage.setItem("112", "sk;2;2");
     localStorage.setItem("113", "sk;3;3");
     localStorage.setItem("114", "sk;4;4");
@@ -172,8 +172,9 @@ function ladeStorage() {
     localStorage.setItem("152", "sk;2;42");
     localStorage.setItem("153", "sk;3;43");
     localStorage.setItem("154", "sk;4;44");
+	localStorage.setItem("155", "sk;0;0");
 	
-    localStorage.setItem("155", "n;24;31;10;Nur ein Statist!;12.12.2012 12:00:00");
+    localStorage.setItem("156", "n;24;31;10;Nur ein Statist!;12.12.2012 12:00:00");
 }
 
 //Wird bei jedem Laden einer Seite aufgerufen
@@ -1044,14 +1045,14 @@ function sucheLehrerTabelle(){
             }
         }else{
             var bereitsVorhanden = false;
-                for(var y = 0; y < gefunden.length; y++){
-                    if(lehrer[i] === gefunden[y]){
-                        bereitsVorhanden = true;
-                    }
-                }
-                if(bereitsVorhanden===false){
-                    gefunden.push(lehrer[i]);
-                }
+			for(var y = 0; y < gefunden.length; y++){
+				if(lehrer[i] === gefunden[y]){
+					bereitsVorhanden = true;
+				}
+			}
+			if(bereitsVorhanden===false){
+				gefunden.push(lehrer[i]);
+			}
         }
         
     }
@@ -2155,10 +2156,16 @@ function meinProfilStartseite() {
 	}	
 }
 
-function meineLehrerStarseite() {
+function meineLehrerStartseite() {
+	if(localStorage.getItem(0).substring(0,1) === "s"){ 							//nur für Schüler erreichbar
+		var sVorname = localStorage.getItem(0).split(";")[2];						//Vorname abspeichern
+		var sNachname = localStorage.getItem(0).split(";")[3];						//Nachname abspeichen
+		var sName = ""+sNachname+", "+sVorname;										//Namen-String zur Befüllung der Dropdownbox erzeugen
 	
-	
-	
+		window.open("lehrer.html", '_self');										//öffnen der Lehrer.html zum filtern nach lehrern des eingeloggten schülers
+		document.getElementById('schueler_ddb').value = sName;						//Wertzuweisung an Dropdownbox
+		sucheSchuelerLehrer();														//Simulation onClick-Event
+	}	
 }
 
 function meineKlassenStartseite() {
@@ -2168,10 +2175,20 @@ function meineKlassenStartseite() {
 }
 
 function meineKlasseStartseite() {
-	var sId = localStorage.getItem(0).split(";")[1];
-	var kId;
-	if(localStorage.getItem(0).substring(0,1) === "s"){
-		window.open("schueler_genaueAnsicht.html#s="+id, '_self');
+	if(localStorage.getItem(0).substring(0,1) === "s"){ 							//nur für Schüler erreichbar
+		var sId = localStorage.getItem(0).split(";")[1];							//ID des eingeloggten Schülers
+		
+		for (i = 1; i <= localStorage.length-1+localStorageLengthOffset; i++){		//array nach sk durchsuchen
+			if (localStorage.getItem(i) === null){
+				continue;
+			}
+			if(localStorage.getItem(i).substring(0,2) === "sk") {					//bei sk
+				if(localStorage.getItem(i).split(";")[2] === sId) {					//überprüfen ob es die zuweisung für eingeloggten schüler ist
+					var kId = localStorage.getItem(i).split(";")[1];				//Klassen-ID abspeichern
+				}
+			}
+		}
+		window.open("klassen_genaueAnsicht.html#k="+kId, '_self');					//öffnen des Fensters der Klassenansicht des eingeloggten Schülers
 	}	
 }
 
@@ -2184,6 +2201,7 @@ function meineSchuelerStartseite() {
 function passwortAendern(){
     window.open("pw_aendern.html", '_self');
 }
+//Ende MyLAN Funktionen
 
 function oeffneGenaueAnsichtLehrer(id){
     window.open("lehrer_genaueAnsicht.html#l="+id, "_self");
