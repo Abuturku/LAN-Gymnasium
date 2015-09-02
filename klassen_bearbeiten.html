@@ -40,25 +40,26 @@
                 </form>
             </div>
             <div id="klasseninfo">
-                <label for="klassenname" id="name">Name:</label>
-                <input type="text" placeholder="Name" id="klassenname"> 
-                <br>
-                <label for="stufe" id="stufe">Stufe:</label>  
-                <select>
-				<option disabled selected>Stufe</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-				<option>10</option>
-				<option>11</option>
-				<option>12</option>
-				<option>13</option>
-				</select>
-				<label for="klassenlehrer" id="klassenlehrer">Klassenlehrer:</label>  
-                <select id="selectKlasseBearbeitenKlassenLehrer">
-				</select>
+                <label for="stufe" >Stufe:</label>  
+                <select id="stufe">
+                    <option disabled selected value="Stufe">Stufe</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+                <label for="klassenlehrer" >Buchstabe</label>  
+                <select id="buchstabe">
+                    <option disabled selected value="Buchstabe">Buchstabe</option>
+                    <option value="a">a</option>
+                    <option value="b">b</option>
+                    <option value="c">c</option>
+                </select>
                 <label>Lehrer:</label>
                 <div id="Tabelle">
                 </div>
@@ -66,14 +67,14 @@
 			
              <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" onclick="klasseSpeichern()" value="Speichern" id="speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                    <input type="button" onclick="window.history.back()" value="Abbrechen" id = "abbrechen"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Löschen" onclick="klasseLoeschen()"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>

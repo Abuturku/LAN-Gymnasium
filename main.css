@@ -255,9 +255,9 @@ div#name input, div#klasseninfo input{
 
 div#name table, div#klasseninfo table{
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     overflow: auto;
-	margin: 0;
+    margin: 0;
 }
 
 div#Tabelle {
