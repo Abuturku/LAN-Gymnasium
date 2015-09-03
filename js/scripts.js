@@ -288,6 +288,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			document.getElementById('passwortAendern').style.display="none";
         }
 		if(localStorage.getItem(0).substring(0,1) === "l"){
+			document.getElementById('newYear').style.display="none";
             document.getElementById('myLehrer').style.display="none";
             document.getElementById('myKlasse').style.display="none";
             document.getElementById('myKlasseNew').style.display="none";
@@ -296,6 +297,7 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('pwReset').style.display="none";			
         }
 		if(localStorage.getItem(0).substring(0,1) === "s"){
+			document.getElementById('newYear').style.display="none";
             document.getElementById('mySchueler').style.display="none";
             document.getElementById('myKlassen').style.display="none";
             document.getElementById('myKlasseNew').style.display="none";
@@ -814,6 +816,51 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         
     }
+	
+	if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "notizen_genaueAnsicht.html") {
+		var url = window.location.href;
+        var idx = url.indexOf("#");
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+		var notizID = hash.split("=")[1];
+		
+		for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+			if (localStorage.getItem(i) === null){continue;}
+			if(localStorage.getItem(i).substring(0,1) === "n"){
+				var splittedNotiz = localStorage.getItem(i).split(";");
+				var aktuelleNotizId = splittedNotiz[1];
+				if (aktuelleNotizId === notizID) {
+					var schuelerNid = splittedNotiz[2];
+					var lehrerNid = splittedNotiz[3];
+					var inhaltNotiz = splittedNotiz[4];
+					var zeitstempelNotiz = splittedNotiz[5];
+					//Schülernamen in String speichern
+					for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+						if (localStorage.getItem(j) === null){continue;}
+						if (localStorage.getItem(j).substring(0,2) === "s;"){
+							var splittedSchueler = localStorage.getItem(j).split(";");
+							if (splittedSchueler[1] === schuelerNid){
+								schuelerNotiz = ""+splittedSchueler[2]+" "+splittedSchueler[3];
+							}
+						}
+					}
+					//Lehrernamen in String speichern
+					for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+						if (localStorage.getItem(j) === null){continue;}
+						if (localStorage.getItem(j).substring(0,2) === "l;"){
+							var splittedLehrer = localStorage.getItem(j).split(";");
+							if (splittedLehrer[1] === lehrerNid){
+								lehrerNotiz = ""+splittedLehrer[2]+" "+splittedLehrer[3];
+							}
+						}
+					}
+					document.getElementById('lehrerNotiz').value = lehrerNotiz;
+					document.getElementById('schuelerNotiz').value = schuelerNotiz;
+					document.getElementById('datumNotiz').value = zeitstempelNotiz;
+					document.getElementById('notizInhalt').value = inhaltNotiz;
+				}
+			}
+		}
+	}
 });
 
 //Wird bei Klick auf Button "Anmelden" aufgerufen
@@ -2166,6 +2213,10 @@ function handleFileSelect(evt) {
 }
 
 //Funktionen der myLAN-Leiste auf der Startseite
+
+function newYear(){ //TODO
+	
+}
 
 function meinProfilStartseite() {
 	var id = localStorage.getItem(0).split(";")[1];

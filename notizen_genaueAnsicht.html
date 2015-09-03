@@ -32,31 +32,20 @@
             </form>
         </ul>
 		<div id="notizinfos">
-			<p id="filterheader">Notiz: </p>
+			<p id="filterheader">Notiz</p>
 			<br>
             <p>Lehrer: </p>
-			<br><br>
-			<p>Nachname: </p>
-			<input value="Maier" readonly></input>
-			<br>
-			<p>Vorname: </p>
-			<input value="Biene" readonly></input>
+			<input type="text" value="Lehrer" id="lehrerNotiz" readonly></input>
 			<br>
 			<p>Erstellungsdatum:</p>
-			<input value="12.05.2015" readonly></input>
+			<input type="text" value="Datum" id="datumNotiz" readonly></input>
 			<br>
-			<br><br><br>
 			<p>Schüler: </>
-			<br><br>
-			<p>Nachname: </p>
-			<input value="Wurst" readonly></input>
-			<br>
-			<p>Vorname: </p>
-			<input value="Hans" readonly></input>
+			<input type="text" value="Schueler" id="schuelerNotiz" readonly></input>
 			<br>
         </div>
 		<div id="notizbearbeitung">
-			<textarea placeholder="Notiztext" readonly></textarea>
+			<textarea id="notizInhalt" placeholder="Notiztext" readonly></textarea>
 		</div>
         <div id="SLA-Buttons">
             <form>
