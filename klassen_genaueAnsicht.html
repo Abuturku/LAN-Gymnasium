@@ -35,37 +35,14 @@
                 <img src="./Klassenfoto.png">
             </div>
             <div id="klasseninfo">
-               <label for="klassenname" id="name">Name:</label>
-                <input type="text" value="5A" id="klassenname"> 
-                <br>
                 <label for="stufe" id="Stufe">Stufe:</label>  
                 <input type="text" value ="Stufe" id="stufe" readonly>
                 <br>
-                <label for="klassenlehrer" id="klassenlehrer">Klassenlehrer:</label>  
-                <input type="text" value ="Hubert Schneider" id="Klassenlehrer" readonly>
+                <label for="klassenlehrer" id="buchstabeLabel">Buchstabe:</label>  
+                <input type="text" value ="Buchstabe" id="buchstabe" readonly>
                <label>Lehrer:</label>
             <div id="Tabelle">
-                <table>
-					<tr>
-						<td id="header">Nachname</td>
-						<td id="header">Vorname</td>
-					</tr>
-                    <tr>
-						<td>Musterfrau</td>
-						<td>Uschi</td>
-					</tr>
-					<tr>
-						<td>Schneider</td>
-						<td>Hubert</td>
-					</tr>
-						<td>Bär</td>
-						<td>Knut</td>
-					</tr>
-					<tr>
-						<td>Toffel</td>
-						<td>Karl</td>
-					</tr>
-                </table>
+                
                 </div>
             </div>
             <div id="SLA-Buttons">
@@ -73,7 +50,7 @@
                     <input type="button" value="Zurück" onclick="window.history.back()"/>
                 </form>
                 <form action="./klassen_bearbeiten.html">
-                    <input type="button" value="Klasse bearbeiten"/>
+                    <input type="button" value="Klasse bearbeiten" id="klasseBearbeiten" onclick="klasseBearbeiten()"/>
                 </form>
             </div>
     </body>

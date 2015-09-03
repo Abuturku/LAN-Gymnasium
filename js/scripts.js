@@ -177,6 +177,11 @@ function ladeStorage() {
     localStorage.setItem("156", "n;24;31;10;Nur ein Statist!;12.12.2012 12:00:00");
 }
 
+function reinitStorage(){
+	localStorage.clear();
+	ladeStorage();
+}
+
 //Wird bei jedem Laden einer Seite aufgerufen
 window.addEventListener("DOMContentLoaded", function(){
     localStorageLengthOffset = 0;
@@ -427,6 +432,16 @@ window.addEventListener("DOMContentLoaded", function(){
         }
         sucheKlassenTabelle();
 		
+		document.getElementById('btnKlasseLoeschen').onclick = function () {
+			var klassenTabelle = document.getElementById('table').children[0];
+			for (var i = 1; i < klassenTabelle.children.length; i++){
+				var checkBox = klassenTabelle.children[i].children[0].children[0];
+				if (checkBox.checked){
+					klasseLoeschen(checkBox.id.substring(5));
+				}
+			}
+		}
+		
         if(localStorage.getItem(0).substring(0,1) === "s"){
             document.getElementById('btnKlasseHinzufuegen').style.display="none";
             document.getElementById('btnKlasseBearbeiten').style.display="none";
@@ -573,7 +588,7 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('Tabelle').appendChild(table);
             
             document.getElementById('speichern').onclick = function () { klasseSpeichern(true); };
-            document.getElementById('abbrechen').onclick = function () { window.close(); };
+            //document.getElementById('abbrechen').onclick = function () { window.close(); };
         }else{
             var img = document.getElementById('klassenbild').children[0];
             img.src = klassen[hash.split("=")[1]].bildquelle;
@@ -707,9 +722,12 @@ window.addEventListener("DOMContentLoaded", function(){
                     break;
                 }                
             }
+			
+			notizenAnzeigenSchueler();
             
             document.getElementById('speichern').onclick = function () { schuelerSpeichern(hash.split("=")[1]); };
             document.getElementById('abbrechen').onclick = function () { window.close(); };
+			document.getElementById('btnSchuelerLoeschen').onclick = function () { schuelerLoeschen(hash.split("=")[1]); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -742,25 +760,26 @@ window.addEventListener("DOMContentLoaded", function(){
 
                 var line = document.createElement('tr');
 
-                var checkBox = document.createElement('td');
-                checkBox.setAttribute("id", "cb");
-                checkBox.innerHTML ="<input type=\"checkbox\" disabled=\"disabled\" id=\"check"+i+"\">";
+                //var checkBox = document.createElement('td');
+                //checkBox.setAttribute("id", "cb");
+                //checkBox.innerHTML ="<input type=\"checkbox\" disabled=\"disabled\" id=\"check"+i+"\">";
 
                 var klassenID = getKlassenID(klassen[i].buchstabe, klassen[i].stufe);
                 for (var j = 0; j < lehrerKlasse.length; j++){
                     if (lehrerKlasse[j].lehrerId === hash.split("=")[1]){
                         if (lehrerKlasse[j].klassenId === ""+i){
-                            checkBox.children[0].checked = true;
+                            //checkBox.children[0].checked = true;
+							var klasse = document.createElement('td');
+							klasse.innerHTML = ""+klassen[i].stufe+klassen[i].buchstabe+"";
+
+							//line.appendChild(checkBox);
+							line.appendChild(klasse);
+							table.appendChild(line);
                         }
                     }
                 }
 
-                var klasse = document.createElement('td');
-                klasse.innerHTML = ""+klassen[i].stufe+klassen[i].buchstabe+"";
-
-                line.appendChild(checkBox);
-                line.appendChild(klasse);
-                table.appendChild(line);
+                
             }
 
             klassenTabelle.appendChild(table);
@@ -800,7 +819,7 @@ window.addEventListener("DOMContentLoaded", function(){
             
             for (var i = 0; i < schuelerKlasse.length; i++){
                 if (schuelerKlasse[i].schuelerId === hash.split("=")[1]){
-                    klasse.value = klassen[i].stufe+klassen[i].buchstabe;
+                    klasse.value = klassen[schuelerKlasse[i].klassenId].stufe+klassen[schuelerKlasse[i].klassenId].buchstabe;
                     break;
                 }
             }
@@ -817,6 +836,7 @@ window.addEventListener("DOMContentLoaded", function(){
         
     }
 	
+<<<<<<< HEAD
 	if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "notizen_genaueAnsicht.html") {
 		var url = window.location.href;
         var idx = url.indexOf("#");
@@ -860,6 +880,68 @@ window.addEventListener("DOMContentLoaded", function(){
 				}
 			}
 		}
+=======
+	if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "klassen_genaueAnsicht.html"){
+		if(localStorage.getItem(0).substring(0,1) === "s"){
+            window.alert("YOU SHALL NOT PASS!");
+            window.open("klassen.html", "_self");
+        }
+		
+		var url = window.location.href;
+        var idx = url.indexOf("#");
+        var hash = idx !== -1 ? url.substring(idx+1) : "";
+        var sla = document.getElementById('SLA-Buttons');
+        var lehrerTabelle = document.getElementById('Tabelle');
+		
+        var stufe = document.getElementById('stufe');
+        var buchstabe = document.getElementById('buchstabe');
+		var img = document.getElementById('klassenbild').children[0];
+		
+		for (var i = 0; i < klassen.length; i++){
+			if (""+i === hash.split("=")[1]){
+				stufe.value = klassen[i].stufe;
+				buchstabe.value = klassen[i].buchstabe;
+				img.src = klassen[i].bildquelle;
+				break;
+			}
+		}
+
+		var table = document.createElement('table');
+		for (var i = 0; i < lehrer.length; i++){
+
+			var line = document.createElement('tr');
+
+			//var checkBox = document.createElement('td');
+			//checkBox.setAttribute("id", "cb");
+			//checkBox.innerHTML ="<input type=\"checkbox\" disabled=\"disabled\" id=\"check"+i+"\">";
+
+			var klassenID = getKlassenID(stufe, buchstabe);
+			for (var j = 0; j < lehrerKlasse.length; j++){
+				if (lehrerKlasse[j].klassenId === hash.split("=")[1]){
+					if (lehrerKlasse[j].lehrerId === ""+i){
+						//checkBox.children[0].checked = true;
+						var lehrerElem = document.createElement('td');
+						lehrerElem.innerHTML = ""+lehrer[i].vorname+" "+lehrer[i].nachname+"";
+
+						//line.appendChild(checkBox);
+						line.appendChild(lehrerElem);
+						table.appendChild(line);
+					}
+				}
+			}
+
+		
+		}
+
+		lehrerTabelle.appendChild(table);
+		
+		document.getElementById('klasseBearbeiten').onclick = function () { 
+                if(localStorage.getItem(0).substring(0,1) === "s"){
+                    window.alert("YOU SHALL NOT PASS!");
+                    return;
+                }
+                window.open("klassen_bearbeiten.html#"+hash, '_blank'); };
+>>>>>>> origin/master
 	}
 });
 
@@ -1985,15 +2067,15 @@ function lehrerSpeichern(neu){
                 //unterrichteteKlassen.push(klassenID);
                 keineKlasse = false;
             }
+        }
         
-            if(keineKlasse === true){
+		if(keineKlasse === true){
                 window.alert("Der Lehrer muss mindestens eine Klasse unterrichten!");
                 return;
             }
 
-            localStorage.setItem(localStorage.length+localStorageLengthOffset, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
-        }
-        
+		localStorage.setItem(localStorage.length+localStorageLengthOffset, "l;"+lehrer.length+";"+vorname+";"+nachname+";ändermich;"+imgSource+";ja");
+		
         window.open("lehrer.html", "_self");      
         
     }else{
@@ -2179,6 +2261,119 @@ function klasseSpeichern(neu){
         location.reload();
     }
 
+}
+
+function klasseLoeschen(id){
+	if(localStorage.getItem(0).substring(0,1) === "s" || localStorage.getItem(0).substring(0,1) === "l"){
+        window.alert("Keine Berechtigung!");
+        return;
+    }
+	
+	if (sindSchuelerInKlasse(id)){
+		window.alert("Es sind noch Schüler in der Klasse "+klassen[i].stufe+klassen[i].buchstabe+" vorhanden!");
+		return;
+	}
+	for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+		if (localStorage.getItem(j) === null){
+			continue;
+		}
+		
+		var splittedItem = localStorage.getItem(j).split(";");
+		if (splittedItem[0] === "k"){
+			if (parseInt(splittedItem[1]) === parseInt(id)){
+				localStorage.removeItem(j);
+				localStorageLengthOffset++;
+			}else if (parseInt(splittedItem[1]) > parseInt(id)){
+				var neueKlassenId = parseInt(splittedItem[1])-1;
+				if (splittedItem[5] !== undefined){
+					localStorage.setItem(j, "k;"+neueKlassenId+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+splittedItem[5]);
+				}else {
+					localStorage.setItem(j, "k;"+neueKlassenId+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]);
+				}
+			}
+		}else if (splittedItem[0] === "lk"){
+			if (parseInt(splittedItem[1]) === parseInt(id)){
+				localStorage.removeItem(j);
+				localStorageLengthOffset++;
+			}else if (parseInt(splittedItem[1]) > parseInt(id)){
+				var neueKlassenId = parseInt(splittedItem[1])-1;
+				localStorage.setItem(j, "lk;"+neueKlassenId+";"+splittedItem[2]);
+			}
+		}
+	}
+	
+	window.open("klassen.html", "_self");
+}
+
+function schuelerLoeschen(id){
+	if(localStorage.getItem(0).substring(0,1) === "s"){
+        window.alert("Keine Berechtigung!");
+        return;
+    }
+	
+	for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+		if (localStorage.getItem(j) === null){
+			continue;
+		}
+		var splittedItem = localStorage.getItem(j).split(";");
+		if (splittedItem[0] === "s"){
+			if (parseInt(splittedItem[1]) === parseInt(id)){
+				localStorage.removeItem(j);
+				localStorageLengthOffset++;
+			}
+		}else if (splittedItem[0] === "sk"){
+			if (parseInt(splittedItem[2]) === parseInt(id)){
+				localStorage.removeItem(j);
+				localStorageLengthOffset++;
+			}
+		}else if (splittedItem[0] === "n"){
+			if (parseInt(splittedItem[1]) === parseInt(id)){
+				localStorage.removeItem(j);
+				localStorageLengthOffset++;
+			}
+		}
+	}
+	
+	for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+		if (localStorage.getItem(j) === null){
+			continue;
+		}
+		
+		var splittedItem = localStorage.getItem(j).split(";");
+		if (splittedItem[0] === "sk"){
+			if (parseInt(splittedItem[2]) > parseInt(id)){
+				var neueSchuelerId = parseInt(splittedItem[2])-1;
+				localStorage.setItem(j, "sk;"+splittedItem[1]+";"+neueSchuelerId);
+			}
+		}else if (splittedItem[0] === "s"){
+			if (parseInt(splittedItem[1]) > parseInt(id)){
+				var neueSchuelerId = parseInt(splittedItem[1])-1;
+				if (splittedItem[6] !== undefined){
+					localStorage.setItem(j, "s;"+neueSchuelerId+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]+splittedItem[6]);
+				}else {
+					localStorage.setItem(j, "s;"+neueSchuelerId+";"+splittedItem[2]+";"+splittedItem[3]+";"+splittedItem[4]+";"+splittedItem[5]);
+				}
+				
+			}
+		}		
+	}
+	
+	window.open("schueler.html", "_self");
+}
+
+function sindSchuelerInKlasse(id){
+	for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+		if (localStorage.getItem(i) === null){
+			continue;
+		}
+		splittedItem = localStorage.getItem(i).split(";");
+		if (splittedItem[0] === "sk"){
+			if (splittedItem[1] === ""+id){
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 function handleFileSelect(evt) {
