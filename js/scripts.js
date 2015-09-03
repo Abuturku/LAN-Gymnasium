@@ -247,9 +247,14 @@ window.addEventListener("DOMContentLoaded", function(){
         if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !== "index.html"){
             window.location.href="index.html";
         }
-    }else{
-        var splittedItem = localStorage.getItem(0).split(";");
-        document.getElementById("logindata").innerHTML="Angemeldet als: <br>"+ splittedItem[2]+ " " + splittedItem[3];
+    }else{															//nur, wenn nicht im fenster pw_reset.html oder pw_aendern.html
+		var locationPath = window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length);
+		if (locationPath !== "pw_reset.html") {
+			if (locationPath !== "_aendern.html") {		
+				var splittedItem = localStorage.getItem(0).split(";");
+				document.getElementById("logindata").innerHTML="Angemeldet als: <br>"+ splittedItem[2]+ " " + splittedItem[3];
+			}
+		}
     }
     
     //Macht es möglich, dass mit Drücken der Eingabetaste, die Logindaten überprüft werden
@@ -287,6 +292,7 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('myKlasseNew').style.display="none";
             document.getElementById('myLehrerNew').style.display="none";
             document.getElementById('mySchuelerNew').style.display="none";
+            document.getElementById('pwReset').style.display="none";			
         }
 		if(localStorage.getItem(0).substring(0,1) === "s"){
             document.getElementById('mySchueler').style.display="none";
@@ -294,7 +300,13 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('myKlasseNew').style.display="none";
             document.getElementById('myLehrerNew').style.display="none";
             document.getElementById('mySchuelerNew').style.display="none";
+            document.getElementById('pwReset').style.display="none";
         }
+	}
+	
+	if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "pw_aendern.html"){
+		var splittedLs0 = localStorage.getItem(0).split(";");
+		if (splittedLs0[4]==="ändermich"){document.getElementById('oldPW').value="ändermich";}	//Hilfe zur Rücksetzung des Initialpasswortes
 	}
 	
     if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
@@ -813,19 +825,18 @@ function onclickLogin(form){
         if (vorname=== "root"){
             if (passwort === "root"){
                 localStorage.setItem("0","a;;Administrator;");
-                window.location.href="startseite.html";
+                firstLoginCheck();
                 return;
             }
         }
     }
-    
     
     for (var i = 0; i < schueler.length; ++i) {
         if(schueler[i].nachname === nachname){
             if(schueler[i].vorname === vorname){
                 if(schueler[i].passwort === passwort){
                     localStorage.setItem("0","s;"+i+";"+vorname+";"+nachname+";"+passwort+";"+schueler[i].bildquelle);
-                    window.location.href="startseite.html";
+                    firstLoginCheck();
                     return;
                 }else{
                     window.alert("Benutzername oder Passwort sind falsch");
@@ -840,7 +851,7 @@ function onclickLogin(form){
             if(lehrer[i].vorname === vorname){
                 if(lehrer[i].passwort === passwort){
                     localStorage.setItem("0","l;"+i+";"+vorname+";"+nachname+";"+passwort+";"+lehrer[i].bildquelle);
-                    window.location.href="startseite.html";
+                    firstLoginCheck();
                     return;
                 }else{
                     window.alert("Benutzername oder Passwort sind falsch");
@@ -850,6 +861,15 @@ function onclickLogin(form){
         } 
     }
     window.alert("Benutzername oder Passwort sind falsch");
+}
+
+function firstLoginCheck(){
+	var splittedItem = localStorage.getItem(0).split(";");
+	if (splittedItem[4]==="ändermich") {
+		window.location.href="pw_aendern.html";
+		window.alert("Bitte Initialpasswort ändern");
+	} else { window.location.href="startseite.html";}
+	
 }
 
 function ausloggen(){
@@ -2201,13 +2221,20 @@ function meineSchuelerStartseite() {
 	}
 }
 
-function passwortAendern(){
+function passwortAendern() {
     window.open("pw_aendern.html", '_self');
+}
+
+function passwortReset() {
+	if(localStorage.getItem(0).substring(0,1) === "a"){ 	//nur für Admin verfügbar
+		window.open("pw_reset.html", '_self');
+	}
 }
 //Ende MyLAN Funktionen
 
 //Passwort ändern
 function PasswortUebernehmen(form){
+	
 	var passwortAlt = form.oldPW.value;
     var passwortNeu = form.newPW1.value;
     var passwortNeuWdh = form.newPW2.value;
@@ -2217,14 +2244,72 @@ function PasswortUebernehmen(form){
 	if (passwortAktuell === passwortAlt){
 		if (passwortNeu !== "") {
 			if (passwortNeu === passwortNeuWdh){
-				//TODO hier könnte ihre werbung stehen.
-				//spaß beiseite. hier fehlt noch der part, wo das neue passwort in den localStorage mit aufgenommen wird.
+				for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+					if (localStorage.getItem(i) === null){continue;}
+					var splittedItem = localStorage.getItem(i).split(";");
+					var splittedLs0 = localStorage.getItem(0).split(";");
+					
+					if (splittedItem[0] === splittedLs0[0]){								//Schueler/Lehrer/Admin?
+						if (splittedItem[1] === splittedLs0[1]){							//Gleiche ID?
+							if (splittedItem[2] === splittedLs0[2]){						//Gleicher Vorname?
+								if (splittedItem[3] === splittedLs0[3]){					//Gleicher Nachname?
+									if (passwortAktuell === splittedLs0[4]){
+										localStorage.setItem(i, splittedItem[0]+";"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+passwortNeu+";"+splittedItem[5]);
+										localStorage.setItem(0, splittedItem[0]+";"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";"+passwortNeu+";"+splittedItem[5]);
+									}//Identität geprüft. Neues Passwort übernommen.
+								}
+							}
+						}
+					}
+				}
 				window.open("startseite.html", '_self');
 			} else { window.alert("Das neue Passwort wurde nicht korrekt wiederholt.");}
 		} else { window.alert("Bitte geben Sie ein gültiges Passwort ein.");}
 	} else { window.alert("Das alte Passwort wurde falsch eingegeben.");}
 }
 //Ende PW ändern
+//Passwort zurücksetzen
+function PasswortZuruecksetzen(form){
+	if(localStorage.getItem(0).substring(0,1) === "a"){ 	//nur für Admin verfügbar
+		var vorname = form.vorname.value;
+		var nachname = form.nachname.value;
+		var gefunden = false;
+		
+		if (vorname === "") { window.alert("Bitte den Vornamen eingeben") }
+		else if (nachname === "") { window.alert("Bitte den Nachnamen eingeben") }
+		if (vorname === "root") {
+			if (nachname === "root") {
+				window.alert("Administrator-Passwort lässt sich nicht ändern.");
+			}
+		}
+		
+		else {
+			for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+				if (localStorage.getItem(i) === null){continue;}
+				var splittedItem = localStorage.getItem(i).split(";");	//array des aktuellen ls-Elements
+				//abfangen: Klassen, Schüler-/Lehrerklassen erst nicht weiter untersuchen.
+				if(splittedItem[0] === "k"){continue;}
+				if(splittedItem[0] === "sk"){continue;}
+				if(splittedItem[0] === "lk"){continue;}
+				
+				var lsVorname = splittedItem[2];						//Localstorage-Vorname
+				var lsNachname = splittedItem[3];						//Localstorage-Nachname
+				if (lsNachname === nachname) {
+					if (lsVorname === vorname){							//wenn benutzer gefunden wurde
+						localStorage.setItem(i, splittedItem[0]+";"+splittedItem[1]+";"+splittedItem[2]+";"+splittedItem[3]+";ändermich;"+splittedItem[5]);
+						gefunden = true;
+						window.open("startseite.html", '_self');
+					}
+				}
+			}
+			if (!gefunden) {window.alert("Benutzer ist nicht verzeichnet.");}					//Wenn angegebener Benutzer nicht im Localstorage vorhanden ist, Fehlermeldung
+		}
+	} else {
+		window.alert("Dies ist nur dem Administrator erlaubt.")
+		window.open("startseite.html", '_self');
+	}
+}
+//Ende PW zurücksetzen
 
 function oeffneGenaueAnsichtLehrer(id){
     window.open("lehrer_genaueAnsicht.html#l="+id, "_self");

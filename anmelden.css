@@ -33,3 +33,10 @@ input[type="button"]{
     font:bold 0.75em/2em arial,geneva,helvetica,sans-serif; 
     margin-left: 4%;
 } 
+
+/*für Seite Passwort zurücksetzen*/
+
+p#resetText{
+    font: bold 0.9em/2em arial,geneva,helvetica,sans-serif;
+    color: black;
+}
