@@ -285,6 +285,7 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('myKlassen').style.display="none";
             document.getElementById('myKlasse').style.display="none";
             document.getElementById('mySchueler').style.display="none";
+			document.getElementById('passwortAendern').style.display="none";
         }
 		if(localStorage.getItem(0).substring(0,1) === "l"){
             document.getElementById('myLehrer').style.display="none";
