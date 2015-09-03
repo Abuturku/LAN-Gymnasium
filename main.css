@@ -323,26 +323,26 @@ div#Notizen button{
 }
 
 div#SLA-Buttons{
-	margin-top: 2%;
+    margin-top: 2%;
     margin-left: 35%;
-	height: 10%;
-	width: 33%;
-	display: inline-block;
+    height: 10%;
+    width: 33%;
+    display: inline-block;
 }
 
 div#SLA-Buttons form{
     height: 2em; 
     clear: both;
-	width: 30%;
+    width: 30%;
 }
 
 div#SLA-Buttons input{
-	font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
+    font:bold 0.75em/2em arial,geneva,helvetica,center,sans-serif; 
     color:#000; 
     width: 90%;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-top: 10%; 
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10%; 
 }
 
 div#SLA-Buttons label{
@@ -421,10 +421,10 @@ button#suche{
 
 /*Notizen Layouts*/
 div#notizinfos{
-	margin-top: 1%;
-	float: left;
-	width: 32%;
-	height: 80%;
+    margin-top: 1%;
+    float: left;
+    width: 32%;
+    height: 75%;
 }
 
 #notizinfos p{

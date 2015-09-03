@@ -7,30 +7,30 @@
         <link rel="stylesheet" href="main.css" type="text/css">
     </head>
     <body>
-		<script src="js/scripts.js"></script>
-		<div>
-        <ul class="tablist">
-            <li>
-                <a href="./startseite.html">Startseite</a>
-            </li>
-            <li>
-                <a href="./lehrer.html">Lehrer</a>
-            </li>
-            <li>
-                <a href="./klassen.html">Klassen</a>
-            </li>
-            <li id="current">
-                <a href="./schueler.html">Sch&uuml;ler</a>
-            </li>
-            <div id="logindata">
-            Angemeldet als:
-            <br>
-            Vorname Nachname
-            </div>
-            <form> 
-                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
-            </form>
-        </ul>
+        <script src="js/scripts.js"></script>
+        <div>
+            <ul class="tablist">
+                <li>
+                    <a href="./startseite.html">Startseite</a>
+                </li>
+                <li>
+                    <a href="./lehrer.html">Lehrer</a>
+                </li>
+                <li>
+                    <a href="./klassen.html">Klassen</a>
+                </li>
+                <li id="current">
+                    <a href="./schueler.html">Sch&uuml;ler</a>
+                </li>
+                <div id="logindata">
+                Angemeldet als:
+                <br>
+                Vorname Nachname
+                </div>
+                <form> 
+                    <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
+                </form>
+            </ul>
             <div id="bild">
                 <img src="./Schueler.png">
             </div>
@@ -49,10 +49,20 @@
             </div>
             <div id="notiznav">
                 <label>Notizen:</label>
-                <form target="blank">
-                    <input type="button" id="centered" value="Notiz öffnen" onclick="notizOeffnen()"/>
-                    <input type="button" id="centered" value="Notiz bearbeiten" onclick="notizBearbeiten()"/>
-                    <input type="button" id="centered" value="Notiz löschen" onclick="notizLoeschen()"/>
+                <form>
+                    <input type="button" id="centered" value="Notiz öffnen" onclick="notizOeffnenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz hinzufügen" onclick="notizHinzufuegenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz bearbeiten" onclick="notizBearbeitenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz löschen"onclick="notizLoeschenButton()"/>
                 </form>
             </div>
             <div id="notizen">
@@ -66,5 +76,6 @@
                     <input type="button" value="Schüler bearbeiten" id="schuelerBearbeiten"/>
                 </form>
             </div>
+        </div>
     </body>
 </html>

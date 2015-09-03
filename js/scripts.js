@@ -2659,18 +2659,81 @@ function notizenAnzeigenSchueler(){
     notizenDiv.appendChild(notizenTabelle);
 }
 
-function notizOeffnen(){
+function notizOeffnenButton(){
+    var notizenTabelle = document.getElementById('notizen').children[0];
+    var checked = [];
+    for (var i = 1; i < notizenTabelle.children.length; i++){
+        if (notizenTabelle.children[i].children[0].children[0].checked){
+            checked.push(notizenTabelle.children[i].children[0].children[0].id.substring(5));
+        }
+    }
     
+    if (checked.length === 1){
+        window.open("notizen_genaueAnsicht.html#n="+checked[0], "_blank");
+    }else if (checked.length > 1){
+        window.alert("Es kann nur eine Notiz geöffnet werden!");
+        return;
+    }
 }
 
-function notizHinzufuegen(){
-    
+function notizHinzufuegenButton(){
+    window.open("notizen_bearbeiten.html#new", "_blank");
 }
 
-function notizBearbeiten(){
+function notizBearbeitenButton(){
+    var notizenTabelle = document.getElementById('notizen').children[0];
     
+    var checked = [];
+    for (var i = 1; i < notizenTabelle.children.length; i++){
+        if (notizenTabelle.children[i].children[0].children[0].checked){
+            checked.push(notizenTabelle.children[i].children[0].children[0].id.substring(5));
+        }
+    }
+    
+    if (checked.length === 1){
+        window.open("notizen_bearbeiten.html#n="+checked[0], "_blank");
+    }else if (checked.length > 1){
+        window.alert("Es kann nur eine Notiz bearbeitet werden!");
+        return;
+    }
 }
 
-function notizLoeschen(){
-    
+function notizLoeschenButton(){
+    if (confirm("Wollen Sie diese Notiz unwiderruflich löschen?") === true){
+        var notizenTabelle = document.getElementById('notizen').children[0];
+
+        var checked = [];
+        for (var i = 1; i < notizenTabelle.children.length; i++){
+            if (notizenTabelle.children[i].children[0].children[0].checked){
+                checked.push(notizenTabelle.children[i].children[0].children[0].id.substring(5));
+            }
+        }
+
+        for (var i = 0; i < checked.length; i++){
+            for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+                if (localStorage.getItem(i) === null){
+                    continue;
+                }
+
+                var splittedItem = localStorage.getItem(j).split(";");
+
+                if (splittedItem[0] === "n"){
+                    if (splittedItem[1] === checked[i]){
+                        localStorage.removeItem(j);
+                    }
+                }
+            }
+        }
+
+        if(window.location.pathname.substr(window.location.pathname.length-24,window.location.pathname.length) === "schueler_bearbeiten.html" 
+                || window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"
+                || window.location.pathname.substr(window.location.pathname.length-27,window.location.pathname.length) === "schueler_genaueAnsicht.html"
+                || window.location.pathname.substr(window.location.pathname.length-25,window.location.pathname.length) === "lehrer_genaueAnsicht.html"){
+            location.reload();
+        }else{
+            window.close();
+        }
+    }else{
+        return;
+    }
 }

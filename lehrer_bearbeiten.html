@@ -51,21 +51,21 @@
                 
                 </div>
             </div>
-			<div id="notiznav">
-				<label>Notizen:</label>
-				<br>
-				<form target="blank" action="./notizen_genaueAnsicht.html">
-                    <input type="button" id="centered" value="Notiz öffnen"/>
-                </form>
-				<br>
-				<form target="blank" action="./notizen_bearbeiten.html">
-                    <input type="button" id="centered" value="Notiz bearbeiten"/>
-                </form>
-				<br>
-                <form>
-                    <input type="button" id="centered" value="Notiz löschen"/>
-                </form>
-			</div>
+                <div id="notiznav">
+                    <label>Notizen:</label>
+                    <br>
+                    <form>
+                        <input type="button" id="centered" value="Notiz öffnen" onclick="notizOeffnenButton()"/>
+                    </form>
+                    <br>
+                    <form>
+                        <input type="button" id="centered" value="Notiz bearbeiten" onclick="notizBearbeitenButton()"/>
+                    </form>
+                    <br>
+                    <form>
+                        <input type="button" id="centered" value="Notiz löschen"onclick="notizLoeschenButton()"/>
+                    </form>
+                </div>
             <div id="notizen">
 				
             </div>
