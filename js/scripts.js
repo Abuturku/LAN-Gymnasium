@@ -252,15 +252,16 @@ window.addEventListener("DOMContentLoaded", function(){
         if(window.location.href.substr(window.location.href.length-10,window.location.href.length) !== "index.html"){
             window.location.href="index.html";
         }
-    }else{															//nur, wenn nicht im fenster pw_reset.html oder pw_aendern.html
-		var locationPath = window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length);
-		if (locationPath !== "pw_reset.html") {
-			if (locationPath !== "_aendern.html") {		
-				var splittedItem = localStorage.getItem(0).split(";");
-				document.getElementById("logindata").innerHTML="Angemeldet als: <br>"+ splittedItem[2]+ " " + splittedItem[3];
-			}
-		}
+    }else{          //nur, wenn nicht im fenster pw_reset.html oder pw_aendern.html
+        var locationPath = window.location.pathname.substr(window.location.pathname.length-13,window.location.pathname.length);
+        if (locationPath !== "pw_reset.html") {
+            if (locationPath !== "_aendern.html") {		
+                var splittedItem = localStorage.getItem(0).split(";");
+                document.getElementById("logindata").innerHTML="Angemeldet als: <br>"+ splittedItem[2]+ " " + splittedItem[3];
+            }
+        }
     }
+    
     
     //Macht es möglich, dass mit Drücken der Eingabetaste, die Logindaten überprüft werden
     if(window.location.href.substr(window.location.href.length-10,window.location.href.length) === "index.html"){
@@ -312,10 +313,10 @@ window.addEventListener("DOMContentLoaded", function(){
         }
 	}
 	
-	if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "pw_aendern.html"){
-		var splittedLs0 = localStorage.getItem(0).split(";");
-		if (splittedLs0[4]==="ändermich"){document.getElementById('oldPW').value="ändermich";}	//Hilfe zur Rücksetzung des Initialpasswortes
-	}
+    if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "pw_aendern.html"){
+            var splittedLs0 = localStorage.getItem(0).split(";");
+            if (splittedLs0[4]==="ändermich"){document.getElementById('oldPW').value="ändermich";}	//Hilfe zur Rücksetzung des Initialpasswortes
+    }
 	
     if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
         sucheStufeLehrer();
@@ -836,58 +837,58 @@ window.addEventListener("DOMContentLoaded", function(){
         
     }
 	
-<<<<<<< HEAD
-	if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "notizen_genaueAnsicht.html") {
-		var url = window.location.href;
+    if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "notizen_genaueAnsicht.html") {
+        var url = window.location.href;
         var idx = url.indexOf("#");
         var hash = idx !== -1 ? url.substring(idx+1) : "";
-		var notizID = hash.split("=")[1];
-		
-		for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
-			if (localStorage.getItem(i) === null){continue;}
-			if(localStorage.getItem(i).substring(0,1) === "n"){
-				var splittedNotiz = localStorage.getItem(i).split(";");
-				var aktuelleNotizId = splittedNotiz[1];
-				if (aktuelleNotizId === notizID) {
-					var schuelerNid = splittedNotiz[2];
-					var lehrerNid = splittedNotiz[3];
-					var inhaltNotiz = splittedNotiz[4];
-					var zeitstempelNotiz = splittedNotiz[5];
-					//Schülernamen in String speichern
-					for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
-						if (localStorage.getItem(j) === null){continue;}
-						if (localStorage.getItem(j).substring(0,2) === "s;"){
-							var splittedSchueler = localStorage.getItem(j).split(";");
-							if (splittedSchueler[1] === schuelerNid){
-								schuelerNotiz = ""+splittedSchueler[2]+" "+splittedSchueler[3];
-							}
-						}
-					}
-					//Lehrernamen in String speichern
-					for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
-						if (localStorage.getItem(j) === null){continue;}
-						if (localStorage.getItem(j).substring(0,2) === "l;"){
-							var splittedLehrer = localStorage.getItem(j).split(";");
-							if (splittedLehrer[1] === lehrerNid){
-								lehrerNotiz = ""+splittedLehrer[2]+" "+splittedLehrer[3];
-							}
-						}
-					}
-					document.getElementById('lehrerNotiz').value = lehrerNotiz;
-					document.getElementById('schuelerNotiz').value = schuelerNotiz;
-					document.getElementById('datumNotiz').value = zeitstempelNotiz;
-					document.getElementById('notizInhalt').value = inhaltNotiz;
-				}
-			}
-		}
-=======
-	if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "klassen_genaueAnsicht.html"){
-		if(localStorage.getItem(0).substring(0,1) === "s"){
+        var notizID = hash.split("=")[1];
+
+        for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+            if (localStorage.getItem(i) === null){continue;}
+            if(localStorage.getItem(i).substring(0,1) === "n"){
+                var splittedNotiz = localStorage.getItem(i).split(";");
+                var aktuelleNotizId = splittedNotiz[1];
+                if (aktuelleNotizId === notizID) {
+                    var schuelerNid = splittedNotiz[2];
+                    var lehrerNid = splittedNotiz[3];
+                    var inhaltNotiz = splittedNotiz[4];
+                    var zeitstempelNotiz = splittedNotiz[5];
+                    //Schülernamen in String speichern
+                    for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+                        if (localStorage.getItem(j) === null){continue;}
+                        if (localStorage.getItem(j).substring(0,2) === "s;"){
+                            var splittedSchueler = localStorage.getItem(j).split(";");
+                            if (splittedSchueler[1] === schuelerNid){
+                                schuelerNotiz = ""+splittedSchueler[2]+" "+splittedSchueler[3];
+                            }
+                        }
+                    }
+                    //Lehrernamen in String speichern
+                    for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+                        if (localStorage.getItem(j) === null){continue;}
+                        if (localStorage.getItem(j).substring(0,2) === "l;"){
+                            var splittedLehrer = localStorage.getItem(j).split(";");
+                            if (splittedLehrer[1] === lehrerNid){
+                                lehrerNotiz = ""+splittedLehrer[2]+" "+splittedLehrer[3];
+                            }
+                        }
+                    }
+                    document.getElementById('lehrerNotiz').value = lehrerNotiz;
+                    document.getElementById('schuelerNotiz').value = schuelerNotiz;
+                    document.getElementById('datumNotiz').value = zeitstempelNotiz;
+                    document.getElementById('notizInhalt').value = inhaltNotiz;
+            }
+            }
+        }
+    }
+            
+    if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "klassen_genaueAnsicht.html"){
+        if(localStorage.getItem(0).substring(0,1) === "s"){
             window.alert("YOU SHALL NOT PASS!");
             window.open("klassen.html", "_self");
         }
 		
-		var url = window.location.href;
+        var url = window.location.href;
         var idx = url.indexOf("#");
         var hash = idx !== -1 ? url.substring(idx+1) : "";
         var sla = document.getElementById('SLA-Buttons');
@@ -895,54 +896,53 @@ window.addEventListener("DOMContentLoaded", function(){
 		
         var stufe = document.getElementById('stufe');
         var buchstabe = document.getElementById('buchstabe');
-		var img = document.getElementById('klassenbild').children[0];
-		
-		for (var i = 0; i < klassen.length; i++){
-			if (""+i === hash.split("=")[1]){
-				stufe.value = klassen[i].stufe;
-				buchstabe.value = klassen[i].buchstabe;
-				img.src = klassen[i].bildquelle;
-				break;
-			}
-		}
+        var img = document.getElementById('klassenbild').children[0];
 
-		var table = document.createElement('table');
-		for (var i = 0; i < lehrer.length; i++){
+        for (var i = 0; i < klassen.length; i++){
+            if (""+i === hash.split("=")[1]){
+                stufe.value = klassen[i].stufe;
+                buchstabe.value = klassen[i].buchstabe;
+                img.src = klassen[i].bildquelle;
+                break;
+            }
+        }
 
-			var line = document.createElement('tr');
+        var table = document.createElement('table');
+        for (var i = 0; i < lehrer.length; i++){
 
-			//var checkBox = document.createElement('td');
-			//checkBox.setAttribute("id", "cb");
-			//checkBox.innerHTML ="<input type=\"checkbox\" disabled=\"disabled\" id=\"check"+i+"\">";
+            var line = document.createElement('tr');
 
-			var klassenID = getKlassenID(stufe, buchstabe);
-			for (var j = 0; j < lehrerKlasse.length; j++){
-				if (lehrerKlasse[j].klassenId === hash.split("=")[1]){
-					if (lehrerKlasse[j].lehrerId === ""+i){
-						//checkBox.children[0].checked = true;
-						var lehrerElem = document.createElement('td');
-						lehrerElem.innerHTML = ""+lehrer[i].vorname+" "+lehrer[i].nachname+"";
+            //var checkBox = document.createElement('td');
+            //checkBox.setAttribute("id", "cb");
+            //checkBox.innerHTML ="<input type=\"checkbox\" disabled=\"disabled\" id=\"check"+i+"\">";
 
-						//line.appendChild(checkBox);
-						line.appendChild(lehrerElem);
-						table.appendChild(line);
-					}
-				}
-			}
+            var klassenID = getKlassenID(stufe, buchstabe);
+            for (var j = 0; j < lehrerKlasse.length; j++){
+                if (lehrerKlasse[j].klassenId === hash.split("=")[1]){
+                    if (lehrerKlasse[j].lehrerId === ""+i){
+                        //checkBox.children[0].checked = true;
+                        var lehrerElem = document.createElement('td');
+                        lehrerElem.innerHTML = ""+lehrer[i].vorname+" "+lehrer[i].nachname+"";
 
-		
-		}
-
-		lehrerTabelle.appendChild(table);
-		
-		document.getElementById('klasseBearbeiten').onclick = function () { 
-                if(localStorage.getItem(0).substring(0,1) === "s"){
-                    window.alert("YOU SHALL NOT PASS!");
-                    return;
+                        //line.appendChild(checkBox);
+                        line.appendChild(lehrerElem);
+                        table.appendChild(line);
+                    }
                 }
-                window.open("klassen_bearbeiten.html#"+hash, '_blank'); };
->>>>>>> origin/master
-	}
+            }
+
+
+        }
+
+        lehrerTabelle.appendChild(table);
+
+        document.getElementById('klasseBearbeiten').onclick = function () { 
+        if(localStorage.getItem(0).substring(0,1) === "s"){
+            window.alert("YOU SHALL NOT PASS!");
+            return;
+        }
+        window.open("klassen_bearbeiten.html#"+hash, '_blank'); };
+    }
 });
 
 //Wird bei Klick auf Button "Anmelden" aufgerufen
