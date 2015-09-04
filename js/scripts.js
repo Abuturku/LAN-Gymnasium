@@ -920,6 +920,18 @@ window.addEventListener("DOMContentLoaded", function(){
         document.getElementById('btnNotizBearbeiten').onclick = function (){
             window.open("notizen_bearbeiten.html#"+hash, "_self");
         };
+		
+		if (localStorage.getItem(0).split(";")[0] === "s"){ 
+			document.getElementById('btnNotizBearbeiten').style.display = "none"; 
+		}
+		
+		if (localStorage.getItem(0).split(";")[0] === "l"){ 
+			if (notizen[notizID].lehrerId !== localStorage.getItem(0).split(";")[1]){ 
+				document.getElementById('btnNotizBearbeiten').style.display = "none"; 
+			} 
+		} else { 
+			document.getElementById('btnNotizBearbeiten').onclick = function (){ window.open("notizen_bearbeiten.html#"+hash, "_self"); 
+		}
     }
             
     if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "klassen_genaueAnsicht.html"){
