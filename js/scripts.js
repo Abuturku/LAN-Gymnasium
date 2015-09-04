@@ -911,17 +911,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		document.getElementById('schuelerNotiz').value = schuelerNotiz;
 		document.getElementById('datumNotiz').value = zeitstempelNotiz;
 		document.getElementById('notizInhalt').value = inhaltNotiz;
-     }
-        
-        if (localStorage.getItem(0).split(";")[0] === "s"){
-            document.getElementById('btnNotizBearbeiten').style.display = "none";
-        }
-        
-        document.getElementById('btnNotizBearbeiten').onclick = function (){
-            window.open("notizen_bearbeiten.html#"+hash, "_self");
-        };
 		
 		if (localStorage.getItem(0).split(";")[0] === "s"){ 
+			document.getElementById('btnNotizBearbeiten').style.display = "none"; 
+		}
+		if (localStorage.getItem(0).split(";")[0] === "a"){ 
 			document.getElementById('btnNotizBearbeiten').style.display = "none"; 
 		}
 		
@@ -930,7 +924,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				document.getElementById('btnNotizBearbeiten').style.display = "none"; 
 			} 
 		} else { 
-			document.getElementById('btnNotizBearbeiten').onclick = function (){ window.open("notizen_bearbeiten.html#"+hash, "_self"); 
+			document.getElementById('btnNotizBearbeiten').onclick = function (){ window.open("notizen_bearbeiten.html#"+hash, "_self"); };
 		}
     }
             
@@ -2821,8 +2815,6 @@ function notizenAnzeigenSchueler(){
     
     if (hatNotizen === true){
         notizenDiv.appendChild(notizenTabelle);
-    }else{
-        document.getElementById('notiznav').style.display="none";
     }
 }
 
