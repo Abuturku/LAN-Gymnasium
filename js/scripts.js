@@ -536,7 +536,7 @@ window.addEventListener("DOMContentLoaded", function(){
             
             document.getElementById('speichern').onclick = function () { lehrerSpeichern(hash.split("=")[1]); };
             document.getElementById('abbrechen').onclick = function () { window.close(); };
-            document.getElementById('loeschen').onclick = function () { lehrerLöschen(hash.split("=")[1]); };
+            document.getElementById('loeschen').onclick = function () { lehrerLoeschen(hash.split("=")[1]); };
         }
 
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
@@ -1110,7 +1110,7 @@ function klassenBearbeiten(){
     }
 }
 
-function lehrerLöschen(id){
+function lehrerLoeschen(id){
     if(localStorage.getItem(0).substring(0,1) === "s"){
         window.alert("Keine Berechtigung!");
         return;
@@ -2829,13 +2829,68 @@ function notizHinzufuegenButton(){
 	var schuelerID = hash.split("=")[1];
     window.open("notizen_bearbeiten.html#s="+schuelerID, "_blank");
 }
-
+/*
 function notizLoeschenButton(){
     if (localStorage.getItem(0).split(";")[0] === "s"){
         window.alert("YOU SHALL NOT PASS!");
         return;
     }
     
+	var notizenTabelle = document.getElementById('notizen').children[0];
+	var nichtsAusgewaehlt = true;
+
+	var checked = [];
+	for (var i = 1; i < notizenTabelle.children.length; i++){
+		if (notizenTabelle.children[i].children[0].children[0].checked){
+			nichtsAusgewaehlt = false;
+			checked.push(notizenTabelle.children[i].children[0].children[0].id.substring(5));
+		}
+    }
+	
+	if (nichtsAusgewaehlt) {
+		window.alert("Es wurde keine Notiz ausgewählt.");
+	} else {
+		if (confirm("Wollen Sie diese Notiz unwiderruflich löschen?") === true){
+			var notizenTabelle = document.getElementById('notizen').children[0];
+
+			var checked = [];
+			for (var i = 1; i < notizenTabelle.children.length; i++){
+				if (notizenTabelle.children[i].children[0].children[0].checked){
+					checked.push(notizenTabelle.children[i].children[0].children[0].id.substring(5));
+				}
+			}
+
+			for (var i = 0; i < checked.length; i++){
+				for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
+					if (localStorage.getItem(j) === null){
+						continue;
+					}
+
+					var splittedItem = localStorage.getItem(j).split(";");
+
+					if (splittedItem[0] === "n"){
+						if (splittedItem[1] === checked[i]){
+							localStorage.removeItem(j);
+						}
+					}
+				}
+			}
+
+			if(window.location.pathname.substr(window.location.pathname.length-24,window.location.pathname.length) === "schueler_bearbeiten.html" 
+					|| window.location.pathname.substr(window.location.pathname.length-22,window.location.pathname.length) === "lehrer_bearbeiten.html"
+					|| window.location.pathname.substr(window.location.pathname.length-27,window.location.pathname.length) === "schueler_genaueAnsicht.html"
+					|| window.location.pathname.substr(window.location.pathname.length-25,window.location.pathname.length) === "lehrer_genaueAnsicht.html"){
+				location.reload();
+			}else{
+				window.close();
+			}
+		}else{
+			return;
+		}
+    }
+}*/
+//Achtung Abgleichen TODO
+function notizLoeschenButton(){
     if (confirm("Wollen Sie diese Notiz unwiderruflich löschen?") === true){
         var notizenTabelle = document.getElementById('notizen').children[0];
 
@@ -2848,7 +2903,7 @@ function notizLoeschenButton(){
 
         for (var i = 0; i < checked.length; i++){
             for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
-                if (localStorage.getItem(i) === null){
+                if (localStorage.getItem(j) === null){
                     continue;
                 }
 
@@ -2874,7 +2929,6 @@ function notizLoeschenButton(){
         return;
     }
 }
-
 function aktuelleNotizBearbeiten(){		//aus der notizen_genaueAnsicht zur äquivalenten notizen_bearbeiten Ansicht navigieren
 	var url = window.location.href;
 	var idx = url.indexOf("#");
