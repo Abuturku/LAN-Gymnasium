@@ -26,7 +26,7 @@ function ladeStorage() {
     localStorage.setItem("11", "l;0;Severus;Snape;1234;Profilbild.jpg;ja");
     localStorage.setItem("12", "l;1;Leonardo;da Vinci;1234;Profilbild.jpg;ja");
     localStorage.setItem("13", "l;2;Johann;Goethe;1234;Profilbild.jpg;ja");
-    localStorage.setItem("14", "l;3;Isaac;Newton;Passwort;Profilbild.jpg;ja");
+    localStorage.setItem("14", "l;3;Isaac;Newton;1234;Profilbild.jpg;ja");
     localStorage.setItem("15", "l;4;Adam;Riese;1234;Profilbild.jpg;ja");	
     localStorage.setItem("16", "l;5;Immanuel;Kant;1234;Profilbild.jpg;ja");	
     localStorage.setItem("17", "l;6;Albert;Einstein;1234;Profilbild.jpg;ja");	
@@ -314,8 +314,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
     if(window.location.pathname.substr(window.location.pathname.length-15,window.location.pathname.length) === "pw_aendern.html"){
-            var splittedLs0 = localStorage.getItem(0).split(";");
-            if (splittedLs0[4]==="ändermich"){document.getElementById('oldPW').value="ändermich";}	//Hilfe zur Rücksetzung des Initialpasswortes
+		var splittedLs0 = localStorage.getItem(0).split(";");
+		if (splittedLs0[4]==="ändermich"){document.getElementById('oldPW').value="ändermich";}	//Hilfe zur Rücksetzung des Initialpasswortes
     }
 	
     if(window.location.pathname.substr(window.location.pathname.length-11,window.location.pathname.length) === "lehrer.html"){
@@ -734,6 +734,61 @@ window.addEventListener("DOMContentLoaded", function(){
         document.getElementById('fileUploadForm').addEventListener('change', handleFileSelect, false);
     }
 	
+	if(window.location.pathname.substr(window.location.pathname.length-23,window.location.pathname.length) === "notizen_bearbeiten.html"){
+	
+		if(localStorage.getItem(0).substring(0,1) === "s"){ //nix für Schüleraugen
+			window.alert("YOU SHALL NOT PASS!");
+			window.history.back()
+		}
+		
+		else {
+			var url = window.location.href;
+			var idx = url.indexOf("#");
+			var hash = idx !== -1 ? url.substring(idx+1) : "";
+			//ermitteln, welcher Notiztyp das ist
+			var notizTyp = hash.split("=")[0];
+			var neueNotiz = (notizTyp === "s");
+			var notizBearbeiten = (notizTyp === "n");
+
+			//Zeitstempel erstellen/aktualisieren
+			var heute= new Date(); // Datumsobjekt erstellen
+			var tag = heute.getDay();
+			var monat = heute.getMonth();
+			var jahr = heute.getFullYear();
+			var stunde = heute.getHours();
+			var minute = heute.getMinutes();
+			var sekunde = heute.getSeconds();
+			document.getElementById('datumNotiz').value = ""+tag+"."+monat+"."+jahr+" "+stunde+":"+minute+":"+sekunde;
+			
+			if (neueNotiz){			//neue Notiz anlegen
+				var schuelerNid = hash.split("=")[1];
+				//prefilled Daten Ersteller/Datum/Schüler
+				//Schülernamen in String speichern
+				var schuelerNotiz = ""+schueler[schuelerNid].vorname+" "+schueler[schuelerNid].nachname;
+				//Lehrernamen in String speichern
+				var lehrerNotiz = ""+localStorage.getItem(0).split(";")[2]+" "+localStorage.getItem(0).split(";")[3];
+			
+				document.getElementById('lehrerNotiz').value = lehrerNotiz;
+				document.getElementById('schuelerNotiz').value = schuelerNotiz;
+			}
+			if (notizBearbeiten) {		//bestehende Notiz bearbeiten
+				var notizID = hash.split("=")[1];
+
+				var schuelerNid = notizen[notizID].schuelerId;
+				var lehrerNid = notizen[notizID].lehrerId;
+				var inhaltNotiz = notizen[notizID].text;
+				//Schülernamen in String speichern
+				var schuelerNotiz = ""+schueler[schuelerNid].vorname+" "+schueler[schuelerNid].nachname;
+				//Lehrernamen in String speichern
+				var lehrerNotiz = ""+lehrer[lehrerNid].vorname+" "+lehrer[lehrerNid].nachname;
+			
+				document.getElementById('lehrerNotiz').value = lehrerNotiz;
+				document.getElementById('schuelerNotiz').value = schuelerNotiz;
+				document.getElementById('notizInhalt').value = inhaltNotiz;
+			}
+		}
+    }
+	
     if(window.location.pathname.substr(window.location.pathname.length-25,window.location.pathname.length) === "lehrer_genaueAnsicht.html"){
         var url = window.location.href;
         var idx = url.indexOf("#");
@@ -843,43 +898,19 @@ window.addEventListener("DOMContentLoaded", function(){
         var hash = idx !== -1 ? url.substring(idx+1) : "";
         var notizID = hash.split("=")[1];
 
-        for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
-            if (localStorage.getItem(i) === null){continue;}
-            if(localStorage.getItem(i).substring(0,1) === "n"){
-                var splittedNotiz = localStorage.getItem(i).split(";");
-                var aktuelleNotizId = splittedNotiz[1];
-                if (aktuelleNotizId === notizID) {
-                    var schuelerNid = splittedNotiz[2];
-                    var lehrerNid = splittedNotiz[3];
-                    var inhaltNotiz = splittedNotiz[4];
-                    var zeitstempelNotiz = splittedNotiz[5];
-                    //Schülernamen in String speichern
-                    for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
-                        if (localStorage.getItem(j) === null){continue;}
-                        if (localStorage.getItem(j).substring(0,2) === "s;"){
-                            var splittedSchueler = localStorage.getItem(j).split(";");
-                            if (splittedSchueler[1] === schuelerNid){
-                                schuelerNotiz = ""+splittedSchueler[2]+" "+splittedSchueler[3];
-                            }
-                        }
-                    }
-                    //Lehrernamen in String speichern
-                    for (var j = 1; j < localStorage.length-1+localStorageLengthOffset; j++){
-                        if (localStorage.getItem(j) === null){continue;}
-                        if (localStorage.getItem(j).substring(0,2) === "l;"){
-                            var splittedLehrer = localStorage.getItem(j).split(";");
-                            if (splittedLehrer[1] === lehrerNid){
-                                lehrerNotiz = ""+splittedLehrer[2]+" "+splittedLehrer[3];
-                            }
-                        }
-                    }
-                    document.getElementById('lehrerNotiz').value = lehrerNotiz;
-                    document.getElementById('schuelerNotiz').value = schuelerNotiz;
-                    document.getElementById('datumNotiz').value = zeitstempelNotiz;
-                    document.getElementById('notizInhalt').value = inhaltNotiz;
-            }
-            }
-        }
+		var schuelerNid = notizen[notizID].schuelerId;
+		var lehrerNid = notizen[notizID].lehrerId;
+		var inhaltNotiz = notizen[notizID].text;
+		var zeitstempelNotiz = notizen[notizID].zeitstempel;
+		//Schülernamen in String speichern
+		var schuelerNotiz = ""+schueler[schuelerNid].vorname+" "+schueler[schuelerNid].nachname;
+		//Lehrernamen in String speichern
+		var lehrerNotiz = ""+lehrer[lehrerNid].vorname+" "+lehrer[lehrerNid].nachname;
+	
+		document.getElementById('lehrerNotiz').value = lehrerNotiz;
+		document.getElementById('schuelerNotiz').value = schuelerNotiz;
+		document.getElementById('datumNotiz').value = zeitstempelNotiz;
+		document.getElementById('notizInhalt').value = inhaltNotiz;
     }
             
     if(window.location.pathname.substr(window.location.pathname.length-26,window.location.pathname.length) === "klassen_genaueAnsicht.html"){
@@ -999,7 +1030,6 @@ function firstLoginCheck(){
 		window.location.href="pw_aendern.html";
 		window.alert("Bitte Initialpasswort ändern");
 	} else { window.location.href="startseite.html";}
-	
 }
 
 function ausloggen(){
@@ -2408,7 +2438,6 @@ function handleFileSelect(evt) {
 }
 
 //Funktionen der myLAN-Leiste auf der Startseite
-
 function newYear(){ //TODO
 	
 }
@@ -2445,14 +2474,9 @@ function meineKlasseStartseite() {
 	if(localStorage.getItem(0).substring(0,1) === "s"){ 							//nur für Schüler erreichbar
 		var sId = localStorage.getItem(0).split(";")[1];							//ID des eingeloggten Schülers
 		
-		for (i = 1; i <= localStorage.length-1+localStorageLengthOffset; i++){		//array nach sk durchsuchen
-			if (localStorage.getItem(i) === null){
-				continue;
-			}
-			if(localStorage.getItem(i).substring(0,2) === "sk") {					//bei sk
-				if(localStorage.getItem(i).split(";")[2] === sId) {					//überprüfen ob es die zuweisung für eingeloggten schüler ist
-					var kId = localStorage.getItem(i).split(";")[1];				//Klassen-ID abspeichern
-				}
+		for (i = 0; i < schuelerKlasse.length; i++){								//array sk durchsuchen
+			if(schuelerKlasse[i].schuelerId === sId) {								//überprüfen ob es die zuweisung für eingeloggten schüler ist
+				var kId = schuelerKlasse[i].klassenId;								//Klassen-ID abspeichern
 			}
 		}
 		window.open("klassen_genaueAnsicht.html#k="+kId, '_self');					//öffnen des Fensters der Klassenansicht des eingeloggten Schülers
@@ -2677,7 +2701,11 @@ function notizOeffnenButton(){
 }
 
 function notizHinzufuegenButton(){
-    window.open("notizen_bearbeiten.html#new", "_blank");
+	var url = window.location.href;
+	var idx = url.indexOf("#");
+	var hash = idx !== -1 ? url.substring(idx+1) : "";
+	var schuelerID = hash.split("=")[1];
+    window.open("notizen_bearbeiten.html#s="+schuelerID, "_blank");
 }
 
 function notizBearbeitenButton(){
@@ -2737,3 +2765,61 @@ function notizLoeschenButton(){
         return;
     }
 }
+
+function aktuelleNotizBearbeiten(){		//aus der notizen_genaueAnsicht zur äquivalenten notizen_bearbeiten Ansicht navigieren
+	var url = window.location.href;
+	var idx = url.indexOf("#");
+	var hash = idx !== -1 ? url.substring(idx+1) : "";
+	var notizID = hash.split("=")[1];
+	window.open("notizen_bearbeiten.html#n="+notizID, "_self");
+}
+
+function notizAenderungenSpeichern() {
+	if (document.getElementById('notizInhalt').value === "") {
+		window.alert("Leere Notizen können nicht gespeichert werden.");
+	}	//leere Notizen verbieten
+	else {
+		var url = window.location.href;
+		var idx = url.indexOf("#");
+		var hash = idx !== -1 ? url.substring(idx+1) : "";
+		//ermitteln, welcher Notiztyp das ist
+		var notizTyp = hash.split("=")[0];
+		var neueNotiz = (notizTyp === "s");
+		var aktualisierenNotiz = (notizTyp === "n");
+		
+		var notizID;
+		var schuelerID;
+		var lehrerID = localStorage.getItem(0).split(";")[1];
+		var inhaltNotiz = document.getElementById('notizInhalt').value;
+		var zeitstempel = document.getElementById('datumNotiz').value;
+		
+		if (aktualisierenNotiz){	//bestehende Notiz
+			notizID = hash.split("=")[1];
+			schuelerID = notizen[notizID].schuelerId;
+			//korrekte ID im Localstorage finden
+			for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+				var lsItem = localStorage.getItem(i);
+				if (lsItem === null){continue;}
+				if(lsItem.substring(0,1) === "n"){
+					if (lsItem.split(";")[1] === notizID) {
+						var lsId = i;
+					}
+				}
+			}
+		}else {			//neue Notiz anlegen
+			var lsId = localStorage.length+localStorageLengthOffset;
+			notizID = notizen.length;
+			schuelerID = hash.split("=")[1];
+		}
+		localStorage.setItem(lsId, "n;"+notizID+";"+schuelerID+";"+lehrerID+";"+inhaltNotiz+";"+zeitstempel);
+		window.close();
+	}
+}
+
+function offeneNotizLoeschen() {
+	//TODO
+	//prüfung: neueNotiz oder notizBearbeiten
+	//wenn neue Notiz: Objekt im LS anlegen
+	//ansonsten: Notiz im LS suchen, Inhalt aktualisieren
+}
+

@@ -32,42 +32,31 @@
             </form>
         </ul>
 		<div id="notizinfos">
-			<p id="filterheader">Notiz: </p>
+			<p id="filterheader">Notiz</p>
 			<br>
             <p>Lehrer: </p>
-			<br><br>
-			<p>Nachname: </p>
-			<input value="Maier" readonly></input>
+			<input type="text" value="Lehrer" id="lehrerNotiz" readonly></input>
 			<br>
-			<p>Vorname: </p>
-			<input value="Biene" readonly></input>
+			<p>Zeitpunkt der Bearbeitung:</p>
+			<input type="text" value="Datum" id="datumNotiz" readonly></input>
 			<br>
-			<p>Erstellungsdatum:</p>
-			<input value="12.05.2015" readonly></input>
-			<br>
-			<br><br><br>
 			<p>Schüler: </>
-			<br><br>
-			<p>Nachname: </p>
-			<input value="Wurst"></input>
-			<br>
-			<p>Vorname: </p>
-			<input value="Hans"></input>
+			<input type="text" value="Schueler" id="schuelerNotiz" readonly></input>
 			<br>
         </div>
 		<div id="notizbearbeitung">
-			<textarea placeholder="Notiztext"></textarea>
+			<textarea id="notizInhalt" placeholder="Notiztext"></textarea>
 		</div>
           <div id="SLA-Buttons">
                 <form>
-                    <input type="button" value="Speichern" id="speichern"/>
+                    <input type="button" value="Speichern" id="speichern" onclick="notizAenderungenSpeichern()"/>
                 </form>
                   <form id="hoverMe">
                     <input type="button" value="Abbrechen" id="abbrechen" onclick="window.close()"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <input type="button" value="Löschen" id="loeschen"/>
+                    <input type="button" value="Löschen" id="loeschen" onclick="offeneNotizLoeschen()"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>
