@@ -37,7 +37,7 @@
             <p>Lehrer: </p>
 			<input type="text" value="Lehrer" id="lehrerNotiz" readonly></input>
 			<br>
-			<p>Erstellungsdatum:</p>
+			<p>Zeitpunkt der Bearbeitung:</p>
 			<input type="text" value="Datum" id="datumNotiz" readonly></input>
 			<br>
 			<p>Schüler: </>
@@ -49,10 +49,10 @@
 		</div>
         <div id="SLA-Buttons">
             <form>
-                <input type="button" value ="Zurück" onclick="window.close()"/>
+                <input type="button" value ="Zurück" onclick="window.history.back()"/>
             </form>
             <form action="./notizen_bearbeiten.html">
-                <input type="button" value="Bearbeiten" onclick="notizBearbeiten()"/>
+                <input type="button" value="Bearbeiten" onclick="aktuelleNotizBearbeiten()" id="btnNotizBearbeiten"/>
             </form>
 		</div>
     </body>
