@@ -2978,8 +2978,8 @@ function notizAenderungenSpeichern() {
 			schuelerID = notizen[notizID].schuelerId;
 			//korrekte ID im Localstorage finden
 			for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+				if (localStorage.getItem(i) === null){continue;}
 				var lsItem = localStorage.getItem(i);
-				if (lsItem === null){continue;}
 				if(lsItem.substring(0,1) === "n"){
 					if (lsItem.split(";")[1] === notizID) {
 						var lsId = i;
@@ -3004,10 +3004,10 @@ function offeneNotizLoeschen() {
 		var notizID = hash.split("=")[1];
 		
 		for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
-			var lsItem = localStorage.getItem(i);
-			if (lsItem === null){continue;}
-			if(lsItem.substring(0,1) === "n"){
-				if (lsItem.split(";")[1] === notizID) {
+			if (localStorage.getItem(i) === null){continue;}
+			var lsItemArray = localStorage.getItem(34).split(";");
+			if(lsItemArray[0] === "n"){
+				if (lsItemArray[i] === notizID) {
 					localStorage.removeItem(i);
 					window.close();
 				}
