@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <title>
+            LAN-Gymnasium online Klassenbuch
+        </title>
+         <link rel="stylesheet" href="anmelden.css" type="text/css">
+    </head>
+    <body>
+	<script src="js/scripts.js"></script>
+        <div>
+            <form name="anmeldung">
+                <label for="oldPW">Altes Passwort:</label>
+                <input type="password" placeholder="Altes Passwort" id="oldPW" name="Altes Passwort" tabindex ="1" class="input"> 
+                    <br>
+                <label for="newPW1">Neues Passwort:</label>  
+                <input type="password" placeholder ="Neues Passwort" id="newPW1" name="Neues Passwort" tabindex ="2" class="input">
+                    <br>
+                <label for="newPW2">Neues Passwort wiederholen:</label>
+                <input type="password" placeholder="Neues Passwort" id="newPW2" name="Neues Passwort" tabindex ="3" class="input">
+                <br/>
+                <input type="button" value="Bestätigen" id="anmeldenIndex" onclick="PasswortUebernehmen(this.form)" />
+                <input type="button" value="Abbrechen" id="anmeldenIndex" onclick="firstLoginCheck()" />
+            </form>
+        </div>     
+    </body>
+</html>

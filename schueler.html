@@ -29,29 +29,29 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul> 
       </div>
 	  <div id="filter">
 			<p id="filterheader">Filter: </p>
             <p>Stufe: </p>
-            <select id="stufe" onclick="sucheStufeSchueler();">
+            <select id="stufe_ddb" onclick="sucheStufeSchueler();">
 				<option>-</option>
 			</select>
 			<p>Klasse: </p>
-            <select id="klasse" onclick="sucheKlassenSchueler();">
+            <select id="klasse_ddb" onclick="sucheKlassenSchueler();">
 				<option>-</option>
 			</select>
 			<p>Lehrer: </p>
-            <select id="lehrer" onclick="sucheLehrerSchueler();">
+            <select id="lehrer_ddb" onclick="sucheLehrerSchueler();">
 				<option>-</option>
 			</select>
 			<br><br>
-			<form id="filter">
+<!--			<form id="filter">
 				 <input type="button" value="Suche" id="suche" onclick="sucheSchuelerTabelle()" />
-			</form>
+			</form>-->
 			<form id="filter">
 				<input type="button" value="Zeige Lehrer" onclick="zeigeLehrerSchueler()" />
 			</form>
@@ -59,13 +59,13 @@
 				<input type="button" value="Zeige Klassen" onclick="zeigeKlassenSchueler()" />
 			</form>
 			<form id="filter">
-				<input type="button" value="Hinzufügen" onclick="window.open('schueler_bearbeiten.html')" />
+                            <input type="button" value="Hinzufügen" onclick="schuelerHinzufuegen()" id="btnSchuelerHinzufuegen"/>
 			</form>
             <form id="filter" action="./schueler_bearbeiten.html">
-			     <input type="button" value="Bearbeiten" onclick="schuelerBearbeiten()" />
+			     <input type="button" value="Bearbeiten" onclick="schuelerBearbeiten()" id="btnSchuelerBearbeiten"/>
             </form>
 			<form id="filter">
-				<input type="button" value="Löschen" onclick="schuelerLöschen()" />
+				<input type="button" value="Löschen" onclick="schuelerLöschen()" id="btnSchuelerLoeschen"/>
 			</form>
         </div>
 	  <div id="table">

@@ -27,14 +27,17 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		</div>
             <div id="bild">
                 <img src="./Schueler.png">
-                <button id="centered">Hochladen</button>
+                <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                    <input name="Datei" type="file" accept="image/jpeg,image/png">
+                    <!-- <input type="button" value="Hochladen" id="fileUpload"/> -->
+                </form>
             </div>
             <div id="name">
                 <label for="nachname" id="name">Nachname:</label>
@@ -44,107 +47,58 @@
                 <input type="text" placeholder ="Vorname" id="vorname">
 				<br><br>
 				<label for="stufe" id="input">Stufe:</label>
-				<select>
-					<option></option>
+				<select id="selectSchuelerBearbeitenStufe">
+					<option disabled selected value="Stufe">Stufe</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
 				</select>
-				<label for="stufe" id="input">Klasse</label>
-				<select>
-					<option></option>
+				<label for="stufe" id="input">Buchstabe</label>
+				<select id="selectSchuelerBearbeitenBuchstabe">
+					<option disabled selected value="Buchstabe">Buchstabe</option>
+					<option value="a">a</option>
+					<option value="b">b</option>
+					<option value="c">c</option>
 				</select>
             </div>
-			<div id="notiznav">
-				<label>Notizen:</label>
-				<br>
-				<form target="blank" action="./notizen_genaueAnsicht.html">
-                    <button id="centered">Notiz öffnen</button>
-                </form>
-				
-				<form target="_blank" action="./notizen_bearbeiten.html">
-                    <button id="centered">Notiz hinzufügen</button>
-                </form>
-				
-				<form target="_blank" action="./notizen_bearbeiten.html">
-                    <button id="centered">Notiz bearbeiten</button>
-                </form>
-				
+            <div id="notiznav">
+                <label>Notizen:</label>
+                <br>
                 <form>
-                    <button id="centered">Notiz löschen</button>
+                    <input type="button" id="centered" value="Notiz öffnen" onclick="notizOeffnenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz hinzufügen" onclick="notizHinzufuegenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz bearbeiten" onclick="notizBearbeitenButton()"/>
+                </form>
+                <br>
+                <form>
+                    <input type="button" id="centered" value="Notiz löschen"onclick="notizLoeschenButton()"/>
                 </form>
 			</div>
             <div id="notizen">
-				<table>
-					<tr>
-						<td id="header"></td>
-						<td id="header">Erstellungdatum</td>
-						<td id="header">Lehrer</td>					
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check1"></td>
-						<td>01.01.2001</td>
-						<td>Klaus Musternmann</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check2"></td>
-						<td>11.11.2011</td>
-						<td>Uschi Musterfrau</td>
-					</tr>
-					<tr>
-						<td id="cb"><input type="checkbox" id="check3"></td>
-						<td>11.05.2015</td>
-						<td>Schubert Schneider</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check4"></td>
-						<td>13.02.2002</td>
-						<td>Kevin Schmitt</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check5"></td>
-						<td>02.02.2002</td>
-						<td>Elfriede Müller</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check6"></td>
-						<td>14.12.2013</td>
-						<td>Sankt Nikolaus</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check7"></td>
-						<td>16.07.2014</td>
-						<td>Herbert Peters</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check8"></td>
-						<td>16.03.1995</td>
-						<td>Angela Merkel</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check9"></td>
-						<td>27.02.1996</td>
-						<td>Knut Bär</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check10"></td>
-						<td>11.09.2001</td>
-						<td>Tomas Rausch</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check11"></td>
-						<td>Illuminati</td>
-						<td>Biene Maier</td>
-					</tr>
-                </table>
+				
             </div>
           <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" onclick="schuelerSpeichern()" value="Speichern" id="speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                    <input type="button" onclick="window.history.back()" value="Abbrechen" id = "abbrechen"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Löschen" id ="btnSchuelerLoeschen" onclick="schuelerLoeschen()"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>

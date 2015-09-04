@@ -28,28 +28,28 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-				<button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul> 
 		<div id="filter">
 			<p id="filterheader">Filter: </p>
             <p>Stufe: </p>
-            <select id="stufe" onclick="sucheStufeKlassen();">
+            <select id="stufe_ddb" onclick="sucheStufeKlassen();">
 				<option>-</option>
 			</select>
 			<p>Lehrer: </p>
-            <select id="lehrer" onclick="sucheLehrerKlassen()">
+            <select id="lehrer_ddb" onclick="sucheLehrerKlassen()">
 				<option>-</option>
 			</select>
 			<p>Schüler: </p>
-            <select id="schueler" onclick="sucheSchuelerKlassen();">
+            <select id="schueler_ddb" onclick="sucheSchuelerKlassen();">
 				<option>-</option>
 			</select>
 			<br><br>
-			<form id="filter">
+<!--			<form id="filter">
 				  <input type="button" value="Suche" id="suche" onclick="sucheKlassenTabelle()" />
-			</form>
+			</form>-->
 			<form id="filter">
 				<input type="button" value="Zeige Schüler" onclick="zeigeSchuelerKlassen()" />
 			</form>
@@ -57,13 +57,13 @@
 				<input type="button" value="Zeige Lehrer" onclick="zeigeLehrerKlassen()" />
 			</form>
 			<form id="filter">
-				<input type="button" value="Hinzufügen" onclick="window.open('klassen_bearbeiten.html')" />
+                            <input type="button" value="Hinzufügen" onclick="klasseHinzufuegen()" id="btnKlasseHinzufuegen"/>
 			</form>
             <form id="filter">
-			   <input type="button" value="Bearbeiten" onclick="klassenBearbeiten()" />
+			   <input type="button" value="Bearbeiten" onclick="klassenBearbeiten()" id="btnKlasseBearbeiten"/>
             </form>
 			<form id="filter">
-				<input type="button" value="Löschen" onclick="klassenLöschen()" />
+				<input type="button" value="Löschen" onclick="klasseLöschen()" id="btnKlasseLoeschen"/>
 			</form>
         </div>
 		
@@ -73,7 +73,6 @@
 				<td id="header"></td>
 				<td id="header">Klasse</td>
 				<td id="header">Schüleranzahl</td>
-			
 			</tr>
         </table>
 	  </div>

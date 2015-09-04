@@ -27,8 +27,8 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		<div id="notizinfos">
@@ -60,14 +60,14 @@
 		</div>
           <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" value="Speichern" id="speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                    <input type="button" value="Abbrechen" id="abbrechen" onclick="window.close()"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Löschen" id="loeschen"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>

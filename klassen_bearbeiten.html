@@ -27,126 +27,54 @@
             <br>
             Vorname Nachname
             </div>
-            <form action="./index.html">
-            <button type="submit" id="abmelden">Abmelden</button>
+            <form> 
+                <button type="submit" id="abmelden" onclick="ausloggen()">Abmelden</button>
             </form>
         </ul>
 		</div>
             <div id="klassenbild">
                 <img src="./Klassenfoto.png">
-                <button id="centered">Hochladen</button>
+                <form action="#" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                    <input name="Datei" type="file" accept="image/jpeg,image/png">
+                    <!-- <input type="button" value="Hochladen" id="fileUpload"/> -->
+                </form>
             </div>
             <div id="klasseninfo">
-                <label for="klassenname" id="name">Name:</label>
-                <input type="text" placeholder="Name" id="klassenname"> 
-                <br>
-                <label for="stufe" id="stufe">Stufe:</label>  
-                <select>
-				<option disabled selected>Stufe</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-				<option>10</option>
-				<option>11</option>
-				<option>12</option>
-				</select>
-				<label for="klassenlehrer" id="klassenlehrer">Klassenlehrer:</label>  
-                <select>
-				<option>Hubert Schneider</option>
-				<option>Uschi Musterfrau</option>
-				<option>Knut Bär</option>
-				<option>Karl Toffel</option>
-				</select>
+                <label for="stufe" >Stufe:</label>  
+                <select id="stufe">
+                    <option disabled selected value="Stufe">Stufe</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                </select>
+                <label for="klassenlehrer" >Buchstabe</label>  
+                <select id="buchstabe">
+                    <option disabled selected value="Buchstabe">Buchstabe</option>
+                    <option value="a">a</option>
+                    <option value="b">b</option>
+                    <option value="c">c</option>
+                </select>
                 <label>Lehrer:</label>
                 <div id="Tabelle">
-                <table>
-					<tr>
-						<td id="header"></td>
-						<td id="header">Nachname</td>
-						<td id="header">Vorname</td>
-					
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check1"></td>
-						<td>Musternmann</td>
-						<td>Klaus</td>
-					</tr>
-                    <tr>
-						<td id="cb"> <input type="checkbox" id="check2" checked></td>
-						<td>Musterfrau</td>
-						<td>Uschi</td>
-					</tr>
-					<tr>
-						<td id="cb"><input type="checkbox" id="check3" checked></td>
-						<td>Schneider</td>
-						<td>Hubert</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check4"></td>
-						<td>Anderson</td>
-						<td>Mister</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check5"></td>
-						<td>Schmitt</td>
-						<td>Kevin</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check6"></td>
-						<td>Müller</td>
-						<td>Gertrude</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check7"></td>
-						<td>Claus</td>
-						<td>Santa</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check8"></td>
-						<td>Peters</td>
-						<td>Herbert</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check9"></td>
-						<td>Merkel</td>
-						<td>Angela</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check10" checked></td>
-						<td>Bär</td>
-						<td>Knut</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check11"></td>
-						<td>Rausch</td>
-						<td>Thomas</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check12"></td>
-						<td>Maier</td>
-						<td>Biene</td>
-					</tr>
-					<tr>
-						<td id="cb"> <input type="checkbox" id="check13" checked></td>
-						<td>Toffel</td>
-						<td>Karl</td>
-					</tr>					
-                </table>
                 </div>
             </div>
 			
              <div id="SLA-Buttons">
                 <form>
-                    <button>Speichern</button>
+                    <input type="button" onclick="klasseSpeichern()" value="Speichern" id="speichern"/>
                 </form>
                   <form id="hoverMe">
-                    <button>Abbrechen</button>
+                    <input type="button" onclick="window.history.back()" value="Abbrechen" id = "abbrechen"/>
                     <label id="showMe">Alle Änderungen gehen verloren!</label>
                 </form>
                 <form id="hoverMe">
-                    <button>Löschen</button>
+                    <input type="button" value="Löschen" onclick="klasseLoeschen()" id="loeschen"/>
                     <label id="showMe">Die Löschung ist endgültig!</label>
                 </form>
 			</div>
