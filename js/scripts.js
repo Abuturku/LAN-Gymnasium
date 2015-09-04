@@ -294,7 +294,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			document.getElementById('passwortAendern').style.display="none";
         }
 		if(localStorage.getItem(0).substring(0,1) === "l"){
-			document.getElementById('newYear').style.display="none";
             document.getElementById('myLehrer').style.display="none";
             document.getElementById('myKlasse').style.display="none";
             document.getElementById('myKlasseNew').style.display="none";
@@ -303,7 +302,6 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById('pwReset').style.display="none";			
         }
 		if(localStorage.getItem(0).substring(0,1) === "s"){
-			document.getElementById('newYear').style.display="none";
             document.getElementById('mySchueler').style.display="none";
             document.getElementById('myKlassen').style.display="none";
             document.getElementById('myKlasseNew').style.display="none";
@@ -781,6 +779,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			document.getElementById('datumNotiz').value = ""+tag+"."+monat+"."+jahr+" "+stunde+":"+minute+":"+sekunde;
 			
 			if (neueNotiz){			//neue Notiz anlegen
+				document.getElementById('loeschen').style.display="none";
 				var schuelerNid = hash.split("=")[1];
 				//prefilled Daten Ersteller/Datum/Schüler
 				//Schülernamen in String speichern
@@ -2543,10 +2542,6 @@ function handleFileSelect(evt) {
 
 //Funktionen der myLAN-Leiste auf der Startseite
 
-function newYear(){ //TODO
-	
-}
-
 function meinProfilStartseite() {
 	var id = localStorage.getItem(0).split(";")[1];
 	if(localStorage.getItem(0).substring(0,1) === "l"){
@@ -3002,9 +2997,22 @@ function notizAenderungenSpeichern() {
 }
 
 function offeneNotizLoeschen() {
-	//TODO
-	//prüfung: neueNotiz oder notizBearbeiten
-	//wenn neue Notiz: Objekt im LS anlegen
-	//ansonsten: Notiz im LS suchen, Inhalt aktualisieren
+	if (confirm("Wollen Sie diese Notiz unwiderruflich löschen?") === true){
+		var url = window.location.href;
+		var idx = url.indexOf("#");
+		var hash = idx !== -1 ? url.substring(idx+1) : "";
+		var notizID = hash.split("=")[1];
+		
+		for (var i = 1; i < localStorage.length-1+localStorageLengthOffset; i++){
+			var lsItem = localStorage.getItem(i);
+			if (lsItem === null){continue;}
+			if(lsItem.substring(0,1) === "n"){
+				if (lsItem.split(";")[1] === notizID) {
+					localStorage.removeItem(i);
+					window.close();
+				}
+			}
+		}
+	}
 }
 
