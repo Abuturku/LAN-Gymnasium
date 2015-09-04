@@ -1350,7 +1350,7 @@ function sucheSchuelerTabelle(){
                                      for(var x = 0; x<lehrerKlasse.length; x++){
                                         if(lehrerKlasse[x].klassenId == schuelerKlasse[j].klassenId){
                                             var lehrerLine = lehrerDdb.value.split(",");
-                                            if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[j].lehrerId){
+                                            if(getLehrerID(lehrerLine[0].trim(),lehrerLine[1].trim())==lehrerKlasse[x].lehrerId){
                                                 var bereitsVorhanden = false;
                                                 for(var y = 0; y < gefunden.length; y++){
                                                         if(schueler[i] === gefunden[y]){
